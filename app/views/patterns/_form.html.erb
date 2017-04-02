@@ -1,0 +1,27 @@
+<%= simple_form_for(@pattern, html: { multipart: true }) do |f| %>
+
+    <%= errors_for(@pattern) %>
+
+    <%= f.input :title_ru, placeholder: 'Название (русский)' %>
+
+    <%= f.input :title_en, placeholder: 'Title (English)' %>
+
+    <%= f.input :description_ru, placeholder: 'Описание (русский)' %>
+
+    <%= f.input :description_en, placeholder: 'Description (English)' %>
+
+    <%= f.input :price_usd, placeholder: 'Price (USD)' %>
+
+    <%= f.input :price_rub, placeholder: 'Цена (рубли)' %>
+
+    <%= f.input :designer %>
+
+    <%= f.input :size %>
+
+    <%= f.input :category %>
+
+    <%= f.input :image, as: :file, :input_html => {id: "pictureInput"} %>
+
+    <%= f.button :submit, :class => 'btn btn-primary' %>
+
+<% end %>

@@ -1,0 +1,320 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    -
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    formats:
+      default: "%m-%d-%Y"
+      long: "%B %d, %Y"
+      short: "%b %d"
+    month_names:
+    -
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    order:
+    - :month
+    - :day
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      about_x_years:
+        one: about 1 year
+        other: about %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: less than a minute
+        other: less than %{count} minutes
+      less_than_x_seconds:
+        one: less than 1 second
+        other: less than %{count} seconds
+      over_x_years:
+        one: over 1 year
+        other: over %{count} years
+      x_days:
+        one: 1 day
+        other: "%{count} days"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
+      x_years:
+        one: 1 year
+        other: "%{count} years"
+      x_seconds:
+        one: 1 second
+        other: "%{count} seconds"
+    prompts:
+      day: Day
+      hour: Hour
+      minute: Minute
+      month: Month
+      second: Seconds
+      year: Year
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: must be accepted
+      blank: can't be blank
+      present: must be blank
+      confirmation: doesn't match %{attribute}
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      model_invalid: "Validation failed: %{errors}"
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      odd: must be odd
+      required: must exist
+      taken: has already been taken
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is too short (minimum is 1 character)
+        other: is too short (minimum is %{count} characters)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+      other_than: must be other than %{count}
+    template:
+      body: 'There were problems with the following fields:'
+      header:
+        one: 1 error prohibited this %{model} from being saved
+        other: "%{count} errors prohibited this %{model} from being saved"
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: Billion
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ", and "
+      two_words_connector: " and "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%a, %d %b %Y %I:%M:%S %p %Z"
+      long: "%B %d, %Y %I:%M %p"
+      short: "%d %b %I:%M %p"
+    pm: pm
+  helpers:
+    submit:
+      create: "Create"
+      update: "Update"
+    pattern:
+      create: "Create Pattern"
+      update: "Update Pattern"
+  activerecord:
+    models:
+      cart_items:
+        pattern: "Pattern "
+        thread: "Thread "
+        fabric: "Fabric "
+        kit: "Kit "
+        accessory: "Accessory "
+      pattern:
+        one: "Схема"
+        other: "Схемы"
+      accessory: "Accessory"
+    attributes:
+      pattern:
+        title_en: "Title (English)"
+        title_ru: "Title (Russian)"
+        description_en: "Description (English)"
+        description_ru: "Description (Russian)"
+        price_usd: "Price (USD)"
+        price_rub: "Price (RUB)"
+        designer: "Designer"
+        size: "Size"
+        category: "Category"
+        image: "Image"
+      accessory:
+        title: "Title:"
+        price: "Price:"
+        description: "Description:"
+        manufacturer: "Manufacturer:"
+  application:
+    navbar:
+      currency_usd: "Your currency is USD"
+      currency_rub: "Your currency is RUB"
+      title: "Bonnechanse store"
+      about: "About"
+      faq: "FAQ"
+      contact: "Contact Us"
+      sign_in: "Sign In"
+      sign_up: "Sign Up"
+      sign_out: "Sign Out"
+      my_account: "My account"
+      my_cart: "My Cart"
+  page:
+    about: "About Page"
+    faq: "Frequently Asked Questions"
+    contact: "Contact Us"
+    home:
+      title: "Welcome to Bonnechanse store!"
+      subtitle: "Here you can find all you need for your beloved hobby"
+      catalog_header: "Our goods:"
+      catalog_pattern: "Patterns"
+      catalog_thread: "Threads"
+      catalog_fabric: "Fabrics"
+      catalog_kit: "Kits"
+      catalog_accessory: "Accessories"
+      catalog_button: "Catalog"
+  views:
+    common:
+      title: "Title"
+      price: "Price"
+      edit: "Edit"
+      back: "Back"
+      show: "Show"
+      destroy: "Destroy"
+      add_to_cart: "Add to Cart"
+      description: "Description:"
+      manufacturer: "Manufacturer:"
+      current_image: "Current image"
+      back: "Back"
+      in_stock: "In Stock"
+      magnify: "Show in bigger size"
+    filters:
+      sort_by: "Sort by"
+      all: "All"
+      new: "New"
+      top_rated: "Top rated"
+      category: "Category"
+      author: "Author"
+      size: "Size"
+    patterns:
+      header: "Patterns catalog"
+      new: "New pattern"
+      form_new: "Create a new pattern"
+      form_edit: "Edit Your Pattern"
+    cart_items:
+      title: "My Cart"
+      empty: "The cart is currently empty"
+      clear: "Clear your cart"
+      delete: "Delete item"
+      total: "Total:"
+      quantity: "Quantity"
+    accessories:
+      new: "New Accessory"
+      title: "Accessories"

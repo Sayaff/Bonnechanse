@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @accessory.image.url(:medium) %>
+
+<p>
+  <strong><%= t "views.common.title" %> </strong>
+  <%= @accessory.title %>
+</p>
+
+<p>
+  <strong><%= t "views.common.description" %></strong>
+  <%= @accessory.description %>
+</p>
+
+<% if session[:currency] == "RUB" %>
+<p>
+  <strong><%= t "views.common.price" %></strong>
+  <%= @accessory.price_rub %>
+</p>
+<% else %>
+<p>
+  <strong><%= t "views.common.price" %></strong>
+  <%= @accessory.price_usd %>
+</p>
+<% end %>
+
+<p>
+  <strong><%= t "views.common.manufacturer" %></strong>
+  <%= @accessory.manufacturer %>
+</p>
+
+<%= link_to t("views.common.edit"), edit_accessory_path(@accessory) %> |
+<%= link_to t("views.common.back"), accessories_path %>

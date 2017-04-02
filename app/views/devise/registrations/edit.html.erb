@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2><%= t(".title", resource: current_user.email) %></h2>
+      </div>
+    <div class="panel-body">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+          <%= errors_for(@user) %>
+
+           <%= f.input :email, autofocus: true, disabled: true, hint: 'You cannot change your email.' %>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>
+              <%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %>
+            </p>
+          <% end %>
+
+          <%= f.input :first_name, autofocus: true %>
+
+          <%= f.input :last_name, autofocus: true %>
+
+          <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, autofocus: true, order: [:day, :month, :year] %>
+
+          <%= f.input :about, as: :text, autofocus: true %>
+
+
+          <%= f.input :password, autocomplete: "off", hint: t(".leave_blank_if_you_don_t_want_to_change_it") %>
+          <!-- <% if @minimum_password_length %>
+            <br />
+            <em><%= @minimum_password_length %> <%= t(".minimum_password_length") %></em>
+          <% end %> -->
+
+          <%= f.input :password_confirmation, autocomplete: "off" %>
+
+          <%= f.input :current_password, autocomplete: "off", hint: t(".we_need_your_current_password_to_confirm_your_changes") %>
+
+          <div class='row top-10'>
+            <%= f.button :submit, t(".update"), :class => 'left-10 btn btn-primary btn-lg outline' %>
+            <%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete, :class => 'left-10 btn btn-danger btn-lg outline' %>
+          </div>
+      <% end %>
+      </div>
+        <%= link_to t("devise.shared.links.back"), :back, :class => 'top-10' %>
+    </div>
+  </div>
+</div>

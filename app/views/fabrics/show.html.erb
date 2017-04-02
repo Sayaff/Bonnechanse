@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @fabric.image.url(:medium) %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @fabric.title %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @fabric.manufacturer %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @fabric.color %>
+</p>
+
+<% if session[:currency] == "RUB" %>
+<p>
+  <strong><%= t "views.common.price" %></strong>
+  <%= @fabric.price_rub %>
+</p>
+<% else %>
+<p>
+  <strong><%= t "views.common.price" %></strong>
+  <%= @fabric.price_usd %>
+</p>
+<% end %>
+
+<p>
+  <strong>Size:</strong>
+  <%= @fabric.size %>
+</p>
+
+<%= link_to 'Edit', edit_fabric_path(@fabric) %> |
+<%= link_to 'Back', fabrics_path %>

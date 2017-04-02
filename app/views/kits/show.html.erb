@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @kit.image.url(:medium) %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @kit.title %>
+</p>
+
+<p>
+  <strong>Containment:</strong>
+  <%= @kit.containment %>
+</p>
+
+<% if session[:currency] == "RUB" %>
+<p>
+  <strong><%= t "views.common.price" %></strong>
+  <%= @kit.price_rub %>
+</p>
+<% else %>
+<p>
+  <strong><%= t "views.common.price" %></strong>
+  <%= @kit.price_usd %>
+</p>
+<% end %>
+
+<p>
+  <strong>Description:</strong>
+  <%= @kit.description %>
+</p>
+
+<%= link_to 'Edit', edit_kit_path(@kit) %> |
+<%= link_to 'Back', kits_path %>

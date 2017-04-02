@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= t "views.accessories.title" %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t "views.common.title" %></th>
+      <th><%= t "views.common.description" %></th>
+      <th><%= t "views.common.price" %></th>
+      <th><%= t "views.common.manufacturer" %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accessories.each do |accessory| %>
+      <tr>
+        <td><%= accessory.title %></td>
+        <td><%= accessory.description %></td>
+        <td><%= image_tag accessory.image.url(:medium)%></td>
+        <% if session[:currency] == "RUB" %>
+        <td><%= accessory.price_rub %></td>
+        <% else %>
+        <td><%= accessory.price_usd %></td>
+        <% end %>
+        <td><%= accessory.manufacturer %></td>
+        <td><%= link_to t("views.common.show"), accessory %></td>
+        <td><%= link_to t("views.common.edit"), edit_accessory_path(accessory) %></td>
+        <td><%= link_to t("views.common.destroy"), accessory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t("views.common.add_to_cart"), create_accessory_cart_item_path(id: accessory.id), method: 'POST' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t("views.accessories.new"), new_accessory_path %>

@@ -1,0 +1,85 @@
+// Place all the styles related to the Patterns controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font: 1em/1.67 'Open Sans', Arial, Sans-serif;
+  background: #E9E9E9;
+  padding-top: 70px;
+  margin: 0;
+}
+.hero-spacer {
+    margin-top: 50px;
+}
+
+.hero-feature {
+    margin-bottom: 30px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.filter {
+  margin-bottom: 15px;
+}
+
+.catalog a, .filter a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ font-weight: 100;
+}
+
+.masonry {
+  column-count: 3;
+  column-gap: 1em;
+}
+
+.catalog-item {
+  background-color: #eee;
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+  border: 1px solid #eee;
+  text-align: center;
+    .btn {
+      margin-bottom: 5px;
+    }
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: auto;
+      }
+}
+
+.item-body .btn {
+  width: 80%;
+  margin: 0 auto 5px auto;
+}
+
+#edit_page {
+ .current_image {
+   img {
+     display: block;
+     margin: 20px 0;
+   }
+ }
+}
+.add-to-cart .btn-qty {
+  width: 52px;
+  height: 46px;
+}
+
+textarea {
+ min-height: 250px;
+}
+.image_element {
+  width:100%;
+  height:100%;
+  color: black;
+  font-family: sans-serif;
+  font-size: 16px;
+}

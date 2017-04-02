@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><%= t "views.patterns.header" %></title>
+
+    <!-- Custom CSS -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'patterns', media: 'all', 'data-turbolinks-track' => true %>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header class="jumbotron hero-spacer">
+      <h1><%= t "views.patterns.header" %></h1>
+    </header>
+      <div class= "filter">
+        <ul class="nav nav-tabs">
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              <%= t "views.filters.sort_by" %> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+            </ul>
+          </li>
+        </ul>
+      </div>
+    <div class= "catalog navbar">
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#"><%= t "views.filters.all" %></a></li>
+        <li role="presentation"><a href="#"><%= t "views.filters.new" %></a></li>
+        <li role="presentation"><a href="#"><%= t "views.filters.top_rated" %></a></li>
+        <li role="presentation" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <%= t "views.filters.category" %> <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+          </ul>
+        </li>
+      <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <%= t "views.filters.author" %> <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+        </ul>
+      </li>
+    <li role="presentation" class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <%= t "views.filters.size" %> <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+      </ul>
+    </li>
+  </ul>
+</div>
+          <div class="masonry">
+            <% @patterns.each do |pattern| %>
+                <div class="catalog-item">
+                    <img src="<%= image_path pattern.image.url %>" alt="">
+                     <div class="item-body">
+                      <% if I18n.locale == :en %>
+                        <h3><%= pattern.title_en %></h3>
+                      <% else %>
+                        <h3><%= pattern.title_ru %></h3>
+                      <% end %>
+                        <% if session[:currency] == "RUB" %>
+                          <p><%= number_to_currency(pattern.price_rub, :unit => '₽') %></p>
+                        <% else %>
+                          <p><%= number_to_currency(pattern.price_usd, :unit => '$') %></p>
+                        <% end %>
+                          <%= link_to t("views.common.show"), pattern, :class => "btn btn-success outline" %>
+                          <%= link_to create_pattern_cart_item_path(id: pattern.id), method: 'POST', :class => "btn btn-primary outline" do %>
+                            <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i> <%= t("views.common.add_to_cart") %>
+                          <% end %>
+                            <% if user_signed_in? && current_user.admin? %>
+                                <%= link_to t("views.common.edit"), edit_pattern_path(pattern), :class => "btn btn-info outline" %>
+                                <%= link_to t("views.common.destroy"), pattern, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger outline" %>
+                            <% end %>
+                </div>
+              </div>
+            <% end %>
+            </div>
+    </div>
+<hr>
+  <% if user_signed_in? && current_user.admin? %> <!-- add option to make category -->
+    <div class="new-pattern">
+      <%= link_to t("views.patterns.new"), new_pattern_path, :class => "btn btn-primary" %>
+    </div>
+  <% end %>
+</body>

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2><%= t(".sign_up") %></h2>
+      </div>
+      <div class="panel-body">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+          <%= errors_for(@user) %>
+
+          <%= f.input :email, autofocus: true %>
+
+          <%= f.input :first_name, autofocus: true %>
+
+          <%= f.input :last_name, autofocus: true %>
+
+          <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, autofocus: true, order: [:day, :month, :year] %>
+
+          <%= f.input :about, as: :text, autofocus: true %>
+
+          <%= f.input :password, autocomplete: "off" %>
+
+          <%= f.input :password_confirmation, autocomplete: "off" %>
+
+          <%= f.button :submit, t(".sign_up"), :class => 'btn btn-primary btn-lg outline' %>
+
+          <% end %>
+        </div>
+
+        <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

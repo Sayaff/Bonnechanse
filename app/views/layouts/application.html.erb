@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Onlinestore3</title>
+  <%= stylesheet_link_tag 'bootstrap.css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:400,700', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Ubuntu+Mono', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'bootstrap.min.js', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <%= link_to t("application.navbar.title"), page_home_path, class: "navbar-brand" %>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <%= link_to t("application.navbar.about"), page_about_path %>
+                    </li>
+                    <li>
+                        <%= link_to t("application.navbar.faq"), page_faq_path %>
+                    </li>
+                    <li>
+                        <%= link_to t("application.navbar.contact"), page_contact_path %>
+                    </li>
+              <% if user_signed_in? %>
+                    <li id='account'>
+                      <%= link_to t("application.navbar.sign_out"), destroy_user_session_path, method: :delete %>
+                    </li>
+                    <li id='account'>
+                      <%= link_to t("application.navbar.my_cart"), cart_items_path %>
+                    </li>
+                    <li id='account'>
+                      <%= link_to t("application.navbar.my_account"), edit_user_registration_path %>
+                    </li>
+                <% else %>
+                    <li id='account'>
+                      <%= link_to t("application.navbar.sign_in"), new_user_session_path %>
+                    </li>
+                    <li id='account'>
+                      <%= link_to t("application.navbar.sign_up"), new_user_registration_path %>
+                    </li>
+                <% end %>
+                    <li>
+                      <%= link_to_unless_current "English", locale: "en" %>
+                    </li>
+                    <li>
+                      <%= link_to_unless_current "Русский", locale: "ru" %>
+                    </li>
+                    <li>
+                      <%= link_to "RUB", set_currency_path(currency: "RUB") %>
+                    </li>
+                    <li>
+                      <%= link_to "USD", set_currency_path(currency: "USD") %>
+                    </li>
+                </ul>
+            </div>
+    </nav>
+    <!-- example below. beautify later-->
+<% if session[:currency] == "RUB" %>
+<p><strong><%= t "application.navbar.currency_rub" %></strong></p>
+<% else %>
+<p><strong><%= t "application.navbar.currency_usd" %></strong></p>
+<% end %>
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: "alert alert-info" %>
+  <% end %>
+  <!-- <p class='alert'><%= alert %></p> -->
+<br>
+    <%= yield %>
+</div>
+</body>
+</html>

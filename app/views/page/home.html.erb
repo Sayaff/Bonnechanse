@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bonnechanse Home</title>
+
+    <!-- Custom CSS -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track' => true %>
+
+</head>
+
+<body>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Jumbotron Header -->
+        <header class="jumbotron hero-spacer">
+            <h1><%= t "page.home.title" %></h1>
+            <p><%= t "page.home.subtitle" %></p>
+
+        </header>
+
+        <hr>
+
+        <!-- Title -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h3><%= t "page.home.catalog_header" %></h3>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Page Features -->
+        <div class="row text-center">
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="<%= image_path ("patterns.jpg") %>" alt="">
+                    <div class="caption">
+                        <h3><%= t "page.home.catalog_pattern" %></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <%= link_to t("page.home.catalog_button"), patterns_path, :class => "btn btn-primary" %> <a href="#" class="btn btn-success">More Info</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="<%= image_path ("threads.jpg") %>" alt="">
+                    <div class="caption">
+                        <h3><%= t "page.home.catalog_thread" %></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <%= link_to t("page.home.catalog_button"), strands_path, :class => "btn btn-primary" %> <a href="#" class="btn btn-success">More Info</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="<%= image_path ("fabric-selection.jpg") %>" alt="">
+                    <div class="caption">
+                        <h3><%= t "page.home.catalog_fabric" %></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <%= link_to t("page.home.catalog_button"), fabrics_path, :class => "btn btn-primary" %> <a href="#" class="btn btn-success">More Info</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                      <img src="<%= image_path ("kits.jpg") %>" alt="">
+                    <div class="caption">
+                        <h3><%= t "page.home.catalog_kit" %></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <%= link_to t("page.home.catalog_button"), kits_path, :class => "btn btn-primary" %> <a href="#" class="btn btn-success">More Info</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="<%= image_path ("accessories.jpg") %>" alt="">
+                    <div class="caption">
+                        <h3><%= t "page.home.catalog_accessory" %></h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <%= link_to t("page.home.catalog_button"), accessories_path, :class => "btn btn-primary" %> <a href="#" class="btn btn-success">More Info</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <!-- /.row -->
+        </div>
+      </div>
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>All rights reserved &copy; Kirill Shubin 2016</p>
+                </div>
+            </div>
+        </footer>
+
+    <!-- /.container -->
+
+
+</body>
+
+</html>

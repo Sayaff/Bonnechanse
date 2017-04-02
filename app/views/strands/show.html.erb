@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @strand.image.url(:medium) %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @strand.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @strand.description %>
+</p>
+
+<% if session[:currency] == "RUB" %>
+<p>
+  <strong><%= t "views.common.price" %></strong>
+  <%= @strand.price_rub %>
+</p>
+<% else %>
+<p>
+  <strong><%= t "views.common.price" %></strong>
+  <%= @strand.price_usd %>
+</p>
+<% end %>
+
+<p>
+  <strong>Length:</strong>
+  <%= @strand.length %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @strand.color %>
+</p>
+
+<%= link_to 'Edit', edit_strand_path(@strand) %> |
+<%= link_to 'Back', strands_path %>

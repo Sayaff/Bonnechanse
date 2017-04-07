@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails
 gem 'rails', '4.2.6'
-# Use sqlite3 as the database for Active Record
+# Use Postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -43,6 +43,8 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 gem 'fancybox2-rails', '~> 0.2.8'
 
 gem 'taps', '~> 0.3.24'
+
+gem 'font-kit-rails', '~> 1.2'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

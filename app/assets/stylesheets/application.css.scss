@@ -10,20 +10,44 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  *= require fancybox
+ *= require font-kit-rails/droid-sans
+ *= require font-kit-rails/open-sans
+ *= require font-kit-rails/pt-serif
+ *= require font-kit-rails/ubuntu
  */
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "bootstrap/theme";
  @import "font-awesome";
-a:visited {
-  color: #337ab7;
+#navbar-prime {
+  background-image: linear-gradient(to bottom, #e5e5e5, #dedede);
 }
-a:hover {
-  background-color: transparent;
+.navbar-brand {
+  font-size: 30px;
+  font-style: italic;
+  font-weight: bold;
+  font-family: "Open Sans";
+  text-transform: lowercase;
+  margin-left: 30px;
+}
+#navbar .navbar-nav a, p {
+  padding: 15px;
+  margin-bottom: 10px;
+}
+.right-shift {
+  margin-left: 99px;
+}
+.left-border {
+  border-left: 1px solid black;
+}
+.right-border {
+  border-right: 1px solid black;
+}
+.form-group {
+  margin-right: 50px;
 }
 .top-10 {
   margin-top: 10px;
@@ -33,9 +57,6 @@ a:hover {
 }
 .left-10 {
   margin-left: 10px;
-}
-.monospaced {
-  font-family: 'Ubuntu Mono', monospaced;
 }
 .bottom-rule {
   content: "";

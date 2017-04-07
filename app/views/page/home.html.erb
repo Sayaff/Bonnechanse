@@ -18,109 +18,227 @@
 </head>
 
 <body>
-
     <!-- Page Content -->
-    <div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="new-goods col-md-7 col-sm-7">
+        <h3 class="subtitle">What's new</h3>
+        <img class="main-page-image" src="<%= image_path ("Wallpapers 1920x1080.jpg") %>" alt="">
+      </div>
+      <div class="actual-discount col-md-4 col-sm-4 col-md-offset-1 col-sm-offset-1">
+        <h3 class="subtitle">Actual Discount</h3>
+        <img class="main-page-image" src="<%= image_path ("moon-light-0.jpg") %>" alt="">
+      </div>
+    </div>
 
-        <!-- Jumbotron Header -->
+        <!-- Jumbotron Header
         <header class="jumbotron hero-spacer">
             <h1><%= t "page.home.title" %></h1>
             <p><%= t "page.home.subtitle" %></p>
 
-        </header>
+        </header> -->
 
-        <hr>
+    <hr>
 
-        <!-- Title -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h3><%= t "page.home.catalog_header" %></h3>
+  <div class="row">
+    <div class="col-lg-12">
+      <h3><%= t "page.home.catalog_header" %></h3>
+    </div>
+  </div>
+
+  <div class="main-page-catalog">
+
+      <div class="category-item">
+        <img src="<%= image_path ("patterns.jpg") %>" alt="">
+          <div class="caption">
+            <h3><%= t "page.home.catalog_pattern" %></h3>
+              <%= link_to t("page.home.catalog_button"), patterns_path, :class => "catalog-link" %>
+          </div>
+        </div>
+
+      <div class="category-item">
+        <img src="<%= image_path ("threads.jpg") %>" alt="">
+          <div class="caption">
+            <h3><%= t "page.home.catalog_thread" %></h3>
+              <%= link_to t("page.home.catalog_button"), strands_path, :class => "catalog-link" %>
             </div>
         </div>
-        <!-- /.row -->
 
-        <!-- Page Features -->
-        <div class="row text-center">
 
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="<%= image_path ("patterns.jpg") %>" alt="">
-                    <div class="caption">
-                        <h3><%= t "page.home.catalog_pattern" %></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <%= link_to t("page.home.catalog_button"), patterns_path, :class => "btn btn-primary" %> <a href="#" class="btn btn-success">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="<%= image_path ("threads.jpg") %>" alt="">
-                    <div class="caption">
-                        <h3><%= t "page.home.catalog_thread" %></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <%= link_to t("page.home.catalog_button"), strands_path, :class => "btn btn-primary" %> <a href="#" class="btn btn-success">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="<%= image_path ("fabric-selection.jpg") %>" alt="">
-                    <div class="caption">
-                        <h3><%= t "page.home.catalog_fabric" %></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <%= link_to t("page.home.catalog_button"), fabrics_path, :class => "btn btn-primary" %> <a href="#" class="btn btn-success">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                      <img src="<%= image_path ("kits.jpg") %>" alt="">
-                    <div class="caption">
-                        <h3><%= t "page.home.catalog_kit" %></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <%= link_to t("page.home.catalog_button"), kits_path, :class => "btn btn-primary" %> <a href="#" class="btn btn-success">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="<%= image_path ("accessories.jpg") %>" alt="">
-                    <div class="caption">
-                        <h3><%= t "page.home.catalog_accessory" %></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <%= link_to t("page.home.catalog_button"), accessories_path, :class => "btn btn-primary" %> <a href="#" class="btn btn-success">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        <!-- /.row -->
+      <div class="category-item">
+        <img src="<%= image_path ("fabric-selection.jpg") %>" alt="">
+          <div class="caption">
+            <h3><%= t "page.home.catalog_fabric" %></h3>
+              <%= link_to t("page.home.catalog_button"), fabrics_path, :class => "catalog-link" %>
+          </div>
         </div>
+
+
+
+      <div class="category-item">
+        <img src="<%= image_path ("kits.jpg") %>" alt="">
+          <div class="caption">
+            <h3><%= t "page.home.catalog_kit" %></h3>
+              <%= link_to t("page.home.catalog_button"), kits_path, :class => "catalog-link" %>
+          </div>
       </div>
+
+
+
+      <div class="category-item">
+        <img src="<%= image_path ("accessories.jpg") %>" alt="">
+          <div class="caption">
+            <h3><%= t "page.home.catalog_accessory" %></h3>
+              <%= link_to t("page.home.catalog_button"), accessories_path, :class => "catalog-link" %>
+          </div>
+      </div>
+
+<!-- /.row -->
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-6 col-sm-7">
+      <h3>News</h3>
+        <div class="news">
+       <!-- no back-end yet, whole post make clickable later -->
+          <div class="row">
+            <div class="col-md-4">
+              <img src="<%= image_path ("Diamond-mosaic-font-b-pattern-b-font-needle-art-picture-rhinestones-christmas-decoration-set-for-cross.jpg") %>" alt="">
+            </div>
+            <div class="col-md-8">
+              <h3 class="news-header">New Pattern - <%= link_to "Hello Kitty", patterns_path %></h3>
+              <p class="Timestamp">Timestamp</p> <!-- no back-end for new yet, make later -->
+              <p class="news-text">
+              Narwhal retro raw denim pitchfork, edison bulb neutra biodiesel raclette pinterest waistcoat.
+              </p>
+              <div class="bottom-rule">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="news">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="<%= image_path ("CHx7ZXy2hB8.jpg") %>" alt="">
+              </div>
+              <div class="col-md-8">
+                <h3 class="news-header">New Pattern - <%= link_to "Autumn Forest", patterns_path %></h3>
+                <p class="Timestamp">Timestamp</p> <!-- no back-end for new yet, make later -->
+                <p class="news-text">
+                Polaroid af roof party street art put a bird on it normcore, everyday carry wolf pabst chambray XOXO taxidermy hoodie disrupt helvetica. Venmo pork belly swag, selfies PBR&B unicorn food truck letterpress etsy poke pour-over iceland microdosing everyday carry.
+                </p>
+              </div>
+            </div>
+        </div>
+
+      </div>
+
+    <div class="col-md-5 col-sm-4 col-md-offset-1">
+      <h3>Highlights</h3>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left">
+          <li class="active"><a href="/">Popular</a></li>
+          <li><a href="~/About/Index">New</a></li>
+          <li><a href="~/Contact/Index">Coming Soon</a></li>
+          <li><a href="~/Contact/Index">Discounts</a></li>
+        </ul>
+      </div>
+        <div class="highlights">
+          <% @main_page_items.each do |pattern| %>
+          <div class="row">
+              <div class="col-md-3">
+                <img src="<%= image_path pattern.image.url %>" alt="">
+              </div>
+              <div class="col-md-9">
+                <div class="row">
+                  <div class="col-md-9">
+                    <% if I18n.locale == :en %>
+                      <h4 class="highlight-header"><%= pattern.title_en %></h4>
+                    <% else %>
+                      <h4 class="highlight-header"><%= pattern.title_ru %></h4>
+                    <% end %>
+                    <p class="highlight-category">Category: <%= pattern.category %></p>
+                  </div>
+                  <div class="col-md-3">
+                    <% if session[:currency] == "RUB" %>
+                      <button class="product-price btn btn-success btn-lg outline"><%= number_to_currency(pattern.price_rub, :unit => '₽') %></button>
+                    <% else %>
+                      <button class="product-price btn btn-success btn-lg outline"><%= number_to_currency(pattern.price_usd, :unit => '$') %></button>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <hr>
+          <% end %>
+        </div>
+    </div>
+  </div>
+<!-- /.container -->
+</div>
+
         <hr>
 
         <!-- Footer -->
         <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>All rights reserved &copy; Kirill Shubin 2016</p>
+            <div class="footer" id="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+                            <h2 id="logo"> bonnechanse </h2>
+                            <ul>
+                                <li id="white-rabbit"><h4>Творческая мастерская "Артель Белый КроликЪ"</h4></li>
+                                <li><p><span class="fa fa-map-marker"></span>  Saint Petersburg, Russia</p></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+                            <h3> Поддержка </h3>
+                            <ul>
+                                <li> <a href="#"> Поддержка </a> </li>
+                                <li> <a href="#"> FAQ сайта </a> </li>
+                                <li> <a href="#"> Правила сайта </a> </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+                            <h3> Сообщество </h3>
+                            <ul>
+                                <li> <a href="#"> Наш форум </a> </li>
+                                <li>Написать нам:</li>
+                                <li><a href=""><i class="fa fa-envelope"></i> bonnechanse@yandex.ru</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
+                            <h3> Мы в социальных сетях </h3>
+                            <ul class="social">
+                                <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
+                                <li> <a href="#"> <i class="fa fa-instagram">   </i> </a> </li>
+                                <li> <a href="#"> <i class="fa fa-vk">   </i> </a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--/.row-->
+                </div>
+                <!--/.container-->
+            </div>
+            <!--/.footer-->
+
+            <div class="footer-bottom">
+                <div class="container">
+                    <p class="pull-left"> Copyright © Bonnechanse.com. 2017. All right reserved. </p>
+                    <div class="pull-right">
+                        <ul class="nav nav-pills payments">
+                            <li><i class="fa fa-cc-visa fa-2x"></i></li>
+                            <li><i class="fa fa-cc-mastercard fa-2x"></i></li>
+                            <li><i class="fa fa-cc-amex fa-2x"></i></li>
+                            <li><i class="fa fa-cc-paypal fa-2x"></i></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+            <!--/.footer-bottom-->
         </footer>
-
-    <!-- /.container -->
 
 
 </body>

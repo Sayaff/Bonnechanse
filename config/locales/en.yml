@@ -279,7 +279,7 @@ en:
       catalog_fabric: "Fabrics"
       catalog_kit: "Kits"
       catalog_accessory: "Accessories"
-      catalog_button: "Catalog"
+      catalog_button: "Catalog >>"
   views:
     common:
       title: "Title"

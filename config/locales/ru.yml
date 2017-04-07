@@ -312,7 +312,7 @@ ru:
       catalog_fabric: "Ткани"
       catalog_kit: "Наборы"
       catalog_accessory: "Аксессуары"
-      catalog_button: "Каталог"
+      catalog_button: "Каталог >>"
   views:
     common:
       title: "Наименование"

@@ -11,11 +11,67 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar navbar-default navbar-fixed-top" id="navbar-prime">
+    <div class="navbar-header">
+        <button button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <%= link_to "bonnechanse", root_path, :class => "navbar-brand" %>
+    </div>
+      <div id="navbar" class="collapse navbar-collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li class="left-border right-shift"><%= link_to "Home", root_path %></li>
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Choose language <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "English", locale: "en" %></li>
+              <li><%= link_to "Русский", locale: "ru" %></li>
+            </ul>
+            </li>
+              <% if I18n.locale == :en %>
+            <li><p>Your language: English</p>
+              <% else %>
+            <li><p>Ваш язык: Русский</p>
+              <% end %>
+            <li class="left-border dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Choose currency <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "RUB", set_currency_path(currency: "RUB") %></li>
+                  <li><%= link_to "USD", set_currency_path(currency: "USD") %></li>
+                </ul>
+                  </li>
+                  <% if session[:currency] == "RUB" %>
+                    <li><p>Your currency: RUB</p></li>
+                  <% else %>
+                    <li><p>Your currency: USD</p></li>
+                  <% end %>
+            </ul>
+            <ul class="right-shift nav navbar-nav">
+            <% if user_signed_in? %>
+              <li class="left-border"><%= link_to t("application.navbar.sign_out"), destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to t("application.navbar.my_cart"), cart_items_path %></li>
+              <li class="navbar-right"><%= link_to t("application.navbar.my_account"), edit_user_registration_path %></li>
+            <% else %>
+              <li class="left-border"><%= link_to t("application.navbar.sign_in"), new_user_session_path %></li>
+              <li class="navbar-right"><%= link_to t("application.navbar.sign_up"), new_user_registration_path %></li>
+            <% end %>
+          </ul>
+  		<form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="">
+  			<div class="form-group">
+  				<input name="s" id="s" type="text" class="search-query form-control" autocomplete="off" placeholder="Search...">
+  			</div>
+  		</form>
+  	</div>
+  </div>
+
+    <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
+
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -23,8 +79,8 @@
                 </button>
                 <%= link_to t("application.navbar.title"), page_home_path, class: "navbar-brand" %>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
                         <%= link_to t("application.navbar.about"), page_about_path %>
@@ -68,13 +124,12 @@
                 </ul>
             </div>
     </nav>
-    <!-- example below. beautify later-->
+
 <% if session[:currency] == "RUB" %>
 <p><strong><%= t "application.navbar.currency_rub" %></strong></p>
 <% else %>
 <p><strong><%= t "application.navbar.currency_usd" %></strong></p>
-<% end %>
-
+<% end %> -->
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: "alert alert-info" %>
   <% end %>

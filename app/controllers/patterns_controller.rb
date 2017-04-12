@@ -5,7 +5,22 @@ class PatternsController < ApplicationController
   # GET /patterns
   # GET /patterns.json
   def index
+    @patterns = Pattern.all
+  end
+
+  def by_date
     @patterns = Pattern.all.order("created_at DESC")
+    render action: :index
+  end
+
+  def price_roubles
+    @patterns = Pattern.all.order(price_rub: :desc)
+    render action: :index
+  end
+
+  def price_dollars
+    @patterns = Pattern.all.order(price_usd: :desc)
+    render action: :index
   end
 
   # GET /patterns/1
@@ -26,7 +41,7 @@ class PatternsController < ApplicationController
   # POST /patterns.json
   def create
     @pattern = Pattern.new(pattern_params)
-    
+
     respond_to do |format|
       if @pattern.save
         format.html { redirect_to @pattern, notice: 'Pattern was successfully created.' }

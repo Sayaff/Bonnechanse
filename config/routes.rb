@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   resources :kits
   resources :fabrics
   resources :strands
-  resources :patterns
+  resources :patterns do
+    collection do
+      get 'by_date'
+      get 'price_roubles'
+      get 'price_dollars'
+    end
+  end
   devise_for :users
 
   resources :users

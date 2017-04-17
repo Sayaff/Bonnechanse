@@ -24,37 +24,25 @@
     <header class="jumbotron hero-spacer">
       <h1><%= t "views.patterns.header" %></h1>
     </header>
-      <div class= "filter">
-        <ul class="nav nav-tabs">
-          <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              <%= t "views.filters.sort_by" %> <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-            </ul>
-          </li>
-        </ul>
-      </div>
     <div class= "catalog navbar">
       <ul class="nav nav-tabs">
         <li role="presentation"><%= link_to t("views.filters.all"), patterns_path %></li>
         <li role="presentation"><%= link_to t("views.filters.new"), by_date_patterns_path %></li>
-        <li role="presentation"><a href="#"><%= t "views.filters.top_rated" %></a></li>
-          <% if session[:currency] == "RUB" %>
-            <li role="presentation"><%= link_to "Price", price_roubles_patterns_path %></li>
-          <% else %>
-            <li role="presentation"><%= link_to "Price", price_dollars_patterns_path %></li>
-          <% end %>
-        <li role="presentation"><a href="#">Size</a></li>
+        <li role="presentation"><a href="#">Free/Bonus</a></li>
+        <li role="presentation"><a href="#">Discount</a></li>
         <li role="presentation" class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <%= t "views.filters.category" %> <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
+            <li><%= link_to t("views.patterns.categories.portrait"), portrait_patterns_path %></li>
+            <li><%= link_to t("views.patterns.categories.scenery"), scenery_patterns_path %></li>
+            <li><%= link_to t("views.patterns.categories.still_life"), still_life_patterns_path %></li>
+            <li><%= link_to t("views.patterns.categories.genre_scene"), genre_scene_patterns_path %></li>
           </ul>
         </li>
-  </ul>
-</div>
+      </ul>
+    </div>
           <div class="masonry">
             <% @patterns.each do |pattern| %>
                 <div class="catalog-item">

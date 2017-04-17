@@ -8,6 +8,10 @@ Rails.application.routes.draw do
       get 'by_date'
       get 'price_roubles'
       get 'price_dollars'
+      get 'scenery'
+      get 'portrait'
+      get 'genre_scene'
+      get 'still_life'
     end
   end
   devise_for :users

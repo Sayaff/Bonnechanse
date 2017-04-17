@@ -308,6 +308,11 @@ en:
       new: "New pattern"
       form_new: "Create a new pattern"
       form_edit: "Edit Your Pattern"
+      categories:
+        scenery: "Scenery"
+        portrait: "Portrait"
+        still_life: "Still life"
+        genre_scene: "Genre Scene"
     cart_items:
       title: "My Cart"
       empty: "The cart is currently empty"

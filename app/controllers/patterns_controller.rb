@@ -7,7 +7,7 @@ class PatternsController < ApplicationController
   def index
     @patterns = Pattern.all
   end
-
+#improve action below later
   def by_date
     @patterns = Pattern.all.order("created_at DESC")
     render action: :index
@@ -23,6 +23,25 @@ class PatternsController < ApplicationController
     render action: :index
   end
 
+  def scenery
+    @patterns = Pattern.where(category: 'Scenery')
+    render action: :index
+  end
+
+  def portrait
+    @patterns = Pattern.where(category: 'Portrait')
+    render action: :index
+  end
+
+  def still_life
+    @patterns = Pattern.where(category: 'Still life')
+    render action: :index
+  end
+
+  def genre_scene
+    @patterns = Pattern.where(category: 'Genre Scene')
+    render action: :index
+  end
   # GET /patterns/1
   # GET /patterns/1.json
   def show

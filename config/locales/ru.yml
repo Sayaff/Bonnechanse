@@ -341,6 +341,11 @@ ru:
       new: "Новая схема"
       form_new: "Создайте новую схему"
       form_edit: "Редактирование схемы"
+      categories:
+        scenery: "Пейзаж"
+        portrait: "Портрет"
+        still_life: "Натюрморт"
+        genre_scene: "Жанровая сцена"
     cart_items:
       title: "Моя корзина"
       empty: "Корзина пуста"

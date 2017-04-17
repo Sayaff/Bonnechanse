@@ -134,3 +134,141 @@
 	color: #bf4343;
 	box-shadow: none;
 }
+.footer {
+	background: #262626;
+	height: auto;
+	padding-bottom: 30px;
+  margin: 0;
+	position: relative;
+	width: 100%;
+	border-bottom: 1px solid #CCCCCC;
+	border-top: 1px solid #DDDDDD;
+}
+.footer p {
+	margin: 0;
+}
+.footer img {
+	max-width: 100%;
+}
+.footer h3 {
+	border-bottom: 1px solid #BAC1C8;
+	color: #ccc;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 27px;
+	padding: 40px 0 10px;
+	text-transform: uppercase;
+}
+.footer #logo {
+  color: white;
+  border-bottom: 1px solid #BAC1C8;
+  padding: 35px 0 10px;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: bold;
+  font-family: "Open Sans";
+  text-transform: lowercase;
+}
+.footer #white-rabbit {
+  color: white;
+  font-size: 24px;
+  font-style: italic;
+  font-family: "Ubuntu"
+}
+.footer ul {
+	font-size: 13px;
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+	margin-top: 15px;
+	color: #7F8C8D;
+}
+.footer ul li a {
+	padding: 0 0 5px 0;
+	display: block;
+  color: #dedede;
+}
+.footer a {
+	color: #78828D
+}
+.supportLi h4 {
+	font-size: 20px;
+	font-weight: lighter;
+	line-height: normal;
+	margin-bottom: 0 !important;
+	padding-bottom: 0;
+}
+.newsletter-box input#appendedInputButton {
+	background: #FFFFFF;
+	display: inline-block;
+	float: left;
+	height: 30px;
+	clear: both;
+	width: 100%;
+}
+.newsletter-box .btn {
+	border: medium none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	-ms-border-radius: 3px;
+	border-radius: 3px;
+	display: inline-block;
+	height: 40px;
+	padding: 0;
+	width: 100%;
+	color: #fff;
+}
+.newsletter-box {
+	overflow: hidden;
+}
+.bg-gray {
+	background-image: -moz-linear-gradient(center bottom, #BBBBBB 0%, #F0F0F0 100%);
+	box-shadow: 0 1px 0 #B4B3B3;
+}
+.social li {
+	overflow: auto;
+  list-style-type: none;
+  float: left;
+}
+.social li a i {
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 25px;
+  text-align: center;
+  margin-right: 10px;
+  padding-top: 15%;
+  transition: all 0.2s ease-in-out;
+}
+.fa-facebook {
+	background: #3b5998;
+  padding-left: 15%;
+}
+.fa-instagram {
+  background: #bc2a8d;
+  padding-left: 12%;
+}
+.fa-vk {
+  background: #45668e;
+  padding-left: 2%;
+}
+.social li:hover, a:hover {
+	opacity: .7;
+  background-color: #262626;
+}
+.footer-bottom {
+	background: #1d1d1d;
+	border-top: 1px solid #DDDDDD;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.footer-bottom p.pull-left {
+  color: #dedede;
+	padding-top: 6px;
+}
+.payments {
+	font-size: 1.5em;
+  color: #dedede;
+}

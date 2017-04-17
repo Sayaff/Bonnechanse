@@ -5,4 +5,8 @@ class Pattern < ActiveRecord::Base
   scope :by_date, ->{ order("created_at DESC")}
   scope :price_roubles, ->{ order(price_rub: :desc)}
   scope :price_dollars, ->{ order(price_usd: :desc)}
+  scope :scenery, ->{ where(category: 'Scenery')}
+  scope :portrait, ->{ where(category: 'Portrait')}
+  scope :genre_scene, ->{ where(category: 'Genre Scene')}
+  scope :still_life, ->{ where(category: 'Still life')}
 end

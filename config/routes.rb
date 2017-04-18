@@ -1,51 +1,54 @@
 Rails.application.routes.draw do
-  resources :accessories
-  resources :kits
-  resources :fabrics
-  resources :strands
-  resources :patterns do
-    collection do
-      get 'by_date'
-      get 'price_roubles'
-      get 'price_dollars'
-      get 'scenery'
-      get 'portrait'
-      get 'genre_scene'
-      get 'still_life'
+  scope "(:locale)", locale: /en|ru/ do
+    resources :accessories
+    resources :kits
+    resources :fabrics
+    resources :strands
+    resources :patterns do
+      collection do
+        get 'by_date'
+        get 'price_roubles'
+        get 'price_dollars'
+        get 'scenery'
+        get 'portrait'
+        get 'genre_scene'
+        get 'still_life'
+      end
     end
+    devise_for :users
+
+    resources :users
+
+    resources :cart_items do
+      member do
+          post 'create_pattern'
+          post 'create_strand'
+          post 'create_fabric'
+          post 'create_kit'
+          post 'create_accessory'
+          get 'quantity_increase'
+          delete 'quantity_decrease'
+      end
+      collection do
+          get 'clear_cart'
+      end
+    end
+
+    resources :products
+
+    root 'page#home'
+
+    get 'page/home'
+
+    get 'page/about'
+
+    get 'page/faq'
+
+    get 'page/contact'
+
+    get 'application/set_currency', as: :set_currency
+    
   end
-  devise_for :users
-
-  resources :users
-
-  resources :cart_items do
-    member do
-        post 'create_pattern'
-        post 'create_strand'
-        post 'create_fabric'
-        post 'create_kit'
-        post 'create_accessory'
-        get 'quantity_increase'
-        delete 'quantity_decrease'
-    end
-    collection do
-        get 'clear_cart'
-    end
-  end
-
-  resources :products
-
-  root 'page#home'
-
-  get 'page/home'
-
-  get 'page/about'
-
-  get 'page/faq'
-
-  get 'page/contact'
-
-  get 'application/set_currency', as: :set_currency
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

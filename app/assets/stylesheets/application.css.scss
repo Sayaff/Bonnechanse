@@ -22,10 +22,13 @@
  @import "bootstrap";
  @import "bootstrap/theme";
  @import "font-awesome";
-#navbar-prime {
+nav.navbar-prime {
   background-image: linear-gradient(to bottom, #e5e5e5, #dedede);
+  border-color: #ccc;
+  box-shadow: 0 0 2px 0 #ccc;
 }
 .navbar-brand {
+  color: #262626;
   font-size: 30px;
   font-style: italic;
   font-weight: bold;
@@ -33,21 +36,42 @@
   text-transform: lowercase;
   margin-left: 30px;
 }
+.navbar-brand:hover, .navbar-brand:active, .navbar-brand:focus {
+  background-color: inherit;
+  text-decoration: none;
+}
 #navbar .navbar-nav a, p {
-  padding: 15px;
+  padding: 17px 10px 17px 10px;
   margin-bottom: 10px;
+  color: #262626;
+  text-transform: uppercase;
+  font-size: 14px;
 }
-.right-shift {
-  margin-left: 99px;
+#navbar .navbar-nav p {
+  font-weight: bold;
 }
-.left-border {
-  border-left: 1px solid black;
+#navbar .navbar-nav a:hover, p:hover {
+  background-color: inherit;
+  color: #f72464;
 }
-.right-border {
-  border-right: 1px solid black;
+.cart-icon i {
+  position: relative;
+  font-size: 22px;
+  display: inline-block;
 }
-.form-group {
-  margin-right: 50px;
+.cart-icon .item-count {
+  position:absolute;
+  right: -10px;
+  bottom: -10px;
+  background-color:#f72464;
+  color:#fff;
+  font-family: 'Open Sans',sans-serif;
+  font-size:11px;
+  border-radius :100%;
+  padding:3px 7px;
+}
+#searchform {
+  float: right;
 }
 .top-10 {
   margin-top: 10px;

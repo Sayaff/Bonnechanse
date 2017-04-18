@@ -28,33 +28,108 @@ h1, h2, h3, h4, h5, h6 {
  font-weight: 100;
 }
 
-.masonry {
-  column-count: 3;
-  column-gap: 1em;
-}
-
 .catalog-item {
-  background-color: #eee;
-  display: inline-block;
-  margin: 0 0 1em;
+    padding: 15px;
+    background: #fff;
+    margin-top: 20px;
+    position: relative;
+}
+.catalog-item:hover {
+    box-shadow: 5px 5px rgba(234, 234, 234, 0.9);
+}
+.item-body {
+  a:hover {
+    background-color: inherit;
+  }
+}
+.catalog-item:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    line-height:0;
+}
+.sticker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 63px;
+    height: 63px;
+}
+.sticker-new {
+    background: image-url("new.png") no-repeat;
+    left: auto;
+    right: 0;
+}
+.ci-img-wrapper {
+    position: relative;
+}
+.ci-img-wrapper div {
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.ci-img-wrapper img {
   width: 100%;
-  border: 1px solid #eee;
-  text-align: center;
-    .btn {
-      margin-bottom: 5px;
-    }
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-        margin: auto;
-      }
+  height: 450px;
+}
+.catalog-item:hover>.ci-img-wrapper>div {
+    display: block;
+}
+.ci-img-wrapper div .btn {
+    padding: 3px 10px;
+    color: #fff;
+    border: 1px #fff solid;
+    margin: -13px 5px 0;
+    background: transparent;
+    text-transform: uppercase;
+    position: relative;
+    top: 50%;
+    line-height: 1.4;
+    font-size: 12px;
+}
+.catalog-item .btn:hover {
+    background: #e84d1c;
+    border-color: #c8c8c8;
 }
 
-.item-body .btn {
-  width: 80%;
-  margin: 0 auto 5px auto;
+.catalog-item h3 {
+    font-size: 14px;
+    font-weight: 300;
+    padding-bottom: 4px;
+    text-transform: uppercase;
 }
+.catalog-item h3 a {
+    color: #3e4d5c;
+}
+.catalog-item h3 a:hover {
+    color: #E02222;
+}
+.ci-price {
+    color: #e84d1c;
+    font-size: 18px;
+    float: left;
+    padding-top: 1px;
+}
+.catalog-item .add2cart {
+    float: right;
+    color: #a8aeb3;
+    border: 1px #ededed solid;
+    padding: 3px 6px;
+    text-transform: uppercase;
+}
+        .catalog-item .add2cart:hover {
+            color: #fff;
+            background: linear-gradient(to bottom, #9fbf00, #80ab00);
+            border-color: #9fbf00;
+        }
 
 #edit_page {
  .current_image {

@@ -1,19 +1,40 @@
-<div id="edit_page" class="col-md-8 col-md-offset-2">
-  <div class="row">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h1><%= t "views.patterns.form_edit" %></h1>
-      </div>
-      <div class="panel-body">
-          <%= render 'form' %>
-          <%= link_to 'Show', @pattern %> |
-          <%= link_to 'Back', patterns_path %>
+<!DOCTYPE html>
+<html lang="en">
 
-        <div class="current_image">
-          <strong class="center"><%= t "views.common.current_image" %></strong>
-          <%= image_tag @pattern.image.url(:medium) %>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Custom CSS -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'patterns', media: 'all', 'data-turbolinks-track' => true %>
+
+</head>
+<body>
+  <div class="container">
+    <div id="edit_page" class="col-md-8 col-md-offset-2">
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h1><%= t "views.patterns.form_edit" %></h1>
+          </div>
+          <div class="panel-body">
+              <%= render 'form' %>
+              <%= link_to 'Show', @pattern %> |
+              <%= link_to 'Back', patterns_path %>
+
+            <div class="current_image">
+              <strong class="center"><%= t "views.common.current_image" %></strong>
+              <%= image_tag @pattern.image.url(:medium) %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+  
+</body>
+</html>

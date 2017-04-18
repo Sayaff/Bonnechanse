@@ -43,38 +43,49 @@
         </li>
       </ul>
     </div>
+
+    <% if user_signed_in? && current_user.admin? %> <!-- add option to make category -->
+      <div class="new-pattern">
+        <%= link_to t("views.patterns.new"), new_pattern_path, :class => "btn btn-lg btn-primary outline" %>
+      </div>
+    <% end %>
+
           <div class="masonry">
-            <% @patterns.each do |pattern| %>
-                <div class="catalog-item">
-                    <img src="<%= image_path pattern.image.url %>" alt="">
-                     <div class="item-body">
-                      <% if I18n.locale == :en %>
-                        <h3><%= pattern.title_en %></h3>
-                      <% else %>
-                        <h3><%= pattern.title_ru %></h3>
-                      <% end %>
-                        <% if session[:currency] == "RUB" %>
-                          <p><%= number_to_currency(pattern.price_rub, :unit => '₽') %></p>
+            <div class="row">
+              <% @patterns.each do |pattern| %>
+                <div class="col-md-4">
+                  <div class="catalog-item">
+                    <div class="ci-img-wrapper">
+                      <img src="<%= image_path pattern.image.url, :class => "img-responsive" %>" alt="">
+                      <div>
+                        <%= link_to t("views.common.show"), pattern, :class => "btn" %>
+                      </div>
+                    </div>
+                      <div class="item-body">
+                        <% if I18n.locale == :en %>
+                          <h3><%= link_to pattern.title_en, pattern %></h3>
                         <% else %>
-                          <p><%= number_to_currency(pattern.price_usd, :unit => '$') %></p>
+                          <h3><%= link_to pattern.title_ru, pattern %></h3>
                         <% end %>
-                          <%= link_to t("views.common.show"), pattern, :class => "btn btn-success outline" %>
-                          <%= link_to create_pattern_cart_item_path(id: pattern.id), method: 'POST', :class => "btn btn-primary outline" do %>
-                            <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i> <%= t("views.common.add_to_cart") %>
+                          <% if session[:currency] == "RUB" %>
+                            <p class="ci-price"><%= number_to_currency(pattern.price_rub, :unit => '₽') %></p>
+                          <% else %>
+                            <p class="ci-price"><%= number_to_currency(pattern.price_usd, :unit => '$') %></p>
                           <% end %>
-                            <% if user_signed_in? && current_user.admin? %>
-                                <%= link_to t("views.common.edit"), edit_pattern_path(pattern), :class => "btn btn-info outline" %>
-                                <%= link_to t("views.common.destroy"), pattern, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger outline" %>
+                            <%= link_to create_pattern_cart_item_path(id: pattern.id), method: 'POST', :class => "btn add2cart" do %>
+                              <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i> <%= t("views.common.add_to_cart") %>
                             <% end %>
-                </div>
-              </div>
-            <% end %>
+                            <div class="sticker sticker-new"></div>
+                              <% if user_signed_in? && current_user.admin? %>
+                                  <%= link_to t("views.common.edit"), edit_pattern_path(pattern), :class => "btn" %>
+                                  <%= link_to t("views.common.destroy"), pattern, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn" %>
+                              <% end %>
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
             </div>
+          </div>
     </div>
 <hr>
-  <% if user_signed_in? && current_user.admin? %> <!-- add option to make category -->
-    <div class="new-pattern">
-      <%= link_to t("views.patterns.new"), new_pattern_path, :class => "btn btn-primary" %>
-    </div>
-  <% end %>
 </body>

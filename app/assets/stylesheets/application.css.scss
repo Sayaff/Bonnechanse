@@ -39,6 +39,7 @@ nav.navbar-prime {
 .navbar-brand:hover, .navbar-brand:active, .navbar-brand:focus {
   background-color: inherit;
   text-decoration: none;
+  color: #f72464;
 }
 #navbar .navbar-nav a, p {
   padding: 17px 10px 17px 10px;
@@ -50,7 +51,7 @@ nav.navbar-prime {
 #navbar .navbar-nav p {
   font-weight: bold;
 }
-#navbar .navbar-nav a:hover, p:hover {
+#navbar .navbar-nav a:hover {
   background-color: inherit;
   color: #f72464;
 }
@@ -214,6 +215,9 @@ nav.navbar-prime {
 }
 .footer a {
 	color: #78828D
+}
+.footer a:hover {
+  color: #f72464;
 }
 .supportLi h4 {
 	font-size: 20px;

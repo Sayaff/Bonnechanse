@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     get 'page/contact'
 
     get 'application/set_currency', as: :set_currency
-    
+
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

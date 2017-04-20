@@ -89,13 +89,9 @@
                         <td>   </td>
                         <td>   </td>
                         <td>
-                          <%= link_to root_path, :class => "btn btn-primary outline btn-lg btn-full-width" do %>
-                            <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> <%= t("application.navbar.my_cart") %>
-                          <% end %>
+                          <%= link_to "Continue Shopping", root_path, :class => "btn btn-primary outline btn-lg btn-full-width" %>
                         <td>
-                          <%= link_to root_path, :class => "btn btn-success outline btn-lg btn-full-width" do %>
-                            <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i> <%= t("views.common.add_to_cart") %>
-                          <% end %>
+                          <%= link_to "Place Order", root_path, :class => "btn btn-success outline btn-lg btn-full-width" %>
                         </td>
                     </tr>
                 </tfoot>

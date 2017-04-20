@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
 
+  #prevents error while entering cart which contains already deleted product
+  before_action :cart_filter, only: [:index]
+
+
     def set_currency
       session[:currency] = params[:currency]
       redirect_to :back
@@ -22,6 +26,16 @@ class ApplicationController < ActionController::Base
       {locale: I18n.locale}.merge options
     end
 
+    private
+      def cart_filter
+        @cart_items = current_user.cart_items
+          @cart_items.each do | cart_item |
+            if cart_item.product == nil
+              cart_item.destroy
+              redirect_to :root
+            end
+          end
+      end
 
   protected
     def configure_permitted_parameters

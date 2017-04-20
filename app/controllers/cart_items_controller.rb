@@ -89,4 +89,5 @@ end
     @cart_item.destroy
     redirect_to action: :index
   end
+
 end

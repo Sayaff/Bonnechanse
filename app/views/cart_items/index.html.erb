@@ -40,12 +40,12 @@
                         </div>
                         </td>
                         <td class="row col-sm-2 col-md-2">
-                          <span class="part btn btn-default btn-lg" aria-hidden="true"><%= link_to quantity_increase_cart_item_path(cart_item) do %>
+                          <span class="part btn btn-default btn-lg" aria-hidden="true"><%= link_to quantity_increase_cart_item_path(cart_item), remote: true  do %>
                             <span class="fa fa-plus" aria-hidden="true"></span>
                             <% end %>
                           </span>
-                          <span class="part btn btn-default btn-lg text-center"><%= cart_item.quantity %></span>
-                          <span class=" part btn btn-default btn-lg" aria-hidden="true"><%= link_to quantity_decrease_cart_item_path(cart_item), method: :delete do %>
+                          <span id='quantity_update_<%= cart_item.id %>' class="part btn btn-default btn-lg text-center"><%= cart_item.quantity %></span>
+                          <span class=" part btn btn-default btn-lg" aria-hidden="true"><%= link_to quantity_decrease_cart_item_path(cart_item), remote: true, method: :delete do %>
                             <span class="fa fa-minus" aria-hidden="true"></span>
                           <% end %>
                           </span>

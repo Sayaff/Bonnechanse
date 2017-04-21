@@ -1,6 +1,5 @@
 class CartItemsController < ApplicationController
   before_action :authenticate_user!
-  respond_to :html, :js
 
   def index
     @cart_items = current_user.cart_items
@@ -74,14 +73,18 @@ end
   def quantity_increase
     @cart_item = CartItem.find(params[:id])
       @cart_item.update(quantity: @cart_item.quantity + 1)
-    redirect_to action: :index
+      respond_to do |format|
+        format.js
+      end
   end
 
   def quantity_decrease
     @cart_item = CartItem.find(params[:id])
-    @cart_item.update(quantity: @cart_item.quantity - 1) unless
-    @cart_item.quantity == 1
-    redirect_to action: :index
+      @cart_item.update(quantity: @cart_item.quantity - 1) unless
+      @cart_item.quantity == 1
+      respond_to do |format|
+        format.js
+      end
   end
 
   def destroy

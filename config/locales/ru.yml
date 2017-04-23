@@ -281,6 +281,11 @@ ru:
         size: "Размер"
         category: "Категория"
         image: "Изображение"
+      pattern/category:
+        scenery: "Пейзаж"
+        portrait: "Портрет"
+        still_life: "Натюрморт"
+        genre_scene: "Жанровая сцена"
       accessory:
         title: "Наименование"
         price: "Цена"
@@ -341,7 +346,7 @@ ru:
       new: "Новая схема"
       form_new: "Создайте новую схему"
       form_edit: "Редактирование схемы"
-      categories:
+      category:
         scenery: "Пейзаж"
         portrait: "Портрет"
         still_life: "Натюрморт"

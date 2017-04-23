@@ -14,7 +14,10 @@ class CartItemsController < ApplicationController
       current_user.cart_items.create(pattern_id: pattern.id, quantity: 1)
   end
 
-  redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
 end
 
   def create_strand

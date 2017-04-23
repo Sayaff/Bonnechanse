@@ -7,21 +7,17 @@ body {
   padding-top: 70px;
   margin: 0;
 }
-.hero-spacer {
-    margin-top: 50px;
-}
 
 .hero-feature {
     margin-bottom: 30px;
 }
 
-.filter {
-  margin-bottom: 15px;
-}
 
-.catalog a, .filter a {
-  color: #337ab7;
+.catalog a  {
+  color: #262626;
   text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
 }
 
 h1, h2, h3, h4, h5, h6 {

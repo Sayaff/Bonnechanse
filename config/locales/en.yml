@@ -248,6 +248,11 @@ en:
         size: "Size"
         category: "Category"
         image: "Image"
+      pattern/category:
+        scenery: "Scenery"
+        portrait: "Portrait"
+        still_life: "Still life"
+        genre_scene: "Genre Scene"
       accessory:
         title: "Title:"
         price: "Price:"
@@ -308,7 +313,7 @@ en:
       new: "New pattern"
       form_new: "Create a new pattern"
       form_edit: "Edit Your Pattern"
-      categories:
+      category:
         scenery: "Scenery"
         portrait: "Portrait"
         still_life: "Still life"

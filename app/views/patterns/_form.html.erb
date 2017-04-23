@@ -18,8 +18,8 @@
 
     <%= f.input :size %>
 
-    <%= f.input :category, as: :select, :collection => [t("views.patterns.categories.scenery"), t("views.patterns.categories.portrait"),
-      t("views.patterns.categories.still_life"), t("views.patterns.categories.genre_scene")] %>
+    <%= f.input :category, as: :select, :collection => [ t('views.patterns.category.scenery'), t('views.patterns.category.portrait'),
+      t('views.patterns.category.still_life'), t('views.patterns.category.genre_scene') ] %>
 
     <%= f.input :image, as: :file, :input_html => {id: "pictureInput"} %>
 

@@ -28,11 +28,13 @@ class ApplicationController < ActionController::Base
 
     private
       def cart_filter
-        @cart_items = current_user.cart_items
-          @cart_items.each do | cart_item |
-            if cart_item.product == nil
-              cart_item.destroy
-              redirect_to :root
+        if user_signed_in?
+          @cart_items = current_user.cart_items
+            @cart_items.each do | cart_item |
+              if cart_item.product == nil
+                cart_item.destroy
+                redirect_to :root
+              end
             end
           end
       end

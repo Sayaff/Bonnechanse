@@ -24,22 +24,22 @@ class PatternsController < ApplicationController
   end
 
   def scenery
-    @patterns = Pattern.where(category: 'Scenery')
+    @patterns = Pattern.where(category: ['Scenery', 'Пейзаж'])
     render action: :index
   end
 
   def portrait
-    @patterns = Pattern.where(category: 'Portrait')
+    @patterns = Pattern.where(category: ['Portrait', 'Портрет'])
     render action: :index
   end
-
+#keep for a while
   def still_life
-    @patterns = Pattern.where(category: 'Still life')
+    @patterns = Pattern.where(category: ['Натюрморт', 'Still life'])
     render action: :index
   end
 
   def genre_scene
-    @patterns = Pattern.where(category: 'Genre Scene')
+    @patterns = Pattern.where(category: ['Жанровая сцена', 'Genre Scene'])
     render action: :index
   end
   # GET /patterns/1

@@ -2,7 +2,7 @@ class CartItemsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @cart_items = current_user.cart_items
+    @cart_items = current_user.cart_items.order(:id)
   end
 
   def create_pattern
@@ -76,18 +76,17 @@ end
   def quantity_increase
     @cart_item = CartItem.find(params[:id])
       @cart_item.update(quantity: @cart_item.quantity + 1)
-      respond_to do |format|
-        format.js
-      end
+
+    redirect_to action: :index
+
   end
 
   def quantity_decrease
     @cart_item = CartItem.find(params[:id])
       @cart_item.update(quantity: @cart_item.quantity - 1) unless
       @cart_item.quantity == 1
-      respond_to do |format|
-        format.js
-      end
+
+    redirect_to action: :index
   end
 
   def destroy

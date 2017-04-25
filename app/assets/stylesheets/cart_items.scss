@@ -18,9 +18,12 @@
 .minus {
   margin-left: 10px;
 }
-.plus:hover, .minus:hover,
-.plus:focus, .minus:focus {
+.plus:hover, .minus:hover,{
   background-color: transparent;
   text-decoration: none;
   color: #f72464;
+}
+.plus:focus, .minus:focus {
+  background-color: transparent;
+  text-decoration: none;
 }

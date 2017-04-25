@@ -23,6 +23,13 @@
  @import "bootstrap";
  @import "bootstrap/theme";
  @import "font-awesome";
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 330px;
+}
 nav.navbar-prime {
   background-image: linear-gradient(to bottom, #e5e5e5, #dedede);
   border-color: #ccc;
@@ -163,10 +170,9 @@ nav.navbar-prime {
 }
 .footer {
 	background: #262626;
-	height: auto;
-	padding-bottom: 30px;
-  margin: 0;
-	position: relative;
+	height: 330px;
+	position: absolute;
+  bottom: 0;
 	width: 100%;
 	border-bottom: 1px solid #CCCCCC;
 	border-top: 1px solid #DDDDDD;
@@ -289,6 +295,9 @@ nav.navbar-prime {
   background-color: #262626;
 }
 .footer-bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 	background: #1d1d1d;
 	border-top: 1px solid #DDDDDD;
 	padding-top: 10px;

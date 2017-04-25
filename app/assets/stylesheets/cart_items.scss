@@ -1,8 +1,26 @@
 // Place all the styles related to the cart_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.part {
-  width: 30%;
-  align-content: center;
-
+.title {
+  margin-top: 80px;
+}
+.clear-cart {
+  float: right;
+}
+.quantity a, .quantity span {
+  color: #262626;
+  font-size: 22px;
+}
+.plus {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+.minus {
+  margin-left: 10px;
+}
+.plus:hover, .minus:hover,
+.plus:focus, .minus:focus {
+  background-color: transparent;
+  text-decoration: none;
+  color: #f72464;
 }

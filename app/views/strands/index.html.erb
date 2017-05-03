@@ -1,41 +1,87 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Listing Strands</h1>
+<head>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Length</th>
-      <th>Color</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <tbody>
-    <% @strands.each do |strand| %>
-      <tr>
-        <td><%= strand.title %></td>
-        <td><%= strand.description %></td>
-        <td><%= image_tag strand.image.url(:medium)%></td>
-        <% if session[:currency] == "RUB" %>
-        <td><%= strand.price_rub %></td>
-        <% else %>
-        <td><%= strand.price_usd %></td>
-        <% end %>
-        <td><%= strand.length %></td>
-        <td><%= strand.color %></td>
-        <td><%= link_to 'Show', strand %></td>
-        <td><%= link_to 'Edit', edit_strand_path(strand) %></td>
-        <td><%= link_to 'Destroy', strand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Add to Cart', create_strand_cart_item_path(id: strand.id), method: 'POST' %></td>
-      </tr>
+    <title><%= t "views.patterns.header" %></title>
+
+    <!-- Custom CSS -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'strands', media: 'all', 'data-turbolinks-track' => true %>
+
+</head>
+
+<body>
+
+  <div class="index-wrapper container">
+
+    <header class="jumbotron hero-spacer">
+      <h1><%= t "views.patterns.header" %></h1>
+    </header>
+    <div class= "catalog navbar">
+      <ul class="nav nav-tabs">
+        <li role="presentation"><%= link_to t("views.filters.all"), strands_path %></li>
+        <li role="presentation"><%= link_to t("views.filters.new"), strands_path %></li>
+        <li role="presentation"><a href="#">Discount</a></li>
+        <li role="presentation" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <%= t "views.filters.category" %> <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <!-- for manufacturers list -->
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <% if user_signed_in? && current_user.admin? %> <!-- add option to make category -->
+      <div class="new-strand">
+        <%= link_to t("views.patterns.new"), new_strand_path, :class => "btn btn-lg btn-primary outline" %>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Strand', new_strand_path %>
+          <div class="masonry">
+            <div class="row">
+              <% @strands.each do |strand| %>
+                <div class="col-md-4">
+                  <div class="catalog-item">
+                    <div class="ci-img-wrapper">
+                      <img src="<%= image_path strand.image.url, :class => "img-responsive" %>" alt="">
+                      <div>
+                        <%= link_to t("views.common.show"), strand, :class => "btn" %>
+                      </div>
+                    </div>
+                      <div class="item-body">
+                        <% if I18n.locale == :en %>
+                          <h3><%= link_to strand.title_en, strand %></h3>
+                        <% else %>
+                          <h3><%= link_to strand.title_ru, strand %></h3>
+                        <% end %>
+                          <% if session[:currency] == "RUB" %>
+                            <p class="ci-price"><%= number_to_currency(strand.price_rub, :unit => '₽') %></p>
+                          <% else %>
+                            <p class="ci-price"><%= number_to_currency(strand.price_usd, :unit => '$') %></p>
+                          <% end %>
+                            <%= link_to create_pattern_cart_item_path(id: strand.id), method: 'POST', remote: true, :class => "btn add2cart" do %>
+                              <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i> <%= t("views.common.add_to_cart") %>
+                            <% end %>
+                            <!-- <div class="sticker sticker-new"></div> -->
+                              <% if user_signed_in? && current_user.admin? %>
+                                  <%= link_to t("views.common.edit"), edit_strand_path(strand), :class => "btn" %>
+                                  <%= link_to t("views.common.destroy"), strand, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn" %>
+                              <% end %>
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+    </div>
+<hr>
+</body>

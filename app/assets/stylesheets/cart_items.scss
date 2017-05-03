@@ -7,6 +7,13 @@
 .clear-cart {
   float: right;
 }
+.media-heading {
+  margin-top: 10px;
+}
+.media-heading a:hover {
+  background-color: transparent;
+  color: #f72464;
+}
 .quantity a, .quantity span {
   color: #262626;
   font-size: 22px;

@@ -17,7 +17,7 @@
 
 </head>
 <body>
-  <div class="container">
+  <div class="show-wrapper container">
     <div class="row">
       <div class="col-md-6">
         <img src="<%= image_path @pattern.image.url %>" alt="" class="img-responsive">
@@ -148,10 +148,12 @@
           </div>
         </div>
       </div>
-        <div class="btn-group pull-right">
-          <%= link_to t("views.common.edit"), edit_pattern_path(@pattern) %> |
-          <%= link_to t("views.common.back"), patterns_path %>
-        </div>
+        <% if user_signed_in? && current_user.admin? %>
+          <div class="btn-group pull-right">
+            <%= link_to t("views.common.edit"), edit_pattern_path(@pattern) %> |
+            <%= link_to t("views.common.back"), patterns_path %>
+          </div>
+        <% end %>
       </div>
     </div>
     <hr>

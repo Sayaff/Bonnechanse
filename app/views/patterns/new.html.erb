@@ -16,7 +16,7 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="title-wrapper col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h1><%= t "views.patterns.form_new" %></h1>
@@ -34,22 +34,3 @@
 
 </body>
 </html>
-
-
-<script type="text/javascript">
-$(function() {
-  $('#pictureInput').on('change', function(event) {
-    var files = event.target.files;
-    var image = files[0]
-    var reader = new FileReader();
-    reader.onload = function(file) {
-      var img = new Image();
-      console.log(file);
-      img.src = file.target.result;
-      $('#target').html(img);
-    }
-    reader.readAsDataURL(image);
-    console.log(files);
-  });
-});
-</script>

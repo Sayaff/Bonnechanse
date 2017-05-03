@@ -47,6 +47,7 @@ gem 'fancybox2-rails', '~> 0.2.8'
 gem 'taps', '~> 0.3.24'
 
 gem 'font-kit-rails', '~> 1.2'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

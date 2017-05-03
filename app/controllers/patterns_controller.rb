@@ -5,7 +5,7 @@ class PatternsController < ApplicationController
   # GET /patterns
   # GET /patterns.json
   def index
-    @patterns = Pattern.all
+    @patterns = Pattern.all 
   end
 #improve action below later
   def by_date

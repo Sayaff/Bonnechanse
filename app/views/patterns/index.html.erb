@@ -19,7 +19,7 @@
 
 <body>
 
-  <div class="container">
+  <div class=" index-wrapper container">
 
     <header class="jumbotron hero-spacer">
       <h1><%= t "views.patterns.header" %></h1>
@@ -67,14 +67,23 @@
                         <% else %>
                           <h3><%= link_to pattern.title_ru, pattern %></h3>
                         <% end %>
+
                           <% if session[:currency] == "RUB" %>
                             <p class="ci-price"><%= number_to_currency(pattern.price_rub, :unit => '₽') %></p>
                           <% else %>
                             <p class="ci-price"><%= number_to_currency(pattern.price_usd, :unit => '$') %></p>
                           <% end %>
-                            <%= link_to create_pattern_cart_item_path(id: pattern.id), method: 'POST', remote: true, :class => "btn add2cart" do %>
+
+                          <% if user_signed_in? %>
+                            <%= link_to create_pattern_cart_item_path(id: pattern.id), method: 'POST', :class => "btn add2cart" do %>
                               <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i> <%= t("views.common.add_to_cart") %>
                             <% end %>
+                          <% else %>
+                            <%= link_to new_user_session_path, :class => "btn add2cart" do %>
+                            <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i> <%= t("views.common.add_to_cart") %>
+                            <% end %>
+                          <% end %>
+
                             <div class="sticker sticker-new"></div>
                               <% if user_signed_in? && current_user.admin? %>
                                   <%= link_to t("views.common.edit"), edit_pattern_path(pattern), :class => "btn" %>

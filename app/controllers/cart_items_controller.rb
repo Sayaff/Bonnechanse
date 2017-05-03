@@ -22,11 +22,12 @@ end
 
   def create_strand
     strand = Strand.find(params[:id])
+    quantity = params[:quantity]
     if current_user.cart_items.where(strand_id: strand.id).any?
       cart_item = current_user.cart_items.find_by(strand_id: strand.id)
-      cart_item.update(quantity: cart_item.quantity + 1)
+      cart_item.update(quantity: quantity)
     else
-      current_user.cart_items.create(strand_id: strand.id, quantity: 1)
+      current_user.cart_items.create(strand_id: strand.id, quantity: quantity)
   end
 
   redirect_to action: :index

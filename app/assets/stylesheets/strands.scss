@@ -1,3 +1,34 @@
 // Place all the styles related to the Strands controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the Patterns controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font: 1em/1.67 'Open Sans', Arial, Sans-serif;
+  background: #E9E9E9;
+  padding-bottom: 60px;
+}
+.ci-img-wrapper img {
+  width: 100%;
+  height: 150px;
+}
+.add2cart-index {
+  width: 140px;
+  float: right;
+  color: #a8aeb3;
+  border: 1px #ededed solid;
+  padding: 3px 6px;
+  text-transform: uppercase;
+      .add2cart-index:hover {
+          color: #fff;
+          background: linear-gradient(to bottom, #9fbf00, #80ab00);
+          border-color: #9fbf00;
+      }
+}
+.quantity-form {
+  margin-top: 20px;
+}
+#quantity-submit {
+  padding-left: 0;
+}

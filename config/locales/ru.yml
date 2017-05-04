@@ -123,11 +123,11 @@ ru:
       second: Секунд
       year: Год
   errors:
-    format: "%{message} %{attribute}"
+    format: "%{attribute} %{message}"
     messages:
-      accepted: нужно подтвердить
-      blank: Пожалуйста, заполните поле
-      present: Пожалуйста, не заполняйте поле
+      accepted: пожалуйста, подтвердите
+      blank: пожалуйста, заполните поле
+      present: пожалуйста, не заполняйте поле
       confirmation: не совпадает со значением поля %{attribute}
       empty: не может быть пустым
       equal_to: может иметь лишь значение, равное %{count}
@@ -259,7 +259,7 @@ ru:
       update: "Обновить схему"
   activerecord:
     models:
-      cart_items:
+      cart_item:
         pattern: "Схема: "
         thread: "Нитки: "
         fabric: "Ткань: "
@@ -286,6 +286,9 @@ ru:
         portrait: "Портрет"
         still_life: "Натюрморт"
         genre_scene: "Жанровая сцена"
+      strand:
+        manufacturer: "Производитель:"
+        color: "Цвет:"
       accessory:
         title: "Наименование"
         price: "Цена"
@@ -333,6 +336,7 @@ ru:
       back: "Назад"
       in_stock: "В наличии"
       magnify: "Увеличить"
+      new_item: "Новый товар"
     filters:
       sort_by: "Сортировать по:"
       new: "Новые"
@@ -341,6 +345,37 @@ ru:
       category: "Категория"
       author: "Автор"
       size: "Размер"
+      fb: "Бесплатные/Бонусные"
+      discount: "Со скидкой"
+      manufacturer: "Производитель"
+    application:
+      title: "Магазин Bonnechanse"
+      navbar:
+        choose_language: "Выберите язык"
+        choose_currency: "Выберите валюту"
+        search: "Поиск"
+      footer:
+        place: "Санкт-Петербург, Россия"
+        support: "Поддержка"
+        payment: "Оплата"
+        delivery: "Доставка"
+        faq: "Часто задаваемые вопросы"
+        tos: "Правила сайта"
+        community: "Сообщество"
+        forum: "Наш форум"
+        contact: "Написать нам"
+        sm: "Мы в социальных сетях"
+        arr: "Все права защищены"
+    home:
+      wn: "Что нового"
+      ad: "Актуальная скидка"
+      news: "Новости"
+      highlights:
+        op: "Наши схемы"
+        popular: "Популярные"
+        new: "Новые"
+        cs: "Ожидаемые"
+        discounts: "Скидки"
     patterns:
       header: "Каталог схем"
       new: "Новая схема"
@@ -351,6 +386,8 @@ ru:
         portrait: "Портрет"
         still_life: "Натюрморт"
         genre_scene: "Жанровая сцена"
+    strands:
+      header: "Каталог ниток"
     cart_items:
       title: "Моя корзина"
       empty: "Корзина пуста"

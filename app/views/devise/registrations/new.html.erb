@@ -23,6 +23,12 @@
 
           <%= f.input :password_confirmation, autocomplete: "off" %>
 
+          <%= f.label :terms, t("devise.registrations.terms_of_service") %>
+
+          <%= f.check_box :terms %>
+
+          <br>
+
           <%= f.button :submit, t(".sign_up"), :class => 'btn btn-primary btn-lg outline' %>
 
           <% end %>

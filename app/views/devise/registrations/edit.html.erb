@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container index-wrapper">
   <div class="row">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -9,7 +9,7 @@
 
           <%= errors_for(@user) %>
 
-           <%= f.input :email, autofocus: true, disabled: true, hint: 'You cannot change your email.' %>
+           <%= f.input :email, autofocus: true, disabled: true, hint: t("errors.messages.cannot_change_email") %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>

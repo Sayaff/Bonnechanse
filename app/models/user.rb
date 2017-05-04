@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
 
   validates :email, :first_name, :last_name, :birthday, presence: true
   validates :email, uniqueness: true
+  validates_acceptance_of :terms, :allow_nil => false, :on => :create
 end

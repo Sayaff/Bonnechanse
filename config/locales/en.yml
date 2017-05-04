@@ -226,7 +226,7 @@ en:
       update: "Update Pattern"
   activerecord:
     models:
-      cart_items:
+      cart_item:
         pattern: "Pattern "
         thread: "Thread "
         fabric: "Fabric "
@@ -253,6 +253,9 @@ en:
         portrait: "Portrait"
         still_life: "Still life"
         genre_scene: "Genre Scene"
+      strand:
+        manufacturer: "Manufacturer:"
+        color: "Color:"
       accessory:
         title: "Title:"
         price: "Price:"
@@ -300,6 +303,7 @@ en:
       back: "Back"
       in_stock: "In Stock"
       magnify: "Show in bigger size"
+      new_item: "New Item"
     filters:
       sort_by: "Sort by"
       all: "All"
@@ -308,6 +312,37 @@ en:
       category: "Category"
       author: "Author"
       size: "Size"
+      fb: "Free/Bonus"
+      discount: "Discounts"
+      manufacturer: "Manufacturer"
+    application:
+      title: "Bonnechanse Store"
+      navbar:
+        choose_language: "choose language"
+        choose_currency: "choose currency"
+        search: "search"
+      footer:
+        place: "Saint Petersburg, Russia"
+        support: "Support"
+        payment: "Payment"
+        delivery: "Delivery"
+        faq: "FAQ"
+        tos: "Terms of Service"
+        community: "Community"
+        forum: "Our forum"
+        contact: "Contact us"
+        sm: "We in social media"
+        arr: "All rights reserved"
+    home:
+      wn: "What's new"
+      ad: "Actual Discount"
+      news: "News"
+      highlights:
+        op: "Our patterns"
+        popular: "Popular"
+        new: "New"
+        cs: "Coming Soon"
+        discounts: "Discounts"
     patterns:
       header: "Patterns catalog"
       new: "New pattern"
@@ -318,6 +353,8 @@ en:
         portrait: "Portrait"
         still_life: "Still life"
         genre_scene: "Genre Scene"
+    strands:
+      header: "Threads catalog"
     cart_items:
       title: "My Cart"
       empty: "The cart is currently empty"

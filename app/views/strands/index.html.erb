@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><%= t "views.patterns.header" %></title>
+    <title><%= t "views.strands.header" %></title>
 
     <!-- Custom CSS -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -22,27 +22,28 @@
   <div class="index-wrapper container">
 
     <header class="jumbotron hero-spacer">
-      <h1><%= t "views.patterns.header" %></h1>
+      <h1><%= t "views.strands.header" %></h1>
     </header>
     <div class= "catalog navbar">
       <ul class="nav nav-tabs">
         <li role="presentation"><%= link_to t("views.filters.all"), strands_path %></li>
         <li role="presentation"><%= link_to t("views.filters.new"), strands_path %></li>
-        <li role="presentation"><a href="#">Discount</a></li>
+        <li role="presentation"><a href="#"><%= t "views.filters.discount" %></a></li>
         <li role="presentation" class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <%= t "views.filters.category" %> <span class="caret"></span>
+            <%= t "views.filters.manufacturer" %> <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
+            <li><%= link_to "DMC", strands_path %></a></li>
             <!-- for manufacturers list -->
           </ul>
         </li>
       </ul>
     </div>
 
-    <% if user_signed_in? && current_user.admin? %> <!-- add option to make category -->
+    <% if user_signed_in? && current_user.admin? %>
       <div class="new-strand">
-        <%= link_to t("views.patterns.new"), new_strand_path, :class => "btn btn-lg btn-primary outline" %>
+        <%= link_to t("views.common.new_item"), new_strand_path, :class => "btn btn-lg btn-primary outline" %>
       </div>
     <% end %>
 

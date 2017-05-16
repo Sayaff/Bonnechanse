@@ -14,19 +14,21 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # for development purpose, for variables below - check env | grep VARNAME in console
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: "localhost:3000" }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    user_name:      'kir3217@gmail.com',
-    password:       'udsg8988dl',
-    domain:        'localhost:3000',
-    address:       'smtp.gmail.com',
-    port:          '587',
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.default_url_options = { host: "localhost:3000" }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      user_name:      'kir3217@yandex.ru',
+      password:       'riut54Ux73',
+      domain:        'localhost:3000',
+      address:       'smtp.yandex.ru',
+      port:          '465',
+      authentication: :plain,
+      enable_starttls_auto: true
+      ssl: true
+      tls: true
+    }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

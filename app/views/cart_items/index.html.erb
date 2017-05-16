@@ -14,7 +14,7 @@
             <% if @cart_items.empty? %>
               <p><%= t "views.cart_items.empty" %></p>
             <% else %>
-              <%= link_to t("views.cart_items.clear"), clear_cart_cart_items_path(@cart_items), :class => 'clear-cart btn btn-danger outline' %>
+              <%= link_to t("views.cart_items.clear"), clear_cart_cart_items_path, :class => 'clear-cart btn btn-danger outline' %>
             <% end %>
           <br><br><br>
             <table class="table table-hover">

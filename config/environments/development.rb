@@ -19,13 +19,8 @@ Rails.application.configure do
     config.action_mailer.default_url_options = { host: "localhost:3000" }
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-      user_name:      'kir3217@yandex.ru',
-      password:       'riut54Ux73',
-      domain:        'localhost:3000',
-      address:       'smtp.yandex.ru',
-      port:          '587',
-      authentication: :plain,
-      enable_starttls_auto: true,
+      address:       'localhost',
+      port:          '1025',
     }
 
   # Print deprecation notices to the Rails logger.

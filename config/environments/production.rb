@@ -43,7 +43,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name:     'kir3217@yandex.ru',
     password:      'riut54Ux73',
-    domain:        'ec-2-52-211-86-21.eu-west-1.compute.amazonaws.com:3000',
+    domain:        'ec-2-52-211-86-21.eu-west-1.compute.amazonaws.com',
     address:       'smtp.yandex.ru',
     port:          '587',
     authentication: :plain,

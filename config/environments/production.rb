@@ -36,19 +36,19 @@ Rails.application.configure do
   config.assets.digest = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
-                                #config.action_mailer.perform_deliveries = true
-                                #config.action_mailer.raise_delivery_errors = true
-                                #config.action_mailer.default_url_options = { host: "ec2-52-211-86-21.eu-west-1.compute.amazonaws.com" }
-                                #config.action_mailer.delivery_method = :smtp
-                                #config.action_mailer.smtp_settings = {
-                                #  user_name:      'kir3217@gmail.com',
-                                #  password:       'Khsn5479HJbf',
-                                #  domain:        'ec2-52-211-86-21.eu-west-1.compute.amazonaws.com',
-                                #  address:       'smtp.gmail.com',
-                                #  port:          '587',
-                                #  authentication: :plain,
-                                #  enable_starttls_auto: true
-                                #}
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: "ec-2-52-211-86-21.eu-west-1.compute.amazonaws.com:3000" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name:     'kir3217@yandex.ru',
+    password:      'riut54Ux73',
+    domain:        'ec-2-52-211-86-21.eu-west-1.compute.amazonaws.com:3000',
+    address:       'smtp.yandex.ru',
+    port:          '587',
+    authentication: :plain,
+    enable_starttls_auto: true,
+  }
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX

@@ -23,11 +23,9 @@ Rails.application.configure do
       password:       'riut54Ux73',
       domain:        'localhost:3000',
       address:       'smtp.yandex.ru',
-      port:          '465',
+      port:          '587',
       authentication: :plain,
-      enable_starttls_auto: true
-      ssl: true
-      tls: true
+      enable_starttls_auto: true,
     }
 
   # Print deprecation notices to the Rails logger.

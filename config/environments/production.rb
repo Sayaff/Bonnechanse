@@ -55,12 +55,14 @@ Rails.application.configure do
   config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
-  :bucket => ENV['S3_BUCKET_NAME'],
-  :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-  :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  :bucket => 'bonnechanse-bucket',
+  :access_key_id => 'AKIAJ4T2R7DV56V3TIDA',
+  :secret_access_key => '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',
+  :s3_region => 'eu-west-1'
   },
   :s3_host_name => "s3-eu-west-1.amazonaws.com", # Added entry
-  :url => ":s3_host_name"                        # Added entry
+  :s3_domain_url => ":s3_host_name",
+  :path => '/:class/:attachment/:id_partition/:style/:filename'                        # Added entry
   }
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true

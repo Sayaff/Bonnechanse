@@ -6,7 +6,7 @@ class Pattern < ActiveRecord::Base
   def human_attribute_name(*args)
     self.class.human_attribute_name(*args)
   end
-  
+
   scope :by_date, ->{ order("created_at DESC")}
   scope :price_roubles, ->{ order(price_rub: :desc)}
   scope :price_dollars, ->{ order(price_usd: :desc)}

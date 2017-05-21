@@ -13,7 +13,7 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # for development purpose, for variables below - check env | grep VARNAME in console
+  # for development purpose
     config.action_mailer.perform_deliveries = true
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.default_url_options = { host: "localhost:3000" }

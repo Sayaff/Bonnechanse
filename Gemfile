@@ -36,6 +36,8 @@ gem 'bootstrap-sass', '~> 3.3.7'
 
 gem 'paperclip'
 
+gem 'aws-sdk', '~> 2.9', '>= 2.9.19'
+
 gem 'i18n'
 
 gem 'devise-i18n'

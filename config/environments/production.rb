@@ -56,7 +56,7 @@ Rails.application.configure do
   :storage => :s3,
   :s3_credentials => {
   :bucket => 'bonnechanse-bucket',
-  :access_key_id => 'AKIAJ4T2R7DV56V3TID',
+  :access_key_id => 'AKIAJ4T2R7DV56V3TIDA',
   :secret_access_key => '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',
   :s3_region => 'eu-west-1'
   },

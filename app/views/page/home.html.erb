@@ -187,7 +187,7 @@
         </ul>
       </div>
         <div class="highlights">
-          <% @main_page_items.each do |pattern| %>
+          <% @main_page_items.take(6).each do |pattern| %>
           <div class="row">
               <div class="col-md-3">
                 <img src="<%= image_path pattern.image.url %>" alt="">

@@ -86,8 +86,8 @@
 
                             <div class="sticker sticker-new"></div>
                               <% if user_signed_in? && current_user.admin? %>
-                                  <%= link_to t("views.common.edit"), edit_pattern_path(pattern), :class => "btn" %>
-                                  <%= link_to t("views.common.destroy"), pattern, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn" %>
+                                  <%= link_to t("views.common.edit"), edit_pattern_path(pattern) %>
+                                  <%= link_to t("views.common.destroy"), pattern, method: :delete, data: { confirm: 'Are you sure?' } %>
                               <% end %>
                       </div>
                     </div>

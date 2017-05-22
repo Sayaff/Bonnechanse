@@ -5,7 +5,7 @@ class PatternsController < ApplicationController
   # GET /patterns
   # GET /patterns.json
   def index
-    @patterns = Pattern.all 
+    @patterns = Pattern.all.order(title_ru: :asc)
   end
 #improve action below later
   def by_date

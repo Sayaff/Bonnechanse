@@ -200,7 +200,7 @@
                     <% else %>
                       <h4 class="highlight-header"><%= pattern.title_ru %></h4>
                     <% end %>
-                    <p class="highlight-category">Category: <%= pattern.category %></p>
+                    <p class="highlight-category"><%= Pattern.human_attribute_name("category") %>: <%= pattern.category %></p>
                   </div>
                     <% if session[:currency] == "RUB" %>
                       <button class="product-price"><%= number_to_currency(pattern.price_rub, :unit => '₽') %></button>

@@ -16,8 +16,8 @@
 !/log/.keep
 /tmp
 
-# Ignore application configuration
-/config/application.yml
+# Ignore ENV variables configuration
+/config/env.yml
 
 # Ignore database configuration
 /config/database.yml

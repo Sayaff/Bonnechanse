@@ -52,18 +52,18 @@ Rails.application.configure do
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
-  config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-  :bucket => 'bonnechanse-bucket',
-  :access_key_id => ENV["AWS_ACCESS_KEY_ID"],
-  :secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"],
-  :s3_region => 'eu-west-1'
-  },
-  :s3_host_name => "s3-eu-west-1.amazonaws.com", # Added entry
-  :s3_domain_url => ":s3_host_name",
-  :path => '/:class/:attachment/:id_partition/:style/:filename'                        # Added entry
-  }
+  #config.paperclip_defaults = {
+  #:storage => :s3,
+  #:s3_credentials => {
+  #:bucket => 'bonnechanse-bucket',
+  #:access_key_id => ENV["AWS_ACCESS_KEY_ID"],
+  #:secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"],
+  #:s3_region => 'eu-west-1'
+  #},
+  #:s3_host_name => "s3-eu-west-1.amazonaws.com", # Added entry
+  #:s3_domain_url => ":s3_host_name",
+  #:path => '/:class/:attachment/:id_partition/:style/:filename'                        # Added entry
+  #}
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 

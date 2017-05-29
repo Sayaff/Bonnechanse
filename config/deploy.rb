@@ -6,7 +6,7 @@ set :repo_url, 'git@github.com:Sayaff/Bonnechanse.git' # Edit this to match your
 set :branch, :production
 set :deploy_to, '/home/syat/Bonnechanse'
 set :pty, true
-set :linked_files, %w{config/database.yml config/application.yml}
+set :linked_files, %w{.env config/database.yml config/application.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 set :keep_releases, 5
 set :rvm_type, :user

@@ -16,8 +16,8 @@
 !/log/.keep
 /tmp
 
-# Ignore ENV variables configuration
-/config/env.yml
+# Ignore dotenv gem ENV variables configuration
+/.env
 
 # Ignore database configuration
 /config/database.yml

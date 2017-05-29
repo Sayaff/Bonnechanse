@@ -98,6 +98,10 @@ GEM
       responders
       warden (~> 1.2.3)
     devise-i18n (1.1.1)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubis (2.7.0)
     execjs (2.7.0)
     fancybox2-rails (0.2.8)
@@ -264,6 +268,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   devise-i18n
+  dotenv-rails
   fancybox2-rails (~> 0.2.8)
   figaro
   font-awesome-rails (~> 4.7, >= 4.7.0.1)

@@ -17,7 +17,7 @@
 /tmp
 
 # Ignore dotenv gem ENV variables configuration
-# /.env
+/.env
 
 # Ignore database configuration
 /config/database.yml

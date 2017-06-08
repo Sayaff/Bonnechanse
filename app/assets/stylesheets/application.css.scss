@@ -49,6 +49,12 @@ nav.navbar-prime {
   text-decoration: none;
   color: #f72464;
 }
+#menu-button {
+  border-color: #262626;
+}
+#icon-bar {
+  background-color: #262626
+}
 #navbar .navbar-nav a, p {
   padding: 17px 10px 17px 10px;
   margin-bottom: 10px;
@@ -79,9 +85,8 @@ nav.navbar-prime {
   border-radius :100%;
   padding:3px 7px;
 }
-#searchform {
-  float: right;
-  padding: 0;
+#searchform span {
+  margin-right: 3px;
 }
 .top-10 {
   margin-top: 10px;

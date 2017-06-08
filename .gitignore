@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+# /.bundle
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -16,8 +16,8 @@
 !/log/.keep
 /tmp
 
-# Ignore local variables
-.env
+# Ignore dotenv gem ENV variables configuration
+/.env
 
-# Ignore application configuration
-/config/application.yml
+# Ignore database configuration
+/config/database.yml

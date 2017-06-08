@@ -38,21 +38,32 @@ Rails.application.configure do
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: "localhost:3000" }
+  config.action_mailer.default_url_options = { host: "ec2-52-211-86-21.eu-west-1.compute.amazonaws.com" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name:      'kir3217@gmail.com',
-    password:       'udsg8988dl',
-    domain:        'localhost:3000',
-    address:       'smtp.gmail.com',
+    user_name:     'kir3217@yandex.ru',
+    password:      'riut54Ux73',
+    domain:        'ec2-52-211-86-21.eu-west-1.compute.amazonaws.com',
+    address:       'smtp.yandex.ru',
     port:          '587',
     authentication: :plain,
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
   }
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
-
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+  :bucket => ENV['S3_BUCKET_NAME'],
+  :access_key_id => ENV["AWS_ACCESS_KEY_ID"],
+  :secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"],
+  :s3_region => ENV['AWS_REGION']
+  },
+  :s3_host_name => "s3-eu-west-1.amazonaws.com", # Added entry
+  :s3_domain_url => ":s3_host_name",
+  :path => '/:class/:attachment/:id_partition/:style/:filename'                        # Added entry
+  }
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails', groups: [:development, :test, :production]
+
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails
 gem 'rails', '4.2.6'
@@ -36,6 +38,8 @@ gem 'bootstrap-sass', '~> 3.3.7'
 
 gem 'paperclip'
 
+gem 'aws-sdk', '~> 2.9', '>= 2.9.19'
+
 gem 'i18n'
 
 gem 'devise-i18n'
@@ -47,6 +51,10 @@ gem 'fancybox2-rails', '~> 0.2.8'
 gem 'taps', '~> 0.3.24'
 
 gem 'font-kit-rails', '~> 1.2'
+
+gem 'figaro'
+
+gem 'puma'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -60,14 +68,18 @@ gem 'font-kit-rails', '~> 1.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
   gem 'pry-rails'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rails-console', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end

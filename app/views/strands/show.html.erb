@@ -40,18 +40,6 @@
           </div>
 
           <div class="row">
-            <div class="col-md-3">
-              <span class="sr-only">Four out of Five Stars</span>
-              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-              <span class="label label-success">61</span><!-- make rating later -->
-           </div>
-          </div>
-
-          <div class="row">
             <div class="col-md-12 bottom-rule">
               <% if session[:currency] == "RUB" %>
                 <h2 class="product-price">
@@ -119,8 +107,12 @@
       </div>
         <% if user_signed_in? && current_user.admin? %>
           <div class="btn-group pull-right">
-            <%= link_to t("views.common.edit"), edit_strand_path(@strand) %> |
-            <%= link_to t("views.common.back"), strands_path %>
+            <%= link_to t("views.common.edit"), edit_pattern_path(@pattern), :class => 'btn btn-success outline btn-lg btn-full-width' %> |
+            <%= link_to t('views.cart_items.c_s'), patterns_path, :class => "btn btn-primary outline btn-lg btn-full-width" %>
+          </div>
+        <% else %>
+          <div class="btn-group pull-right">|
+            <%= link_to t('views.cart_items.c_s'), patterns_path, :class => "btn btn-primary outline btn-lg btn-full-width" %>
           </div>
         <% end %>
       </div>

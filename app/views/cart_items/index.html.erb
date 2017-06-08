@@ -14,7 +14,7 @@
             <% if @cart_items.empty? %>
               <p><%= t "views.cart_items.empty" %></p>
             <% else %>
-              <%= link_to t("views.cart_items.clear"), clear_cart_cart_items_path(@cart_items), :class => 'clear-cart btn btn-danger outline' %>
+              <%= link_to t("views.cart_items.clear"), clear_cart_cart_items_path, :class => 'clear-cart btn btn-danger outline' %>
             <% end %>
           <br><br><br>
             <table class="table table-hover">
@@ -92,9 +92,9 @@
                         <td>   </td>
                         <td>   </td>
                         <td>
-                          <%= link_to "Continue Shopping", root_path, :class => "btn btn-primary outline btn-lg btn-full-width" %>
+                          <%= link_to t('views.cart_items.c_s'), root_path, :class => "btn btn-primary outline btn-lg btn-full-width" %>
                         <td>
-                          <%= link_to "Place Order", root_path, :class => "btn btn-success outline btn-lg btn-full-width" %>
+                          <%= link_to t('views.cart_items.p_o'), root_path, :class => "btn btn-success outline btn-lg btn-full-width" %>
                         </td>
                     </tr>
                 </tfoot>

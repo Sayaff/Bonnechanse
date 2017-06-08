@@ -15,7 +15,7 @@ Rails.application.routes.draw do
         get 'still_life'
       end
     end
-    devise_for :users
+    devise_for :users, controllers: { confirmations: 'confirmations'}
 
     resources :users
 

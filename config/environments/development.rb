@@ -13,20 +13,27 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # for development purpose, for variables below - check env | grep VARNAME in console
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: "localhost:3000" }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    user_name:      'kir3217@gmail.com',
-    password:       'udsg8988dl',
-    domain:        'localhost:3000',
-    address:       'smtp.gmail.com',
-    port:          '587',
-    authentication: :plain,
-    enable_starttls_auto: true
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+  :bucket => ENV['S3_BUCKET_NAME'],
+  :access_key_id => ENV["AWS_ACCESS_KEY_ID"],
+  :secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"],
+  :s3_region => ENV['AWS_REGION']
+  },
+  :s3_host_name => "s3-eu-west-1.amazonaws.com", # Added entry
+  :s3_domain_url => ":s3_host_name",
+  :path => '/:class/:attachment/:id_partition/:style/:filename'                        # Added entry
   }
+  # for development purpose
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.default_url_options = { host: "localhost:3000" }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address:       'localhost',
+      port:          '1025',
+    }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

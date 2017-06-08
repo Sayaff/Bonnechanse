@@ -20,15 +20,15 @@ class CartItem < ActiveRecord::Base
   end
   def category
     if self.pattern_id.present?
-      I18n.t 'activerecord.models.cart_items.pattern'
+      I18n.t 'activerecord.models.cart_item.pattern'
     elsif self.strand_id.present?
-      I18n.t 'activerecord.models.cart_items.thread'
+      I18n.t 'activerecord.models.cart_item.thread'
     elsif self.fabric_id.present?
-      I18n.t 'activerecord.models.cart_items.fabric'
+      I18n.t 'activerecord.models.cart_item.fabric'
     elsif self.kit_id.present?
-      I18n.t 'activerecord.models.cart_items.kit'
+      I18n.t 'activerecord.models.cart_item.kit'
     elsif self.accessory_id.present?
-      I18n.t 'activerecord.models.cart_items.accessory'
+      I18n.t 'activerecord.models.cart_item.accessory'
     end
   end
 end

@@ -1,1 +1,1 @@
-$('.item-count').html('<%= CartItem.sum(:quantity) %>').effect('shake', {times:4, distance:3}, 350);
+$('.item-count').html('<%= current_user.cart_items.sum(:quantity) %>').effect('shake', {times:4, distance:3}, 350);

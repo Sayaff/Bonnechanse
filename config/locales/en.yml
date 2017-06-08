@@ -362,6 +362,8 @@ en:
       delete: "Delete item"
       total: "Total:"
       quantity: "Quantity"
+      c_s: "Continue Shopping"
+      p_o: "Place Order"
     accessories:
       new: "New Accessory"
       title: "Accessories"

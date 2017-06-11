@@ -24,8 +24,8 @@
  @import "bootstrap/theme";
  @import "font-awesome";
 html, body {
-  position: relative;
   min-height: 100%;
+  min-width: 100%
 }
 body {
   display: flex;
@@ -69,6 +69,9 @@ nav.navbar-prime {
 #navbar .navbar-nav a:hover {
   background-color: inherit;
   color: #f72464;
+}
+.currency-selector a {
+  padding-top: 14px;
 }
 .cart-icon i {
   position: relative;
@@ -176,7 +179,7 @@ nav.navbar-prime {
 }
 .footer {
 	background: #262626;
-	width: 100%;
+	min-width: 100%;
 	border-bottom: 1px solid #CCCCCC;
 	border-top: 1px solid #DDDDDD;
 }

@@ -147,15 +147,15 @@
 
   <div class="row">
 
-    <div class="col-md-6 col-sm-7">
+    <div class="col-md-6 col-sm-12 col-xs-12">
       <h3><%= t "views.home.news" %></h3>
         <div class="news">
        <!-- no back-end yet, whole post make clickable later -->
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-4 col-xs-4">
               <img src="<%= image_path ("Diamond-mosaic-font-b-pattern-b-font-needle-art-picture-rhinestones-christmas-decoration-set-for-cross.jpg") %>" alt="">
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 col-sm-8 col-xs-8">
               <h3 class="news-header">New Pattern - <%= link_to "Hello Kitty", patterns_path %></h3>
               <p class="Timestamp">Timestamp</p> <!-- no back-end for new yet, make later -->
               <p class="news-text">
@@ -168,10 +168,10 @@
         </div>
         <div class="news">
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-4 col-sm-4 col-xs-4">
                 <img src="<%= image_path ("CHx7ZXy2hB8.jpg") %>" alt="">
               </div>
-              <div class="col-md-8">
+              <div class="col-md-8 col-sm-8 col-xs-8">
                 <h3 class="news-header">New Pattern - <%= link_to "Autumn Forest", patterns_path %></h3>
                 <p class="Timestamp">Timestamp</p> <!-- no back-end for new yet, make later -->
                 <p class="news-text">
@@ -183,25 +183,23 @@
 
       </div>
 
-    <div class="col-md-5 col-sm-4 col-md-offset-1">
+    <div class="col-md-5 col-sm-12 col-xs-12 col-md-offset-1">
       <h3><%= t "views.home.highlights.op" %></h3>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-left">
+        <ul id="bs-example-navbar-collapse-1">
           <li class="active"><a href="/"><%= t "views.home.highlights.popular" %></a></li>
           <li><a href="~/About/Index"><%= t "views.home.highlights.new" %></a></li>
           <li><a href="~/Contact/Index"><%= t "views.home.highlights.cs" %></a></li>
           <li><a href="~/Contact/Index"><%= t "views.home.highlights.discounts" %></a></li>
         </ul>
-      </div>
         <div class="highlights">
           <% @main_page_items.take(6).each do |pattern| %>
           <div class="row">
-              <div class="col-md-3">
+              <div class="col-md-3 col-sm-3 col-xs-3">
                 <img src="<%= image_path pattern.image.url %>" alt="">
               </div>
-              <div class="col-md-9">
+              <div class="col-md-9 col-sm-9 col-xs-9">
                 <div class="row">
-                  <div class="col-md-11">
+                  <div class="col-md-11 col-sm-11 col-xs-11">
                     <% if I18n.locale == :en %>
                       <h4 class="highlight-header"><%= pattern.title_en %></h4>
                     <% else %>

@@ -1,10 +1,15 @@
 // Place all the styles related to the Patterns controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+  position: relative;
+  min-height: 100%;
+}
 body {
+  display: flex;
+  flex-flow: column;
   font: 1em/1.67 'Open Sans', Arial, Sans-serif;
   background: #E9E9E9;
-  padding-bottom: 60px;
 }
 .image_element {
   color: #262626;

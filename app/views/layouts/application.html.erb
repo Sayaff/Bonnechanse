@@ -2,7 +2,7 @@
 <html>
 <head>
   <title><%= t "views.application.title" %></title>
-  <meta name="viewport" content="width=device-width, initial scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag 'bootstrap.css', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:400,700', media: 'all', 'data-turbolinks-track' => true %>
@@ -80,14 +80,14 @@
         <div class="footer" id="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <h2 id="logo"> bonnechanse </h2>
                         <ul>
                             <li id="white-rabbit"><h4>Творческая мастерская "Артель Белый КроликЪ"</h4></li>
                             <li><p><span class="fa fa-map-marker"></span> <%= t "views.application.footer.place" %></p></li>
                         </ul>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <h3> <%= t "views.application.footer.support" %> </h3>
                         <ul>
                             <li> <a href="#"> <%= t "views.application.footer.support" %> </a> </li>
@@ -97,7 +97,7 @@
                             <li> <a href="#"> <%= t "views.application.footer.tos" %> </a> </li>
                         </ul>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <h3> <%= t "views.application.footer.community" %> </h3>
                         <ul>
                             <li> <a href="#"> <%= t "views.application.footer.forum" %> </a> </li>
@@ -105,7 +105,7 @@
                             <li><a href=""><i class="fa fa-envelope"></i> bonnechanse@yandex.ru</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 ">
                         <h3> <%= t "views.application.footer.sm" %> </h3>
                         <ul class="social">
                             <li> <a href="https://www.facebook.com/groups/246755982379247/" target="blank"> <i class=" fa fa-facebook">   </i> </a> </li>
@@ -115,13 +115,6 @@
                     </div>
                 </div>
                 <!--/.row-->
-            </div>
-            <!--/.container-->
-        </div>
-        <!--/.footer-->
-
-        <div class="footer-bottom">
-            <div class="container">
                 <p class="pull-left"> © Bonnechanse.com. 2017. <%= t "views.application.footer.arr" %> </p>
                 <div class="pull-right">
                     <ul class="nav nav-pills payments">
@@ -132,6 +125,10 @@
                     </ul>
                 </div>
             </div>
+            <!--/.container-->
         </div>
+        <!--/.footer-->
+
+
 </body>
 </html>

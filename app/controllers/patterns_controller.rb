@@ -1,4 +1,5 @@
 class PatternsController < ApplicationController
+  before_action :admin_check, only: [:new, :create, :edit, :update, :destroy] #direct links ban, do the same for all products
   before_action :set_pattern, only: [:show, :edit, :update, :destroy]
   respond_to :js
 
@@ -102,6 +103,9 @@ class PatternsController < ApplicationController
       @pattern = Pattern.find(params[:id])
     end
 
+    def admin_check
+      redirect_to new_user_session_path unless user_signed_in? && current_user.admin?
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def pattern_params
       params.require(:pattern).permit(:title_en, :title_ru, :description_en, :description_ru, :price_usd, :price_rub, :designer, :size, :category, :image)

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
   scope "(:locale)", locale: /en|ru/ do
     resources :accessories
     resources :kits

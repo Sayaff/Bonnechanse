@@ -74,6 +74,11 @@
                 <li id="searchform">
                   <a href="#"><span class="fa fa-search" aria-hidden="true"></span><%= t("views.application.navbar.search") %></a>
                 </li>
+
+                <% if user_signed_in? && current_user.admin? %>
+                  <li><%= link_to "Панель управления", admin_index_path %></li>
+                <% end %>
+
         </ul>
     	</div>
     </div>

@@ -1,2 +1,71 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
+<div id="page-wrapper">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Панель управления</h1>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="dashboard-panel">
+              <h4 class="dashboard-panel-heading">Зарегистрированных пользователей</h4>
+                <div class="row">
+                  <i class="col-md-4 fa fa-user-circle fa-2x"></i>
+                  <h4 class="col-md-4 dashboard-panel-number"><%= User.count %></h4>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="dashboard-panel">
+              <h4 class="dashboard-panel-heading">Всего заказов</h4>
+                <div class="row">
+                  <i class="col-md-4 fa fa-shopping-cart fa-2x"></i>
+                  <h4 class="col-md-4 dashboard-panel-number"><%= User.count %></h4> <!-- not implemented yet, change to Order later -->
+                </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="dashboard-panel">
+              <h4 class="dashboard-panel-heading">Всего посещений</h4>
+                <div class="row">
+                  <i class="col-md-4 fa fa-user-circle-o fa-2x"></i>
+                  <h4 class="col-md-4 dashboard-panel-number"><%= User.count %></h4> <!-- not implemented yet -->
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-7 col-sm-12 col-xs-12">
+            <div class="new-orders-panel">
+              <div class="navbar navbar-default">
+                <ul class="nav navbar-nav">
+                  <li><i class="pull-right fa fa-shopping-cart fa-2x"></i></li>
+                  <li><h4 class="subpanel-header">Новые заказы</h4></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 col-sm-5 col-xs-12">
+            <div class="notifications-panel">
+              <div class="navbar navbar-default">
+                <ul class="nav navbar-nav">
+                  <li><i class="pull-right fa fa-bell fa-2x"></i></li>
+                  <li><h4 class="subpanel-header">Панель уведомлений</h4></li>
+                </ul>
+              </div>
+              <table class="table table-hover">
+                <tr>
+                  <td class="col-md-8">
+                    <p>Новый пользователь</p>
+                  </td>
+                  <td class="col-md-4">
+                    <p>Timestamp</p>
+                  <td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+</div>

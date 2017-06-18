@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  has_many :patterns
   has_many :cart_items
+  has_many :admin_notifications, foreign_key: :recipient_id
 
   validates :email, :first_name, :last_name, :birthday, presence: true
   validates :email, uniqueness: true

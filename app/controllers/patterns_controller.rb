@@ -1,5 +1,5 @@
 class PatternsController < ApplicationController
-  before_action :admin_check, only: [:new, :create, :edit, :update, :destroy] #direct links ban, do the same for all products
+  before_action :admin_check, only: [:new, :create, :edit, :update, :destroy] #in app controller
   before_action :set_pattern, only: [:show, :edit, :update, :destroy]
   respond_to :js
 
@@ -61,16 +61,16 @@ class PatternsController < ApplicationController
   # POST /patterns.json
   def create
     @pattern = Pattern.new(pattern_params)
-
-    respond_to do |format|
+    @admins = User.where(admin: true)
       if @pattern.save
-        format.html { redirect_to @pattern, notice: 'Pattern was successfully created.' }
-        format.json { render :show, status: :created, location: @pattern }
+        #create notification
+          @admins.each do |user|
+            AdminNotification.create(recipient: user, actor: current_user, action: "created", notifiable: @pattern)
+          end
+          redirect_to @pattern, notice: 'Pattern was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @pattern.errors, status: :unprocessable_entity }
+        render :new 
       end
-    end
   end
 
   # PATCH/PUT /patterns/1
@@ -103,9 +103,6 @@ class PatternsController < ApplicationController
       @pattern = Pattern.find(params[:id])
     end
 
-    def admin_check
-      redirect_to new_user_session_path unless user_signed_in? && current_user.admin?
-    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def pattern_params
       params.require(:pattern).permit(:title_en, :title_ru, :description_en, :description_ru, :price_usd, :price_rub, :designer, :size, :category, :image)

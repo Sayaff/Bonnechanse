@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
 
-  #prevents error while entering cart which contains already deleted product
+  #prevent error while entering cart which contains already deleted product
   before_action :cart_filter, only: [:index]
 
 
@@ -38,6 +38,11 @@ class ApplicationController < ActionController::Base
             end
           end
       end
+
+    private
+    def admin_check #check if user is admin in selected actions in products controllers and admin dashboard
+      redirect_to new_user_session_path unless user_signed_in? && current_user.admin?
+    end
 
   protected
     def configure_permitted_parameters

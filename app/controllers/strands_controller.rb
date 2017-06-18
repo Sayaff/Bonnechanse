@@ -1,5 +1,5 @@
 class StrandsController < ApplicationController
-  before_action :admin_check, only: [:new, :create, :edit, :update, :destroy]
+  before_action :admin_check, only: [:new, :create, :edit, :update, :destroy] #in app controller
   before_action :set_strand, only: [:show, :edit, :update, :destroy]
 
   # GET /strands
@@ -68,10 +68,6 @@ class StrandsController < ApplicationController
       @strand = Strand.find(params[:id])
     end
 
-    def admin_check
-      redirect_to new_user_session_path unless user_signed_in? && current_user.admin?
-    end
-    
     # Never trust parameters from the scary internet, only allow the white list through.
     def strand_params
       params.require(:strand).permit(:title_en, :title_ru, :manufacturer, :price_usd, :price_rub, :color, :image)

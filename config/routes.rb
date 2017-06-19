@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+
   get 'admin/index'
+  resources :admin_notifications do
+    member do
+      get :mark_as_read
+    end
+  end
 
   scope "(:locale)", locale: /en|ru/ do
     resources :accessories
@@ -37,6 +43,7 @@ Rails.application.routes.draw do
     end
 
     resources :products
+
 
     root 'page#home'
 

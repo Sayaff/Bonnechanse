@@ -55,17 +55,21 @@
                   <li><h4 class="subpanel-header">Панель уведомлений</h4></li>
                 </ul>
               </div>
-              <table class="table table-hover">
-                <tr>
-                  <td class="col-md-8">
-                    <p>Новый пользователь</p>
-                  </td>
-                  <td class="col-md-4">
-                    <p>Timestamp</p>
-                  <td>
-                </tr>
+              <table class="table table-hover" data-behavior="admin_notifications">
+                  <tr data-behavior="notification_items">
+                  </tr>
               </table>
             </div>
           </div>
+        </div>
+        <div class="notifications">
+        <% @admin_notifications.each do |a| %>
+        <ul>
+          <li><%= a.id %></li>
+          <li><%= a.actor.email %></li>
+          <li><%= a.read_at %></li>
+          <li><%= link_to "Mark as read", mark_as_read_admin_notification_path(a) %>
+        </ul>
+        <% end %>
         </div>
 </div>

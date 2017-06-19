@@ -4,6 +4,7 @@ before_action :admin_check
 layout "dashboard"
 
   def index
+    @admin_notifications = AdminNotification.where(recipient: current_user)
   end
 
   private

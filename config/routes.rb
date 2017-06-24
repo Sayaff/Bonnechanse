@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     member do
       get :mark_as_read
     end
+    collection do
+      get :clear_all
+      get :mark_as_unread
+    end
   end
 
   scope "(:locale)", locale: /en|ru/ do

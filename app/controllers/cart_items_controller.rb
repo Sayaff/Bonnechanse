@@ -1,5 +1,6 @@
 class CartItemsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_cart_item, only: [:quantity_increase, :quantity_decrease, :destroy]
 
   def index
     @cart_items = current_user.cart_items.order(:id)
@@ -75,25 +76,27 @@ end
   end
 
   def quantity_increase
-    @cart_item = CartItem.find(params[:id])
-      @cart_item.update(quantity: @cart_item.quantity + 1)
+    @cart_item.update(quantity: @cart_item.quantity + 1)
 
     redirect_to action: :index
 
   end
 
   def quantity_decrease
-    @cart_item = CartItem.find(params[:id])
-      @cart_item.update(quantity: @cart_item.quantity - 1) unless
-      @cart_item.quantity == 1
+    @cart_item.update(quantity: @cart_item.quantity - 1) unless
+    @cart_item.quantity == 1
 
     redirect_to action: :index
   end
 
   def destroy
-    @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
+
     redirect_to action: :index
   end
 
+  private
+    def set_cart_item
+      @cart_item = CartItem.find(params[:id])
+    end
 end

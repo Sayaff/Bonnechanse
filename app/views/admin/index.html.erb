@@ -55,14 +55,35 @@
                   <li><h4 class="subpanel-header">Панель уведомлений</h4></li>
                 </ul>
               </div>
-              <table class="table table-hover" data-behavior="admin_notifications">
-                  <tr data-behavior="notification_items">
-                  </tr>
-              </table>
+                <div class="notifications">
+                  <table class="table">
+                    <% @admin_notifications.take(8).each do |a| %>
+                      <tr class="notification-items">
+                        <td class="col-md-10">
+                          <p>
+                            Пользователь <%= link_to a.actor.email, edit_user_registration_path(a.actor) %> добавил(а)
+                            <%= link_to "новую схему", pattern_path(a.notifiable) %>
+                          </p>
+                        </td>
+                        <td class="col-md-2">
+                          <%= link_to mark_as_read_admin_notification_path(a), remote: true, :class => "mark_as_read" do %>
+                            <i class="fa fa-check-circle fa-2x"></i>
+                          <% end %>
+                        </td>
+                      </tr>
+                    <% end %>
+                    <tr>
+                      <td class="notifications-all col-md-12">
+                        <%= link_to "просмотреть все", admin_notifications_path %>
+                        <%= link_to "mark as unread", mark_as_unread_admin_notifications_path %>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
             </div>
           </div>
         </div>
-        <div class="notifications">
+        <!-- <div class="notifications">
         <% @admin_notifications.each do |a| %>
         <ul>
           <li><%= a.id %></li>
@@ -71,5 +92,5 @@
           <li><%= link_to "Mark as read", mark_as_read_admin_notification_path(a) %>
         </ul>
         <% end %>
-        </div>
+      </div> -->
 </div>

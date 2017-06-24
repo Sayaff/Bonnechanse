@@ -4,7 +4,7 @@ before_action :admin_check
 layout "dashboard"
 
   def index
-    @admin_notifications = AdminNotification.where(recipient: current_user)
+    @admin_notifications = AdminNotification.where(recipient: current_user).unread
   end
 
   private

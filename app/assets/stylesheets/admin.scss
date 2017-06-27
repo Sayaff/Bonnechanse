@@ -115,7 +115,6 @@ body {
     right: 0;
     left: auto;
 }
-
 .sidebar .sidebar-nav.navbar-collapse {
     padding-right: 0;
     padding-left: 0;
@@ -163,7 +162,7 @@ body {
         z-index: 1;
         position: absolute;
         width: 250px;
-        margin-top: 51px;
+        margin-top: 71px;
     }
 
     .navbar-top-links .dropdown-messages,
@@ -173,14 +172,29 @@ body {
     }
 }
 .dashboard-panel {
-  border: 1px solid #262626;
+  border: 1px solid #fff;
+  text-align: center;
   text-transform: uppercase;
+  border-radius: 5px;
+  color: #fff;
 }
-.dashboard-panel-number {
-  float: right;
+.dashboard-panel-orders {
+  background-color: #d85153;
+}
+.dashboard-panel-users {
+  background-color: #5bb961;
+}
+.dashboard-panel-visitors {
+  background-color: #5dbfdc;
 }
 .new-orders-panel, .notifications-panel {
   margin-top: 20px;
+}
+.new-orders-panel .notifications-panel i {
+  margin-top: 5px;
+}
+.new-orders-panel th {
+  background-color: #e7e7e7;
 }
 .subpanel-header {
   margin-left: 10px;
@@ -189,4 +203,11 @@ body {
 .notifications-all {
   text-align: center;
   text-transform: uppercase;
+}
+.mark_as_read a i {
+  margin-top: 20px;
+}
+.mark_as_read:hover {
+  background-color: inherit;
+  text-decoration: none;
 }

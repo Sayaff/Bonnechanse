@@ -24,7 +24,8 @@
 #    $("[data-behavior='notification_items']").html(items)
 #
 jQuery ->
-  $('.delete-notification').on 'ajax:beforeSend', (data) ->
+  
+  $('.delete-notification').on 'ajax:beforeSend', (data) -> #returns confirm: "Are you sure?"
     return data
   $('.mark_as_read').add('.delete-notification').on 'ajax:success',
     -> $(@).closest('tr').fadeOut(150)

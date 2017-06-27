@@ -27,9 +27,8 @@ Rails.application.routes.draw do
         get 'still_life'
       end
     end
-    devise_for :users, controllers: { confirmations: 'confirmations'}
 
-    resources :users
+    devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations'}
 
     resources :cart_items do
       member do

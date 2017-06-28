@@ -18,7 +18,7 @@
                     </p>
                   <% elsif a.notifiable_type == "User" %>
                     <p>
-                      Зарегистрирован новый пользователь <%= link_to a.actor.email, user_path(a.actor) %>
+                      Зарегистрирован новый пользователь <%= link_to a.notifiable.email, user_path(a.notifiable) %>
                     </p>
                   <% end %>
                 </td>

@@ -75,7 +75,7 @@
                               <%= link_to "новую схему", pattern_path(a.notifiable) %>
                             </p>
                           <% elsif a.notifiable_type == "User" %>
-                            <p><!-- make show action and see if it's the issue -->
+                            <p>
                               Зарегистрирован новый пользователь <%= link_to a.notifiable.email, user_path(a.notifiable) %>
                             </p>
                           <% end %>

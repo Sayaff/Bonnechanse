@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   #prevent error while entering cart which contains already deleted product
   before_action :cart_filter, only: [:index]
 
-
     def set_currency
       session[:currency] = params[:currency]
       redirect_to :back

@@ -4,6 +4,9 @@
 html, body {
   min-height: 100%;
 }
+a:hover {
+  background-color: inherit;
+}
 body {
   display: flex;
   flex-flow: column;

@@ -30,6 +30,8 @@ Rails.application.routes.draw do
 
     devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations'}
 
+    resources :users, only: [:index, :show]
+
     resources :cart_items do
       member do
           post 'create_pattern'

@@ -3,8 +3,8 @@
       <table class="col-md-12 table">
         <tr>
           <td>
-            <%= link_to clear_all_admin_notifications_path do %>
-              <i class="fa fa-trash-o fa-2x"></i>Удалить все уведомления
+            <%= link_to clear_all_admin_notifications_path, data: {confirm: "Вы уверены?"} do %>
+              <h4><i class="fa fa-trash-o fa-2x"></i> Удалить все уведомления</h4>
             <% end %>
           <td>
         </tr>

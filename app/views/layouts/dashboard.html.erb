@@ -10,11 +10,13 @@
     <meta name="author" content="">
     <%= csrf_meta_tags %>
 
-    <title><%= t "views.patterns.header" %></title>
+    <title>Панель управления</title>
 
     <!-- Custom CSS -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'admin_notifications', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'bootstrap.min.js', 'data-turbolinks-track' => true %>
 
@@ -86,7 +88,9 @@
                         <% end %>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-address-book fa-fw"></i> Пользователи</a>
+                      <%= link_to users_path do %>
+                        <i class="fa fa-address-book fa-fw"></i> Пользователи
+                      <% end %>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-money fa-fw"></i> Заказы</a>
@@ -98,10 +102,10 @@
                         <a href="#"><i class="fa fa-shopping-cart fa-fw"></i> Товары<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Схемы</a>
+                                <%= link_to "Схемы", patterns_path %>
                             </li>
                             <li>
-                                <a href="#">Нитки</a>
+                                <%= link_to "Нитки", strands_path %>
                             </li>
                             <li>
                                 <a href="#">Ткани</a>

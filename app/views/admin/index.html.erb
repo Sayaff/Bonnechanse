@@ -71,12 +71,12 @@
                         <td class="col-md-10">
                           <% if a.notifiable_type == "Pattern" %>
                             <p>
-                              Пользователь <%= link_to a.actor.email, edit_user_registration_path(a.actor) %> добавил(а)
+                              Пользователь <%= link_to a.actor.email, edit_user_registration_path %> добавил(а)
                               <%= link_to "новую схему", pattern_path(a.notifiable) %>
                             </p>
                           <% elsif a.notifiable_type == "User" %>
-                            <p>
-                              Зарегистрирован новый пользователь <%= link_to a.actor.email, edit_user_registration_path(a.actor) %>
+                            <p><!-- make show action and see if it's the issue -->
+                              Зарегистрирован новый пользователь <%= link_to a.notifiable.email, user_path(a.notifiable) %>
                             </p>
                           <% end %>
                         </td>

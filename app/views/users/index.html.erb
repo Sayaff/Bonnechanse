@@ -1,0 +1,15 @@
+<div class="container">
+  <table class="table">
+    <th>Список зарегистрированных пользователей</th>
+      <div class="all-users">
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user.email, user_path(user) %></td>
+          </tr>
+        <% end %>
+      </div>
+      <tr>
+        <td><%=link_to "Назад", :back %></td>
+      </tr>
+  </table>
+</div>

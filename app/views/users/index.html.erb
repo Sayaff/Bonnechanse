@@ -1,15 +1,17 @@
-<div class="container">
-  <table class="table">
-    <th>Список зарегистрированных пользователей</th>
-      <div class="all-users">
-        <% @users.each do |user| %>
-          <tr>
-            <td><%= link_to user.email, user_path(user) %></td>
-          </tr>
-        <% end %>
-      </div>
-      <tr>
-        <td><%=link_to "Назад", :back %></td>
-      </tr>
-  </table>
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <table class="col-md-12 table">
+      <th>Список зарегистрированных пользователей</th>
+        <div class="all-users">
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= link_to user.email, user_path(user) %></td>
+            </tr>
+          <% end %>
+        </div>
+        <tr>
+          <td><%=link_to "Назад", :back %></td>
+        </tr>
+    </table>
+  </div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618163704) do
+ActiveRecord::Schema.define(version: 20170708165257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,8 +49,9 @@ ActiveRecord::Schema.define(version: 20170618163704) do
     t.integer  "kit_id"
     t.integer  "accessory_id"
     t.integer  "quantity"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "archived",     default: false
   end
 
   create_table "fabrics", force: :cascade do |t|
@@ -82,6 +83,14 @@ ActiveRecord::Schema.define(version: 20170618163704) do
     t.datetime "image_updated_at"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer  "buyer_id"
+    t.string   "products"
+    t.boolean  "payed",      default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
   create_table "patterns", force: :cascade do |t|
     t.string   "title_en"
     t.string   "title_ru"
@@ -92,12 +101,13 @@ ActiveRecord::Schema.define(version: 20170618163704) do
     t.string   "designer"
     t.string   "size"
     t.string   "category"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "archived",           default: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -131,12 +141,13 @@ ActiveRecord::Schema.define(version: 20170618163704) do
     t.decimal  "price_usd"
     t.decimal  "price_rub"
     t.string   "color"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "archived",           default: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -157,10 +168,10 @@ ActiveRecord::Schema.define(version: 20170618163704) do
     t.text     "about"
     t.date     "birthday"
     t.boolean  "admin",                  default: false
+    t.boolean  "terms",                  default: false
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.boolean  "terms",                  default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

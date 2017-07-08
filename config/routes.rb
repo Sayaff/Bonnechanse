@@ -32,6 +32,8 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :show]
 
+    resources :carts
+
     resources :cart_items do
       member do
           post 'create_pattern'
@@ -46,8 +48,6 @@ Rails.application.routes.draw do
           get 'clear_cart'
       end
     end
-
-    resources :products
 
 
     root 'page#home'

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
     collection do
       get :clear_all
-      get :mark_as_unread
+      get :mark_as_unread #for testing purposes, delete later
     end
   end
 
@@ -32,7 +32,9 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :show]
 
-    resources :carts
+    resources :cart, only: [:show]
+
+    resources :order_items, only: [:create, :update, :destroy]
 
     resources :cart_items do
       member do

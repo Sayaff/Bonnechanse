@@ -1,10 +1,11 @@
 class CartItem < ActiveRecord::Base
-  has_many :patterns
-  has_many :strands
-  has_many :fabrics
-  has_many :kits
-  has_many :accessories
+  belongs_to :pattern
+  belongs_to :strand
+  belongs_to :fabric
+  belongs_to :kit
+  belongs_to :accessory
   belongs_to :user
+  
   def product
     if self.pattern_id.present?
       Pattern.find_by(id: self.pattern_id)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170708165257) do
+ActiveRecord::Schema.define(version: 20170709194043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,22 @@ ActiveRecord::Schema.define(version: 20170708165257) do
     t.boolean  "archived",     default: false
   end
 
+  create_table "cart_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.decimal  "subtotal",       precision: 12, scale: 3
+    t.decimal  "total",          precision: 12, scale: 3
+    t.integer  "cart_status_id"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
+  add_index "carts", ["cart_status_id"], name: "index_carts_on_cart_status_id", using: :btree
+
   create_table "fabrics", force: :cascade do |t|
     t.string   "title"
     t.string   "manufacturer"
@@ -81,14 +97,6 @@ ActiveRecord::Schema.define(version: 20170708165257) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.integer  "buyer_id"
-    t.string   "products"
-    t.boolean  "payed",      default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
   end
 
   create_table "patterns", force: :cascade do |t|
@@ -178,4 +186,5 @@ ActiveRecord::Schema.define(version: 20170708165257) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "carts", "cart_statuses"
 end

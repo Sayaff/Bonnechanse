@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+CartStatus.delete_all
+CartStatus.create! id: 1, name: "In Progress"
+CartStatus.create! id: 2, name: "Placed"
+CartStatus.create! id: 3, name: "Delivered"
+CartStatus.create! id: 4, name: "Cancelled"

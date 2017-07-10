@@ -49,10 +49,12 @@ ActiveRecord::Schema.define(version: 20170709194043) do
     t.integer  "kit_id"
     t.integer  "accessory_id"
     t.integer  "quantity"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.boolean  "archived",     default: false
+    t.integer  "cart_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
+
+  add_index "cart_items", ["cart_id"], name: "index_cart_items_on_cart_id", using: :btree
 
   create_table "cart_statuses", force: :cascade do |t|
     t.string   "name"
@@ -61,11 +63,10 @@ ActiveRecord::Schema.define(version: 20170709194043) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.decimal  "subtotal",       precision: 12, scale: 3
-    t.decimal  "total",          precision: 12, scale: 3
+    t.decimal  "total"
     t.integer  "cart_status_id"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "carts", ["cart_status_id"], name: "index_carts_on_cart_status_id", using: :btree
@@ -186,5 +187,6 @@ ActiveRecord::Schema.define(version: 20170709194043) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "cart_items", "carts"
   add_foreign_key "carts", "cart_statuses"
 end

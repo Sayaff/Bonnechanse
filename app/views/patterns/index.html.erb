@@ -44,7 +44,7 @@
       </ul>
     </div>
 
-    <% if user_signed_in? && current_user.admin? %> 
+    <% if user_signed_in? && current_user.admin? %>
       <div class="new-pattern">
         <%= link_to t("views.patterns.new"), new_pattern_path, :class => "btn btn-lg btn-primary outline" %>
       </div>

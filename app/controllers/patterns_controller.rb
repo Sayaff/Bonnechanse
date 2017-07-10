@@ -63,7 +63,7 @@ class PatternsController < ApplicationController
     @pattern = Pattern.new(pattern_params)
     @admins = User.where(admin: true)
       if @pattern.save
-        #create notification, notify all admins except the actor - replace with (@admins.uniq - [current_user]).each do |user|
+        #create notification, notify all admins except the actor, on production - replace with (@admins.uniq - [current_user]).each do |user|
           @admins.each do |user|
             AdminNotification.create(recipient: user, actor: current_user, action: "создал(а)", notifiable: @pattern)
           end

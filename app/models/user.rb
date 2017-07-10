@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_many :patterns
+  has_many :carts
   has_many :cart_items
   has_many :admin_notifications, foreign_key: :recipient_id
 

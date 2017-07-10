@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Onlinestore3</title>
+  <%= stylesheet_link_tag 'cart_items', media: 'all', 'data-turbolinks-track' => true %>
+</head>
+<body>
+  <% total = 0 %>
+  <% product_total = 0 %>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+          <h1 class='title'><%= t "views.cart_items.title" %></h1>
+            <% if @cart_items.empty? %>
+              <p><%= t "views.cart_items.empty" %></p>
+            <% else %>
+              <%= link_to t("views.cart_items.clear"), clear_cart_cart_items_path, :class => 'clear-cart btn btn-danger outline' %>
+            <% end %>
+          <br><br><br>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th><%= t "views.cart_items.quantity" %></th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% @cart_items.each do | cart_item | %>
+                    <tr>
+                        <td class="col-sm-6 col-md-4">
+                        <div class="media">
+                          <img src="<%= image_path cart_item.product.image.url(:thumb) %>" alt="">
+                            <div class="media-body">
+                                <%= link_to cart_item.product_title %>
+                                <h5 class="media-heading"><%= link_to cart_item.category %></h5>
+                                <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                            </div>
+                        </div>
+                        </td>
+                        <td class="quantity row col-sm-2 col-md-2">
+                          <%= link_to quantity_increase_cart_item_path(cart_item), :class => 'plus' do %>
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                          <% end %>
+                          <span id='quantity_update_<%= cart_item.id %>'><%= cart_item.quantity %></span>
+                          <%= link_to quantity_decrease_cart_item_path(cart_item), :class => 'minus', method: :delete do %>
+                            <i class="fa fa-minus" aria-hidden="true"></i>
+                          <% end %>
+                        </td>
+                        <% if session[:currency] == "RUB" %>
+                          <td class="col-sm-1 col-md-1 text-center" id='price_rub'><strong><%= number_to_currency(cart_item.product.price_rub, :unit => '₽') %></strong></td>
+                        <% else %>
+                          <td class="col-sm-1 col-md-1 text-center" id='price_usd'><strong><%= number_to_currency(cart_item.product.price_usd, :unit => '$') %></strong></td>
+                        <% end %>
+
+                        <% if session[:currency] == "RUB" %>
+                          <% total += cart_item.quantity * cart_item.product.price_rub %>
+                          <% product_total = cart_item.quantity * cart_item.product.price_rub %>
+                          <td class="col-sm-1 col-md-1 text-center"><strong><%= number_to_currency(product_total, :unit => '₽') %></strong></td>
+                        <% else %>
+                          <% total += cart_item.quantity * cart_item.product.price_usd %>
+                          <% product_total = cart_item.quantity * cart_item.product.price_usd %>
+                          <td class="col-sm-1 col-md-1 text-center"><strong><%= number_to_currency(product_total, :unit => '$') %></strong></td>
+                        <% end %>
+
+                        <td class="col-sm-1 col-md-1">
+                        <%= link_to t("views.cart_items.delete"), cart_item_path(cart_item), method: :delete, :class => "btn btn-danger btn-lg outline" %>
+                        </button></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3><%= t "views.cart_items.total" %></h3></td>
+                        <% if session[:currency] == "RUB" %>
+                        <td class="text-right"><h3><%= number_to_currency(current_cart.total_rub, :unit => '₽') %></h3></td>
+                        <% else %>
+                        <td class="text-right"><h3><%= number_to_currency(current_cart.total_usd, :unit => '$') %></h3></td>
+                        <% end %>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                          <%= link_to t('views.cart_items.c_s'), root_path, :class => "btn btn-primary outline btn-lg btn-full-width" %>
+                        <td>
+                          <%= link_to t('views.cart_items.p_o'), root_path, :class => "btn btn-success outline btn-lg btn-full-width" %>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

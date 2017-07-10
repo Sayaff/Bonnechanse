@@ -1,5 +1,6 @@
 class Strand < ActiveRecord::Base
-  has_many :cart_items
+  has_many :users
+  has_many :cart_items, as: :purchaseable
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
 

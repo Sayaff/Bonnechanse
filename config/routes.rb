@@ -32,9 +32,7 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :show]
 
-    resources :cart, only: [:show]
-
-    resources :order_items, only: [:create, :update, :destroy]
+    resources :carts, only: [:show]
 
     resources :cart_items do
       member do
@@ -51,15 +49,11 @@ Rails.application.routes.draw do
       end
     end
 
-
     root 'page#home'
 
     get 'page/home'
-
     get 'page/about'
-
     get 'page/faq'
-
     get 'page/contact'
 
     get 'application/set_currency', as: :set_currency

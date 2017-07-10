@@ -16,14 +16,14 @@ layout "dashboard"
 
   private
     def notification_filter
+      notifications = AdminNotification.where(recipient: current_user)
       if user_signed_in? && current_user.admin?
-        @notifications = AdminNotification.where(recipient: current_user)
-          @notifications.each do | notification |
-            if notification.notifiable == nil
-              notification.destroy
-              redirect_to :root
-            end
+        notifications.each do | n |
+          if n.notifiable == nil
+            n.destroy
+            render json: { success: true }
           end
         end
+      end
     end
 end

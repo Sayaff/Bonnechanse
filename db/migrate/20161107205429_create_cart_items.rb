@@ -8,6 +8,7 @@ class CreateCartItems < ActiveRecord::Migration
       t.integer :kit_id
       t.integer :accessory_id
       t.integer :quantity
+      t.references :cart, index: true, foreign_key: true
       t.timestamps null: false
     end
   end

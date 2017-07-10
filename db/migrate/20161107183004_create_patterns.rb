@@ -5,7 +5,7 @@ class CreatePatterns < ActiveRecord::Migration
       t.string :title_ru
       t.text :description_en
       t.text :description_ru
-      t.decimal :price_usd
+      t.decimal :price_usd #add precision 10 scale 2 for both prices
       t.decimal :price_rub
       t.string :designer
       t.string :size

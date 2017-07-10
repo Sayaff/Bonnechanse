@@ -4,21 +4,21 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
-  #prevent error while entering cart which contains already deleted product
+  #prevents error occured after entering cart which contained already deleted product - see :33
   before_action :cart_filter, only: [:index]
-  helper_method :current_order #delete if not appropriate
+  helper_method :current_cart
 
     def set_currency
       session[:currency] = params[:currency]
       redirect_to :back
     end
 
-    def current_order
-      if !session[:order_id].nil?
-        Order.find(session[:order_id])
-      else
-        Order.new
-      end
+    def current_cart
+       Cart.find(session[:cart_id])
+    rescue ActiveRecord::RecordNotFound
+       cart = Cart.create
+       session[:cart_id] = cart.id
+       cart
     end
 
 private
@@ -30,7 +30,7 @@ private
       {locale: I18n.locale}.merge options
     end
 
-    def cart_filter
+    def cart_filter #deprecated, re-write later
       if user_signed_in?
         @cart_items = current_user.cart_items
           @cart_items.each do | cart_item |

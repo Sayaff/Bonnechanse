@@ -1,11 +1,12 @@
 class CartItem < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :cart
   belongs_to :pattern
   belongs_to :strand
   belongs_to :fabric
   belongs_to :kit
   belongs_to :accessory
-  belongs_to :user
-  
+
   def product
     if self.pattern_id.present?
       Pattern.find_by(id: self.pattern_id)
@@ -19,6 +20,19 @@ class CartItem < ActiveRecord::Base
       Accessory.find_by(id: self.accessory_id)
     end
   end
+  
+  def product_title
+    if I18n.locale == "en"
+      self.product.title_en
+    else
+      self.product.title_ru
+    end
+  end
+
+  def unit_price
+    self.product.price_usd * self.quantity
+  end
+
   def category
     if self.pattern_id.present?
       I18n.t 'activerecord.models.cart_item.pattern'

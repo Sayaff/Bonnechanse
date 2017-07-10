@@ -60,9 +60,9 @@
 
               <% if user_signed_in? %>
                 <li><%= link_to t("application.navbar.sign_out"), destroy_user_session_path, method: :delete %></li>
-                <li class="cart-icon"><%= link_to cart_items_path do %>
+                <li class="cart-icon"><%= link_to cart_path(id: current_cart.id) do %>
                       <i class="fa fa-shopping-cart"></i>
-                      <span class="item-count"><%= current_user.cart_items.sum(:quantity) %></span>
+                      <span class="item-count"><%= current_cart.id %></span>
                     <% end %>
                 </li>
                 <li><%= link_to t("application.navbar.my_account"), edit_user_registration_path %></li>

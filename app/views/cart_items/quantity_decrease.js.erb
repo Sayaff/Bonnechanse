@@ -1,0 +1,4 @@
+$('.item-count').html('<%= current_cart.cart_items.sum(:quantity) %>');
+$('#current-cart-total').html('<%= escape_javascript(render 'cart_items/current_cart_total') %>');
+$('#quantity_update_<%= @cart_item.id %>').html('<%= @cart_item.quantity %>');
+$('#current-product-price_<%= @cart_item.id %>').html('<%= escape_javascript(render 'cart_items/current_product_price', cart_item: @cart_item) %>');

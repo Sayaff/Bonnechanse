@@ -1,7 +1,10 @@
 class CartItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_cart_item, only: [:quantity_increase, :quantity_decrease, :destroy]
-
+  respond_to :html, :js
+  def index
+    @cart_items = current_cart.cart_items
+  end
   def create_pattern
     pattern = Pattern.find(params[:id])
     if current_cart.cart_items.where(pattern_id: pattern.id).any?
@@ -9,13 +12,8 @@ class CartItemsController < ApplicationController
       cart_item.update(quantity: cart_item.quantity + 1)
     else
       current_cart.cart_items.create(user_id: current_user.id, pattern_id: pattern.id, quantity: 1)
-  end
-
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.js
     end
-end
+  end
 
   def create_strand
     strand = Strand.find(params[:id])
@@ -73,22 +71,15 @@ end
 
   def quantity_increase
     @cart_item.update(quantity: @cart_item.quantity + 1)
-
-    redirect_to action: :index
-
   end
 
   def quantity_decrease
     @cart_item.update(quantity: @cart_item.quantity - 1) unless
     @cart_item.quantity == 1
-
-    redirect_to action: :index
   end
 
   def destroy
     @cart_item.destroy
-
-    redirect_to action: :index
   end
 
   private

@@ -69,7 +69,7 @@
                           <% else %>
                             <p class="ci-price"><%= number_to_currency(strand.price_usd, :unit => '$') %></p>
                           <% end %>
-                            <%= link_to create_pattern_cart_item_path(id: strand.id), method: 'POST', remote: true, :class => "btn add2cart" do %>
+                            <%= link_to create_strand_cart_item_path(id: strand.id), method: 'POST', remote: true, :class => "btn add2cart" do %>
                               <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i> <%= t("views.common.add_to_cart") %>
                             <% end %>
                             <!-- <div class="sticker sticker-new"></div> -->

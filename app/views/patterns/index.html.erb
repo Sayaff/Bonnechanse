@@ -75,7 +75,7 @@
                           <% end %>
 
                           <% if user_signed_in? %>
-                            <%= link_to create_pattern_cart_item_path(id: pattern.id), method: 'POST', :class => "btn add2cart" do %>
+                            <%= link_to create_pattern_cart_item_path(id: pattern.id), remote: true, method: 'POST', :class => "btn add2cart" do %>
                               <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i> <%= t("views.common.add_to_cart") %>
                             <% end %>
                           <% else %>

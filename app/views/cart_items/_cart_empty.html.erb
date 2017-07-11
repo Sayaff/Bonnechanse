@@ -1,0 +1,5 @@
+<% if current_cart.cart_items.length < 1 %>
+  <p id="cart-empty"><%= t "views.cart_items.empty" %></p>
+<% else %>
+  <%= link_to t("views.cart_items.clear"), clear_cart_cart_items_path, :class => 'clear-cart btn btn-danger outline' %>
+<% end %>

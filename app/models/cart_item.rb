@@ -20,7 +20,7 @@ class CartItem < ActiveRecord::Base
       Accessory.find_by(id: self.accessory_id)
     end
   end
-  
+
   def product_title
     if I18n.locale == "en"
       self.product.title_en
@@ -29,7 +29,11 @@ class CartItem < ActiveRecord::Base
     end
   end
 
-  def unit_price
+  def product_price_rub
+    self.product.price_rub * self.quantity
+  end
+
+  def product_price_usd
     self.product.price_usd * self.quantity
   end
 

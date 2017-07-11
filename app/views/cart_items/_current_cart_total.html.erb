@@ -1,0 +1,9 @@
+<td>   </td>
+<td>   </td>
+<td>   </td>
+<td><h3><%= t "views.cart_items.total" %></h3></td>
+<% if session[:currency] == "RUB" %>
+<td class="text-right"><h3 class="total-ru"><%= number_to_currency(current_cart.total_rub, :unit => '₽') %></h3></td>
+<% else %>
+<td class="text-right"><h3><%= number_to_currency(current_cart.total_usd, :unit => '$') %></h3></td>
+<% end %>

@@ -107,12 +107,12 @@
       </div>
         <% if user_signed_in? && current_user.admin? %>
           <div class="btn-group pull-right">
-            <%= link_to t("views.common.edit"), edit_pattern_path(@pattern), :class => 'btn btn-success outline btn-lg btn-full-width' %> |
-            <%= link_to t('views.cart_items.c_s'), patterns_path, :class => "btn btn-primary outline btn-lg btn-full-width" %>
+            <%= link_to t("views.common.edit"), edit_strand_path(@strand), :class => 'btn btn-success outline btn-lg btn-full-width' %> |
+            <%= link_to t('views.cart_items.c_s'), strands_path, :class => "btn btn-primary outline btn-lg btn-full-width" %>
           </div>
         <% else %>
           <div class="btn-group pull-right">|
-            <%= link_to t('views.cart_items.c_s'), patterns_path, :class => "btn btn-primary outline btn-lg btn-full-width" %>
+            <%= link_to t('views.cart_items.c_s'), strands_path, :class => "btn btn-primary outline btn-lg btn-full-width" %>
           </div>
         <% end %>
       </div>

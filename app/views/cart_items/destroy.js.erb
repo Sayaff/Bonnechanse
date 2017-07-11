@@ -1,0 +1,4 @@
+$('#cart-item_<%= @cart_item.id %>').fadeOut(250);
+$('.item-count').html('<%= current_cart.cart_items.sum(:quantity) %>');
+$('#current-cart-total').html('<%= escape_javascript(render 'cart_items/current_cart_total') %>');
+$('#cart-empty').html('<%= escape_javascript(render 'cart_items/cart_empty') %>')

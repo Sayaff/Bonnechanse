@@ -1,0 +1,5 @@
+<% if session[:currency] == "RUB" %>
+  <%= number_to_currency(cart_item.product_price_rub, :unit => '₽') %>
+<% else %>
+  <%= number_to_currency(cart_item.product_price_usd, :unit => '$') %>
+<% end %>

@@ -70,14 +70,14 @@
                     <% @admin_notifications.take(4).each do |a| %>
                       <tr class="notification-items">
                         <td class="col-md-10">
-                          <% if a.notifiable_type == "Pattern" %>
-                            <p>
-                              Пользователь <%= link_to a.actor.email, edit_user_registration_path %> добавил(а)
-                              <%= link_to "новую схему", pattern_path(a.notifiable) %>
-                            </p>
-                          <% elsif a.notifiable_type == "User" %>
+                          <% if a.notifiable_type == "User" %>
                             <p><!-- make show action and see if it's the issue -->
                               Зарегистрирован новый пользователь <%= link_to a.notifiable.email, user_path(a.notifiable) %>
+                            </p>
+                          <% else %>
+                            <p>
+                              Пользователь <%= link_to a.actor.email, user_path(a.actor) %> добавил(а)
+                              <%= link_to "новый товар", polymorphic_path(a.notifiable) %> <!-- routes to notifiable polymorphic object -->
                             </p>
                           <% end %>
                         </td>

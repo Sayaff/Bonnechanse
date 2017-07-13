@@ -1,0 +1,29 @@
+/* line 4, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/patterns.scss */
+html, body {
+  position: relative;
+  min-height: 100%;
+}
+
+/* line 8, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/patterns.scss */
+body {
+  display: flex;
+  flex-flow: column;
+  font: 1em/1.67 'Open Sans', Arial, Sans-serif;
+  background: #E9E9E9;
+}
+
+/* line 14, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/patterns.scss */
+.image_element {
+  color: #262626;
+}
+
+/* line 17, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/patterns.scss */
+.image_element:hover {
+  background-color: transparent;
+  color: #f72464;
+}
+
+/* line 21, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/patterns.scss */
+.catalog-item {
+  height: 590px;
+}

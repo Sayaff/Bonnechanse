@@ -1,0 +1,296 @@
+/* line 4, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+html, body {
+  min-height: 100%;
+}
+
+/* line 7, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+a:hover {
+  background-color: inherit;
+}
+
+/* line 10, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+body {
+  display: flex;
+  flex-flow: column;
+}
+
+/* line 14, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-prime {
+  display: none;
+}
+
+/* line 17, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.footer, .footer-bottom {
+  display: none;
+}
+
+/* line 20, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+body {
+  background-color: #f8f8f8;
+}
+
+/* line 24, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+#wrapper {
+  width: 100%;
+}
+
+/* line 28, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+#page-wrapper {
+  padding: 30px 15px 0 15px;
+  min-height: 568px;
+  background-color: #fff;
+}
+
+@media (min-width: 768px) {
+  /* line 35, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+  #page-wrapper {
+    position: inherit;
+    margin-left: 250px;
+    padding: 30px 30px 0 30px;
+    border-left: 1px solid #e7e7e7;
+  }
+}
+/* line 43, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-header {
+  float: left;
+}
+
+/* line 47, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-left {
+  float: left;
+}
+
+/* line 51, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-right {
+  text-align: right;
+}
+
+/* line 55, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links {
+  margin: 0;
+}
+
+/* line 59, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links li {
+  display: inline-block;
+}
+
+/* line 63, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links li:last-child {
+  margin-right: 6px;
+}
+
+/* line 67, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links li a {
+  padding: 15px;
+  min-height: 50px;
+}
+
+/* line 72, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links > li > a {
+  color: #999;
+}
+
+/* line 76, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links > li > a:hover, .navbar-top-links > li > a:focus, .navbar-top-links > .open > a, .navbar-top-links > .open > a:hover, .navbar-top-links > .open > a:focus {
+  color: #fff;
+  background-color: #222;
+}
+
+/* line 81, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links .dropdown-menu li {
+  display: block;
+}
+
+/* line 85, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links .dropdown-menu li:last-child {
+  margin-right: 0;
+}
+
+/* line 89, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links .dropdown-menu li a {
+  padding: 3px 20px;
+  min-height: 0;
+}
+
+/* line 94, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links .dropdown-menu li a div {
+  white-space: normal;
+}
+
+/* line 98, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links .dropdown-messages,
+.navbar-top-links .dropdown-tasks,
+.navbar-top-links .dropdown-alerts {
+  width: 310px;
+  min-width: 0;
+}
+
+/* line 105, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links .dropdown-messages {
+  margin-left: 5px;
+}
+
+/* line 109, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links .dropdown-tasks {
+  margin-left: -59px;
+}
+
+/* line 113, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links .dropdown-alerts {
+  margin-left: -123px;
+}
+
+/* line 117, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.navbar-top-links .dropdown-user {
+  right: 0;
+  left: auto;
+}
+
+/* line 121, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.sidebar .sidebar-nav.navbar-collapse {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* line 126, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.sidebar .sidebar-search {
+  padding: 15px;
+}
+
+/* line 130, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.sidebar ul li {
+  border-bottom: 1px solid #e7e7e7;
+}
+
+/* line 134, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.sidebar ul li a.active {
+  background-color: #eee;
+}
+
+/* line 138, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.sidebar .arrow {
+  float: right;
+}
+
+/* line 142, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.sidebar .fa.arrow:before {
+  content: "\f104";
+}
+
+/* line 146, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.sidebar .active > a > .fa.arrow:before {
+  content: "\f107";
+}
+
+/* line 150, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.sidebar .nav-second-level li,
+.sidebar .nav-third-level li {
+  border-bottom: 0 !important;
+}
+
+/* line 155, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.sidebar .nav-second-level li a {
+  padding-left: 37px;
+}
+
+/* line 159, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.sidebar .nav-third-level li a {
+  padding-left: 52px;
+}
+
+@media (min-width: 768px) {
+  /* line 164, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+  .sidebar {
+    z-index: 1;
+    position: absolute;
+    width: 220px;
+    margin-top: 71px;
+    margin-left: 30px;
+  }
+
+  /* line 172, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+  .navbar-top-links .dropdown-messages,
+  .navbar-top-links .dropdown-tasks,
+  .navbar-top-links .dropdown-alerts {
+    margin-left: auto;
+  }
+}
+@media (max-width: 1145px) {
+  /* line 181, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+  .dashboard-panel h4, .dashboard-panel p, .new-orders-panel h4, .new-orders-panel p, .notifications-panel h4, .notifications-panel p {
+    font-size: 0.8em;
+  }
+}
+@media (max-width: 768px) {
+  /* line 189, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+  .new-orders-panel h4, .new-orders-panel p, .notifications-panel h4, .notifications-panel p {
+    font-size: 0.8em;
+  }
+}
+/* line 194, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.dashboard-panel {
+  border: 1px solid #fff;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  color: #fff;
+}
+
+/* line 201, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.dashboard-panel-orders {
+  background-color: #d85153;
+}
+
+/* line 204, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.dashboard-panel-users {
+  background-color: #5bb961;
+}
+
+/* line 207, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.dashboard-panel-visitors {
+  background-color: #5dbfdc;
+}
+
+/* line 210, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.new-orders-panel, .notifications-panel {
+  margin-top: 20px;
+}
+
+/* line 213, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.new-orders-panel .notifications-panel i {
+  margin-top: 5px;
+}
+
+/* line 216, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.notification-items i {
+  margin-top: 10px;
+}
+
+/* line 219, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.new-orders-panel th {
+  background-color: #e7e7e7;
+}
+
+/* line 222, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.subpanel-header {
+  margin-left: 10px;
+  text-transform: uppercase;
+}
+
+/* line 226, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.notifications-all {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* line 230, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.mark_as_read a i {
+  margin-top: 20px;
+}
+
+/* line 233, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/admin.scss */
+.mark_as_read:hover {
+  background-color: inherit;
+  text-decoration: none;
+}

@@ -1,0 +1,195 @@
+/*
+ * Start Bootstrap - Heroic Features (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+/* line 8, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+body {
+  padding-top: 70px;
+  background: linear-gradient(to bottom, #d4a190, #ccc);
+}
+
+/* line 13, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  text-transform: uppercase;
+}
+
+/* line 19, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.category-item, .news, .highlights {
+  background-color: #dedede;
+}
+
+/* line 22, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.carousel-inner .item img {
+  width: 100%;
+  height: 370px;
+}
+
+/*
+.main-page-catalog {
+  column-count: 5;
+  column-gap: 1em;
+}
+*/
+/* line 32, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.actual-discount img {
+  position: relative;
+  width: 100%;
+  height: 370px;
+}
+
+/* line 37, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.discount-caption {
+  color: white;
+  position: absolute;
+  bottom: 1.5em;
+  left: 1.5em;
+  width: 100%;
+}
+
+/* line 44, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.category-item {
+  filter: brightness(100%);
+  background-color: #dedede;
+  margin: 0 0 1em;
+  width: 100%;
+  height: 190px;
+  border: 1px solid #eee;
+  text-align: center;
+}
+/* line 52, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.category-item h3 {
+  float: left;
+  margin-left: 5px;
+}
+/* line 56, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.category-item .catalog-link {
+  float: right;
+  clear: both;
+  margin: 0 5px 5px 0;
+  text-decoration: none;
+  color: #000;
+  font-family: "Open Sans";
+  font-size: 14px;
+}
+/* line 65, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.category-item img {
+  width: 100%;
+  height: 110px;
+  display: block;
+}
+
+/* line 71, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.category-item:hover {
+  filter: brightness(80%);
+  transition: all 0.2s ease-in-out;
+}
+
+/* line 75, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.news {
+  margin: 0 0 0 0;
+}
+/* line 77, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.news img {
+  width: 100%;
+  height: auto;
+  max-height: 330px;
+  margin: 10px 0 10px 0;
+}
+/* line 83, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.news .news-header, .news .timestamp, .news .news-text {
+  float: left;
+  margin: 10px 10px 10px 0;
+  font-family: "Ubuntu";
+  width: 100%;
+}
+
+/* line 90, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.highlights {
+  margin: 0 0 0 0;
+}
+/* line 92, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.highlights img {
+  width: 100%;
+  height: auto;
+  margin: 0 0 0 0;
+}
+/* line 97, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.highlights .highlight-header, .highlights .highlight-category {
+  margin: 10px 20px 10px 10px;
+  padding: 0;
+  clear: right;
+  width: 100%;
+}
+/* line 103, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.highlights .product-price {
+  background: rgba(0, 0, 0, 0.01);
+  box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.25);
+  float: right;
+  margin-right: 30px;
+  color: #262626;
+  border: 1px #ededed solid;
+  padding: 3px 6px;
+  text-transform: uppercase;
+}
+/* line 113, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.highlights .product-price:hover {
+  color: #fff;
+  background: linear-gradient(to bottom, #9fbf00, #80ab00);
+  border-color: #9fbf00;
+}
+/* line 118, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.highlights hr {
+  margin: 7px 0 7px 0;
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+}
+
+/* line 128, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+#bs-example-navbar-collapse-1 {
+  display: flex;
+  flex-flow: row;
+  padding-left: 0;
+  list-style-type: none;
+}
+/* line 133, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+#bs-example-navbar-collapse-1 li, #bs-example-navbar-collapse-1 a {
+  padding-right: 10px;
+  color: #000;
+  font-size: 18px;
+  font-family: "Open Sans";
+}
+/* line 139, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+#bs-example-navbar-collapse-1 a:hover, #bs-example-navbar-collapse-1 li:hover {
+  background-color: inherit;
+  text-decoration: none;
+  color: #000;
+}
+/* line 144, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+#bs-example-navbar-collapse-1 a:focus {
+  font-weight: bold;
+}
+/* line 147, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+#bs-example-navbar-collapse-1 a:first-of-type {
+  padding-left: 0;
+}
+
+/* line 151, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.full {
+  width: 100%;
+}
+
+/* line 154, /home/syat/Projects/Bonnechanse/app/assets/stylesheets/home.scss */
+.gap {
+  height: 30px;
+  width: 100%;
+  clear: both;
+  display: block;
+}

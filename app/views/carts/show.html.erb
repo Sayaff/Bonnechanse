@@ -30,9 +30,7 @@
                         <div class="media">
                           <img src="<%= image_path cart_item.product.image.url(:thumb) %>" alt="">
                             <div class="media-body">
-                                <%= link_to cart_item.product_title %>
-                                <h5 class="media-heading"><%= link_to cart_item.category %></h5>
-                                <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                              <%= render 'carts/product_links', cart_item: cart_item %> <!-- contains links to product, category and status (in Stock etc.), implement for other categories later -->
                             </div>
                         </div>
                         </td>
@@ -54,7 +52,7 @@
                           <%= render 'cart_items/current_product_price', cart_item: cart_item %>
                         </td>
                         <td class="col-sm-1 col-md-1">
-                        <%= link_to t("views.cart_items.delete"), cart_item_path(cart_item), remote: true, method: :delete, :class => "cart-item-delete" %>
+                        <%= link_to t("views.cart_items.delete"), cart_item_path(cart_item), data: { confirm: "#{t "views.common.confirm"}" }, remote: true, method: :delete, :class => "cart-item-delete" %>
                         </td>
                     </tr>
                   <% end %>

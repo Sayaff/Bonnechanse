@@ -1,0 +1,12 @@
+<% if I18n.locale == "en" %>
+  <%= link_to cart_item.product.title_en, polymorphic_path(cart_item.product) %>
+<% else %>
+  <%= link_to cart_item.product.title_ru, polymorphic_path(cart_item.product) %>
+<% end %>
+
+<% if cart_item.pattern_id.present? %>
+  <h5 class="media-heading"><%= link_to cart_item.category, patterns_path %></h5>
+<% elsif cart_item.strand_id.present? %>
+  <h5 class="media-heading"><%= link_to cart_item.category, strands_path %></h5>
+<% end %>
+  <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>

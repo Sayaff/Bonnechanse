@@ -1,11 +1,12 @@
 class StrandsController < ApplicationController
   before_action :admin_check, only: [:new, :create, :edit, :update, :destroy] #in app controller
   before_action :set_strand, only: [:show, :edit, :update, :destroy]
+  respond_to :js
 
   # GET /strands
   # GET /strands.json
   def index
-    @strands = Strand.all
+    @strands = Strand.all.order(title_ru: :asc)
   end
 
   # GET /strands/1
@@ -26,16 +27,16 @@ class StrandsController < ApplicationController
   # POST /strands.json
   def create
     @strand = Strand.new(strand_params)
-
-    respond_to do |format|
+    @admins = User.where(admin: true)
       if @strand.save
-        format.html { redirect_to @strand, notice: 'Strand was successfully created.' }
-        format.json { render :show, status: :created, location: @strand }
+        #create notification, same as in other product groups
+        @admins.each do |admin|
+          AdminNotification.create(recipient: admin, actor: current_user, action: "создал(а)", notifiable: @strand)
+        end
+        redirect_to @strand, notice: 'Товар успешно создан'
       else
-        format.html { render :new }
-        format.json { render json: @strand.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /strands/1
@@ -43,7 +44,7 @@ class StrandsController < ApplicationController
   def update
     respond_to do |format|
       if @strand.update(strand_params)
-        format.html { redirect_to @strand, notice: 'Strand was successfully updated.' }
+        format.html { redirect_to @strand, notice: 'Товар успешно обновлен' }
         format.json { render :show, status: :ok, location: @strand }
       else
         format.html { render :edit }
@@ -57,7 +58,7 @@ class StrandsController < ApplicationController
   def destroy
     @strand.destroy
     respond_to do |format|
-      format.html { redirect_to strands_url, notice: 'Strand was successfully destroyed.' }
+      format.html { redirect_to strands_url, notice: 'Товар удалён' }
       format.json { head :no_content }
     end
   end

@@ -64,10 +64,10 @@ class PatternsController < ApplicationController
     @admins = User.where(admin: true)
       if @pattern.save
         #create notification, notify all admins except the actor, on production - replace with (@admins.uniq - [current_user]).each do |user|
-          @admins.each do |user|
-            AdminNotification.create(recipient: user, actor: current_user, action: "создал(а)", notifiable: @pattern)
+          @admins.each do |admin|
+            AdminNotification.create(recipient: admin, actor: current_user, action: "создал(а)", notifiable: @pattern)
           end
-          redirect_to @pattern, notice: 'Pattern was successfully created.'
+          redirect_to @pattern, notice: 'Схема успешно создана'
       else
         render :new
       end
@@ -78,7 +78,7 @@ class PatternsController < ApplicationController
   def update
     respond_to do |format|
       if @pattern.update(pattern_params)
-        format.html { redirect_to @pattern, notice: 'Pattern was successfully updated.' }
+        format.html { redirect_to @pattern, notice: 'Схема успешно обновлена' }
         format.json { render :show, status: :ok, location: @pattern }
       else
         format.html { render :edit }
@@ -92,7 +92,7 @@ class PatternsController < ApplicationController
   def destroy
     @pattern.destroy
     respond_to do |format|
-      format.html { redirect_to patterns_url, notice: 'Pattern was successfully destroyed.' }
+      format.html { redirect_to patterns_url, notice: 'Схема удалена' }
       format.json { head :no_content }
     end
   end

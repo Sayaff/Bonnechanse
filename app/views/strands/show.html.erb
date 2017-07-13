@@ -56,14 +56,14 @@
           </div>
 
           <div class="row add-to-cart">
-            <div class="col-md-5 text-left">
+            <div class="col-md-4 text-left">
               <h3><%= t("views.common.in_stock") %></h3>
             </div>
-            <div class="col-md-6">
-              <%= form_tag({controller: 'cart_items', action: 'create_strand'}, method: 'POST', class: 'quantity-form') do %>
+            <div class="col-md-8">
+              <%= form_tag({controller: 'cart_items', action: 'create_strand'}, remote: true, method: 'POST', class: 'quantity-form') do %>
                 <div class="row">
                   <div class="col-md-6">
-                    <%= text_field_tag 'quantity' %>
+                    <%= number_field_tag 'quantity', value: 1 %>
                   </div>
                   <div class="col-md-6" id="quantity-submit">
                     <%= button_tag({type: 'submit', class: 'btn add2cart'}) do %>

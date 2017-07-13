@@ -17,15 +17,13 @@ class CartItemsController < ApplicationController
 
   def create_strand
     strand = Strand.find(params[:id])
-    quantity = params[:quantity]
+    quantity = params[:quantity] #allows to add more than 1 item at the same time, add for all products exc.patterns
     if current_cart.cart_items.where(strand_id: strand.id).any?
       cart_item = current_cart.cart_items.find_by(strand_id: strand.id)
-      cart_item.update(quantity: quantity)
+      cart_item.update(quantity: cart_item.quantity.to_i + quantity.to_i)
     else
-      current_cart.cart_items.create(strand_id: strand.id, quantity: quantity)
-  end
-
-  redirect_to :back
+      current_cart.cart_items.create(user_id: current_user.id, strand_id: strand.id, quantity: quantity)
+    end
   end
 
   def create_fabric

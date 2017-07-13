@@ -304,6 +304,7 @@ en:
       in_stock: "In Stock"
       magnify: "Show in bigger size"
       new_item: "New Item"
+      confirm: "Are you sure?"
     filters:
       sort_by: "Sort by"
       all: "All"

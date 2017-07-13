@@ -69,9 +69,12 @@
                           <% else %>
                             <p class="ci-price"><%= number_to_currency(strand.price_usd, :unit => '$') %></p>
                           <% end %>
-                            <%= link_to create_strand_cart_item_path(id: strand.id), method: 'POST', remote: true, :class => "btn add2cart" do %>
+                          <%= form_tag create_strand_cart_item_path(id: strand.id), remote: true, method: 'POST', class: 'quantity-form' do %>
+                            <%= hidden_field_tag 'quantity', value = 1 %> <!-- solved the issue with quantity: nil when called from this view --> 
+                            <%= button_tag({type: 'submit', class: 'btn add2cart'}) do %>
                               <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i> <%= t("views.common.add_to_cart") %>
                             <% end %>
+                          <% end %>
                             <!-- <div class="sticker sticker-new"></div> -->
                               <% if user_signed_in? && current_user.admin? %>
                                   <%= link_to t("views.common.edit"), edit_strand_path(strand), :class => "btn" %>

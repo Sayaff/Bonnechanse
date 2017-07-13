@@ -63,7 +63,7 @@
               <%= form_tag({controller: 'cart_items', action: 'create_strand'}, remote: true, method: 'POST', class: 'quantity-form') do %>
                 <div class="row">
                   <div class="col-md-6">
-                    <%= number_field_tag 'quantity', value: 1 %>
+                    <%= number_field_tag 'quantity', value = 1 %>
                   </div>
                   <div class="col-md-6" id="quantity-submit">
                     <%= button_tag({type: 'submit', class: 'btn add2cart'}) do %>
@@ -80,7 +80,7 @@
 
           <div class="row">
             <div class="col-md-4 col-md-offset-7 top-ten">
-            <%= link_to cart_items_path, :class => "btn add2cart" do %>
+            <%= link_to cart_path, :class => "btn add2cart" do %>
               <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> <%= t("application.navbar.my_cart") %>
             <% end %>
             </div>

@@ -337,6 +337,7 @@ ru:
       in_stock: "В наличии"
       magnify: "Увеличить"
       new_item: "Новый товар"
+      confirm: "Вы уверены?"
     filters:
       sort_by: "Сортировать по:"
       new: "Новые"

@@ -256,7 +256,7 @@ DEPENDENCIES
   aws-sdk (~> 2.9, >= 2.9.19)
   bootstrap-sass (~> 3.3.7)
   byebug
-  capistrano
+  capistrano (~> 3.8.2)
   capistrano-bundler
   capistrano-rails
   capistrano-rails-console

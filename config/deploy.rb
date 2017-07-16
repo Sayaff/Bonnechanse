@@ -4,11 +4,11 @@ lock "3.8.2"
 set :application, 'Bonnechanse'
 set :repo_url, 'git@github.com:Sayaff/Bonnechanse.git' # Edit this to match your repository
 set :branch, :production
-set :deploy_to, '/home/syat/Bonnechanse'
+set :deploy_to, '/home/Bonnechanse/Bonnechanse'
 set :pty, true
 set :linked_files, %w{config/database.yml config/application.yml}
-set :linked_dirs, %w{log tmp/pids tmp/sockets vendor/bundle public/system public/uploads}
-set :keep_releases, 1
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :keep_releases, 3
 set :rvm_type, :user
 set :rvm_ruby_version, '2.3.1'
 

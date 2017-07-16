@@ -36,7 +36,7 @@ class CartItem < ActiveRecord::Base
   def product_price_usd
     self.product.price_usd * self.quantity
   end
-  
+
   def category
     if self.pattern_id.present?
       I18n.t 'activerecord.models.cart_item.pattern'

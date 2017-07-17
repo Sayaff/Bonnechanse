@@ -41,8 +41,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "ec2-52-211-86-21.eu-west-1.compute.amazonaws.com" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name:     ENV["MAILER_LOGIN"],
-    password:      ENV["MAILER_PASSWORD"],
+    user_name:     "kir3217@yandex.ru",
+    password:      "riut54Ux73",
     domain:        'ec2-52-211-86-21.eu-west-1.compute.amazonaws.com',
     address:       'smtp.yandex.ru',
     port:          '587',

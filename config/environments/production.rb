@@ -38,12 +38,12 @@ Rails.application.configure do
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: "ec2-52-211-86-21.eu-west-1.compute.amazonaws.com" }
+  config.action_mailer.default_url_options = { host: "ec2-52-211-94-194.eu-west-1.compute.amazonaws.com" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     user_name:     "kir3217@yandex.ru",
     password:      "riut54Ux73",
-    domain:        'ec2-52-211-86-21.eu-west-1.compute.amazonaws.com',
+    domain:        'ec2-52-211-94-194.eu-west-1.compute.amazonaws.com',
     address:       'smtp.yandex.ru',
     port:          '587',
     authentication: :plain,

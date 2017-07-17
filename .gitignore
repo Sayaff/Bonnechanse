@@ -21,3 +21,6 @@
 
 # Ignore database configuration
 /config/database.yml
+
+# Ignore secret key bases
+/config/secrets.yml 

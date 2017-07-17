@@ -4,13 +4,13 @@ lock "3.8.0"
 set :application, 'Bonnechanse'
 set :repo_url, 'git@github.com:Sayaff/Bonnechanse.git' # Edit this to match your repository
 set :branch, :production
-set :deploy_to, '/home/Bonnechanse/Bonnechanse'
+set :deploy_to, '/home/syat/Bonnechanse'
 set :pty, true
 set :linked_files, %w{config/database.yml config/application.yml}
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
-set :keep_releases, 3
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :keep_releases, 5
 set :rvm_type, :user
-set :rvm_ruby_version, '2.3.1'
+set :rvm_ruby_version, 'ruby-2.3.1' # Edit this if you are using MRI Ruby
 
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 set :puma_state, "#{shared_path}/tmp/pids/puma.state"

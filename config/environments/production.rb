@@ -41,8 +41,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "ec2-52-211-194-94.eu-west-1.compute.amazonaws.com" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name:     "kir3217@yandex.ru",
-    password:      "riut54Ux73",
+    user_name:     ENV['MAILER_LOGIN'],
+    password:      ENV['MAILER_PASSWORD'],
     domain:        'ec2-52-211-94-194.eu-west-1.compute.amazonaws.com',
     address:       'smtp.yandex.ru',
     port:          '587',
@@ -52,6 +52,7 @@ Rails.application.configure do
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
+  Paperclip.options[:command_path] = "/usr/bin"
   config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {

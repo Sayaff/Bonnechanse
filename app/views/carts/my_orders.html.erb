@@ -1,0 +1,23 @@
+<div class="index-wrapper">
+  <div class="container">
+    <table class="col-md-12 table">
+      <th>Мои заказы</th>
+        <div class="all-orders">
+          <% @carts.each do | cart | %>
+            <tr>
+              <td>Заказ номер <%= cart.order_number %></td>
+            </tr>
+            <tr>
+              <td> <% cart.cart_items.each do |cart_item| %>
+                <%= cart_item.product.title_en %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </div>
+        <tr>
+          <td><%=link_to "Назад", :back %></td>
+        </tr>
+    </table>
+  </div>
+</div>

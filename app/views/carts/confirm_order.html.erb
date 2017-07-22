@@ -1,0 +1,57 @@
+<div class="index-wrapper">
+  <div class="container">
+    <h1 class="text-center">Please check your order details</h1>
+    <table class="table">
+      <thead>
+          <tr>
+              <th>Product</th>
+              <th><%= t "views.cart_items.quantity" %></th>
+              <th class="text-center">Price</th>
+              <th class="text-center">Total</th>
+              <th> </th>
+          </tr>
+      </thead>
+      <tbody>
+        <% @cart_items.each do | cart_item | %>
+          <tr>
+              <td class="col-sm-6 col-md-4">
+              <div class="media">
+                <img src="<%= image_path cart_item.product.image.url(:thumb) %>" alt="">
+                  <div class="media-body">
+                    <%= render 'carts/product_links', cart_item: cart_item %> <!-- contains links to product, category and status (in Stock etc.), implement for other categories later -->
+                  </div>
+              </div>
+              </td>
+              <td class="quantity row col-sm-2 col-md-2">
+                <%= cart_item.quantity %>
+              </td>
+              <% if session[:currency] == "RUB" %>
+                <td class="col-sm-1 col-md-1 text-center" id='price_rub'><strong><%= number_to_currency(cart_item.product.price_rub, :unit => '₽') %></strong></td>
+              <% else %>
+                <td class="col-sm-1 col-md-1 text-center" id='price_usd'><strong><%= number_to_currency(cart_item.product.price_usd, :unit => '$') %></strong></td>
+              <% end %>
+              <td id="current-product-price_<%= cart_item.id %>" class="col-sm-1 col-md-1 text-center">
+                <%= render 'cart_items/current_product_price', cart_item: cart_item %>
+              </td>
+          </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+          <tr id="current-cart-total">
+            <%= render 'cart_items/current_cart_total' %>
+          </tr>
+          <tr>
+              <td>   </td>
+              <td>   </td>
+              <td>   </td>
+              <td>
+                <%= link_to t('views.cart_items.c_s'), root_path, :class => "btn btn-primary outline btn-lg btn-full-width" %>
+              <td>
+                <%= link_to t('views.cart_items.p_o'), place_order_cart_path, :class => "btn btn-success outline btn-lg btn-full-width" %>
+              </td>
+          </tr>
+      </tfoot>
+    </table>
+
+  </div>
+</div>

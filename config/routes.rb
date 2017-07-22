@@ -37,6 +37,9 @@ Rails.application.routes.draw do
         get :confirm_order
         get :place_order
       end
+      collection do
+        get :my_orders
+      end
     end
 
     resources :cart_items do

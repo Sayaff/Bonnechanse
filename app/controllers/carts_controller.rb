@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart_items
-  
+
   def show
   end
 
@@ -8,6 +8,10 @@ class CartsController < ApplicationController
   end
 
   def place_order
+  end
+
+  def my_orders
+    @carts = Cart.where(user_id: current_user.id)
   end
 
 private

@@ -14,9 +14,10 @@ class ApplicationController < ActionController::Base
     end
 
     def current_cart
+       order_number = (45..5000).to_a.shuffle
        Cart.find(session[:cart_id])
     rescue ActiveRecord::RecordNotFound
-       cart = Cart.create
+       cart = Cart.create(user_id: current_user.id, order_number: order_number.pop) #cart_id for admins, order_number for users, .pop takes care of uniqueness
        session[:cart_id] = cart.id
        cart
     end

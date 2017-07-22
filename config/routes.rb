@@ -32,7 +32,12 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :show]
 
-    resources :carts, only: [:show]
+    resources :carts, only: [:show] do
+      member do
+        get :confirm_order
+        get :place_order
+      end
+    end
 
     resources :cart_items do
       member do

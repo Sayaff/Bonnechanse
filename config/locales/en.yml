@@ -356,6 +356,11 @@ en:
         genre_scene: "Genre Scene"
     strands:
       header: "Threads catalog"
+    cart:
+      postal_code: "Postal code"
+      country: "Country"
+      city: "City"
+      address: "Address"
     cart_items:
       title: "My Cart"
       empty: "The cart is currently empty"

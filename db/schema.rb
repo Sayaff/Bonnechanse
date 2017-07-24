@@ -163,15 +163,19 @@ ActiveRecord::Schema.define(version: 20170722113121) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.string   "first_name"
     t.string   "last_name"
     t.text     "about"
     t.date     "birthday"
     t.boolean  "admin",                  default: false
     t.boolean  "terms",                  default: false
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
+    t.integer  "postal_code"
+    t.string   "country"
+    t.string   "city"
+    t.string   "address"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

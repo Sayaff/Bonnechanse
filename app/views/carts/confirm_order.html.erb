@@ -35,22 +35,38 @@
               </td>
           </tr>
         <% end %>
-      </tbody>
-      <tfoot>
           <tr id="current-cart-total">
             <%= render 'cart_items/current_cart_total' %>
+          </tr>
+          <tr>
+          <td>
+            <%= form_tag user_path(@user), method: :patch do %>
+              <%= label_tag t('views.cart.postal_code') %>
+              <%= number_field_tag :postal_code %>
+              <%= label_tag t('views.cart.country') %>
+              <%= text_field_tag :country %>
+              <%= label_tag t('views.cart.city') %>
+              <%= text_field_tag :city %>
+              <%= label_tag t('views.cart.address') %>
+              <%= text_field_tag :address %>
+              <%= submit_tag 'submit' %>
+            <% end %>
+          </td>
           </tr>
           <tr>
               <td>   </td>
               <td>   </td>
               <td>   </td>
               <td>
-                <%= link_to t('views.cart_items.c_s'), root_path, :class => "btn btn-primary outline btn-lg btn-full-width" %>
+                <%= link_to "Go Back", :back, :class => "btn btn-primary outline btn-lg btn-full-width" %>
               <td>
-                <%= link_to t('views.cart_items.p_o'), place_order_cart_path, :class => "btn btn-success outline btn-lg btn-full-width" %>
+                <%= link_to "Go for payment", place_order_cart_path, :class => "btn btn-success outline btn-lg btn-full-width" %>
               </td>
           </tr>
-      </tfoot>
+          <tr>
+
+          </tr>
+      </tbody>
     </table>
 
   </div>

@@ -389,6 +389,11 @@ ru:
         genre_scene: "Жанровая сцена"
     strands:
       header: "Каталог ниток"
+    cart:
+      postal_code: "Почтовый индекс"
+      country: "Страна"
+      city: "Город"
+      address: "Адрес"
     cart_items:
       title: "Моя корзина"
       empty: "Корзина пуста"

@@ -5,6 +5,7 @@ class CartsController < ApplicationController
   end
 
   def confirm_order
+    @user = current_user
   end
 
   def place_order

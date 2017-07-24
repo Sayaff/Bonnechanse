@@ -28,9 +28,9 @@ Rails.application.routes.draw do
       end
     end
 
-    devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations'}
-
-    resources :users, only: [:index, :show]
+    devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations', sessions: 'sessions'}
+    
+    resources :users, only: [:index, :edit, :show, :update]
 
     resources :carts, only: [:show] do
       member do

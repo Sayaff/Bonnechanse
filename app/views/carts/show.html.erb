@@ -30,7 +30,7 @@
                         <div class="media">
                           <img src="<%= image_path cart_item.product.image.url(:thumb) %>" alt="">
                             <div class="media-body">
-                              <%= render 'carts/product_links', cart_item: cart_item %> <!-- contains links to product, category and status (in Stock etc.), implement for other categories later -->
+                              <%= render 'carts/partials/product_links', cart_item: cart_item %> <!-- contains links to product, category and status (in Stock etc.), implement for other categories later -->
                             </div>
                         </div>
                         </td>

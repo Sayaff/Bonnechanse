@@ -64,10 +64,17 @@ ActiveRecord::Schema.define(version: 20170722113121) do
     t.decimal  "total_rub"
     t.decimal  "total_usd"
     t.integer  "user_id"
+    t.string   "recipient_first_name"
+    t.string   "recipient_middle_name"
+    t.string   "recipient_last_name"
+    t.string   "recipient_email"
+    t.string   "recipient_address"
     t.integer  "cart_status_id"
     t.integer  "order_number"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.boolean  "for_yourself",          default: false
+    t.boolean  "as_present",            default: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "fabrics", force: :cascade do |t|
@@ -167,15 +174,13 @@ ActiveRecord::Schema.define(version: 20170722113121) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "first_name"
+    t.string   "middle_name"
     t.string   "last_name"
     t.text     "about"
     t.date     "birthday"
+    t.string   "address"
     t.boolean  "admin",                  default: false
     t.boolean  "terms",                  default: false
-    t.integer  "postal_code"
-    t.string   "country"
-    t.string   "city"
-    t.string   "address"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

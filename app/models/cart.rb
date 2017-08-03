@@ -14,7 +14,6 @@ class Cart < ActiveRecord::Base
     cart_items.collect { |ci| ci.valid? ? (ci.quantity * ci.product.price_usd) : 0 }.sum
   end
 
-
 private
   def set_cart_status
     self.cart_status_id = 1

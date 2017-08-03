@@ -13,6 +13,8 @@
 
           <%= f.input :first_name, autofocus: true %>
 
+          <%= f.input :middle_name, autofocus: true %>
+
           <%= f.input :last_name, autofocus: true %>
 
           <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, autofocus: true, order: [:day, :month, :year] %>

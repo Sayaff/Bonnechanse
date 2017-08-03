@@ -18,7 +18,7 @@
               <div class="media">
                 <img src="<%= image_path cart_item.product.image.url(:thumb) %>" alt="">
                   <div class="media-body">
-                    <%= render 'carts/product_links', cart_item: cart_item %> <!-- contains links to product, category and status (in Stock etc.), implement for other categories later -->
+                    <%= render 'carts/partials/product_links', cart_item: cart_item %> <!-- contains links to product, category and status (in Stock etc.), implement for other categories later -->
                   </div>
               </div>
               </td>
@@ -39,20 +39,40 @@
             <%= render 'cart_items/current_cart_total' %>
           </tr>
           <tr>
+            <td><%= link_to "Buy for yourself", buy_for_yourself_cart_path %></td>
+            <td><%= link_to "Buy as present", buy_as_present_cart_path %></td>
+          </tr>
+          <tr>
+            <td id="recipient-details-form"></td> <!-- place for rendering buy_for_yourself and buy_as_present partials-->
+          </tr>
+          <!-- <tr>
+            <td>
+              <% if @cart_items.where(pattern_id: nil).any? %>
+                <%= form_tag user_path(@user), method: :patch, id: 'receiving-email-form' do %>
+                  <%= label_tag 'email' %>
+                  <%= email_field_tag :receiving_email %>
+                  <%= submit_tag 'submit' %>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
           <td>
-            <%= form_tag user_path(@user), method: :patch do %>
-              <%= label_tag t('views.cart.postal_code') %>
-              <%= number_field_tag :postal_code %>
-              <%= label_tag t('views.cart.country') %>
-              <%= text_field_tag :country %>
-              <%= label_tag t('views.cart.city') %>
-              <%= text_field_tag :city %>
-              <%= label_tag t('views.cart.address') %>
-              <%= text_field_tag :address %>
-              <%= submit_tag 'submit' %>
+            <% if @cart_items.where.not(strand_id: nil).any? %>
+              <%= form_tag user_path(@user), method: :patch, id: 'user-address-form' do %>
+                <%= label_tag t('views.cart.postal_code') %>
+                <%= text_field_tag :postal_code %>
+                <%= label_tag t('views.cart.country') %>
+                <%= text_field_tag :country %>
+                <%= label_tag t('views.cart.city') %>
+                <%= text_field_tag :city %>
+                <%= label_tag t('views.cart.address') %>
+                <%= text_field_tag :address %>
+                <%= submit_tag 'submit' %>
+              <% end %>
             <% end %>
           </td>
-          </tr>
+        </tr> -->
           <tr>
               <td>   </td>
               <td>   </td>
@@ -60,7 +80,7 @@
               <td>
                 <%= link_to "Go Back", :back, :class => "btn btn-primary outline btn-lg btn-full-width" %>
               <td>
-                <%= link_to "Go for payment", place_order_cart_path, :class => "btn btn-success outline btn-lg btn-full-width" %>
+                <%= link_to "Go to payment", place_order_cart_path, :id => 'go-to-payment', :class => "btn btn-success outline btn-lg btn-full-width" %>
               </td>
           </tr>
           <tr>

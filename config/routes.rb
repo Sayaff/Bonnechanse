@@ -29,13 +29,15 @@ Rails.application.routes.draw do
     end
 
     devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations', sessions: 'sessions'}
-    
+
     resources :users, only: [:index, :edit, :show, :update]
 
-    resources :carts, only: [:show] do
+    resources :carts do
       member do
         get :confirm_order
         get :place_order
+        get :buy_for_yourself
+        get :buy_as_present
       end
       collection do
         get :my_orders

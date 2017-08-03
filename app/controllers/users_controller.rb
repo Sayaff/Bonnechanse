@@ -40,6 +40,6 @@ layout "dashboard"
   end
 private
   def user_params
-    params.permit(:postal_code, :country, :city, :address)
+    params.permit(:postal_code, :country, :city, :address, :receiving_email)
   end
 end

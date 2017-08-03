@@ -1,0 +1,18 @@
+
+  <%= simple_form_for(current_cart) do |f| %>
+
+    <%= errors_for current_cart %>
+
+    <%= f.input :recipient_first_name, placeholder: "First Name" %>
+
+    <%= f.input :recipient_middle_name, placeholder: "First Name" %>
+
+    <%= f.input :recipient_last_name, placeholder: "First Name" %>
+
+    <%= f.input :recipient_email %>
+
+    <%= f.input :recipient_address %>
+
+    <%= f.button :submit %>
+
+  <% end %>

@@ -9,8 +9,7 @@ class CartsController < ApplicationController
     if current_cart.update(cart_params)
       format.html { redirect_to action: :place_order }
     else
-      format.html { render json: {success: false} }
-      format.json { render json: {success: false} }
+      format.html { redirect_to :back, notice: "Please fill the form" }
     end
    end
   end
@@ -21,6 +20,9 @@ class CartsController < ApplicationController
 
   def place_order
     current_cart.update(cart_status_id: 2)
+    if current_cart.for_yourself?
+      current_user.update(address: current_cart.recipient_address)
+    end
     session[:cart_id] = nil
     current_cart.cart_items.destroy_all
   end

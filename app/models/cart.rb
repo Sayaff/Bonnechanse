@@ -5,6 +5,12 @@ class Cart < ActiveRecord::Base
   before_create :set_cart_status
   before_save :update_total_rub
   before_save :update_total_usd
+  #allows to validate user address only on order placement, not on account registration/update
+  with_options if: :place_order_validation?, on: :update do |p|
+    p.validates :recipient_first_name, :recipient_middle_name, :recipient_last_name, :recipient_email, :recipient_address, presence: true
+  end
+
+  scope :placed, ->{ where.not(cart_status_id: 1) } #id: 1 means "not confirmed yet", no need for this in order management
 
   def total_rub
     cart_items.collect { |ci| ci.valid? ? (ci.quantity * ci.product.price_rub) : 0 }.sum
@@ -12,6 +18,10 @@ class Cart < ActiveRecord::Base
 
   def total_usd
     cart_items.collect { |ci| ci.valid? ? (ci.quantity * ci.product.price_usd) : 0 }.sum
+  end
+
+  def place_order_validation?
+    self[:for_yourself] || self[:as_present]
   end
 
 private

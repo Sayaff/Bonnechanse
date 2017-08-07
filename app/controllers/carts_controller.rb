@@ -1,5 +1,10 @@
 class CartsController < ApplicationController
   before_action :set_cart_items
+  before_action :set_cart, only: [:cart_info, :switch_to_placed, :switch_to_delivered, :switch_to_cancelled]
+
+  def index
+    @carts = Cart.placed
+  end
 
   def show
   end
@@ -23,6 +28,7 @@ class CartsController < ApplicationController
     if current_cart.for_yourself?
       current_user.update(address: current_cart.recipient_address)
     end
+    #removes cart from session after payment and makes sure no cart items left in new cart
     session[:cart_id] = nil
     current_cart.cart_items.destroy_all
   end
@@ -34,6 +40,7 @@ class CartsController < ApplicationController
     recipient_email: current_user.email,
     recipient_address: current_user.address,
     for_yourself: true, as_present: false)
+    #binding.pry
   end
 
   def buy_as_present
@@ -49,7 +56,30 @@ class CartsController < ApplicationController
     @carts = Cart.where(user_id: current_user.id)
   end
 
+  def cart_info
+  end
+
+  def switch_to_placed
+    @cart.update(cart_status_id: 2)
+    redirect_to action: :cart_info
+  end
+
+  def switch_to_delivered
+    @cart.update(cart_status_id: 3)
+    redirect_to action: :cart_info
+  end
+
+  def switch_to_cancelled
+    @cart.update(cart_status_id: 4)
+    redirect_to action: :cart_info
+  end
+
 private
+
+  def set_cart
+    @cart = Cart.find(params[:id])
+  end
+
   def set_cart_items
     @cart_items = current_cart.cart_items.order(:id)
   end

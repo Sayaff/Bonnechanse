@@ -1,0 +1,44 @@
+<div class="index-wrapper">
+    <div class="container">
+      <table class="col-md-12 table">
+        <tr>
+          <td>Номер заказа: <%= @cart.order_number %></td>
+        </tr>
+        <tr>
+          <% if @cart.for_yourself? %>
+            <td><%= link_to "ФИО получателя: #{@cart.recipient_first_name} #{@cart.recipient_middle_name} #{@cart.recipient_last_name} (получатель зарегистрирован на сайте)", user_path(id: @cart.user_id) %></td>
+          <% else %>
+            <td>ФИО получателя: <%= @cart.recipient_first_name %> <%= @cart.recipient_middle_name %> <%= @cart.recipient_last_name %> (получатель не зарегистрирован на сайте)</td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Email получателя: <%= @cart.recipient_email %></td>
+        </tr>
+        <tr>
+          <td>Почтовый адрес получателя: <%= @cart.recipient_address %></td>
+        </tr>
+        <tr>
+          <td>Статус заказа:</td>
+          <% if @cart.cart_status_id == 2 %>
+            <td>Оплачен, в обработке</td>
+          <% elsif @cart.cart_status_id == 3 %>
+            <td>Доставлен</td>
+          <% elsif @cart.cart_status_id == 4 %>
+            <td>Отменён</td>
+          <% end %>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Изменить статус
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Оплачен", switch_to_placed_cart_path(@cart) %></li>
+                <li><%= link_to "Доставлен", switch_to_delivered_cart_path(@cart) %></li>
+                <li><%= link_to "Отменён", switch_to_cancelled_cart_path(@cart) %></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <p><%= link_to "Назад к списку заказов", carts_path %></p>
+    </div>
+</div>

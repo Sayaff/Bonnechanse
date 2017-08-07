@@ -1,0 +1,17 @@
+<div class="index-wrapper">
+    <div class="container">
+      <table class="col-md-12 table">
+          <% @carts.each do |cart| %>
+            <tr>
+              <td><%= cart.id %></td>
+              <td><%= cart.order_number %></td>
+              <td><%= cart.recipient_first_name %> <%= cart.recipient_middle_name %> <%= cart.recipient_last_name %></td>
+              <td><%= cart.cart_status_id %></td>
+              <td><%= cart.updated_at %></td>
+              <td><%= link_to "Подробнее", cart_info_cart_path(cart) %></td>
+            </tr>
+          <% end %>
+      </table>
+
+    </div>
+</div>

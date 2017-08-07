@@ -101,17 +101,17 @@
             <div class="top-20">
               <h4>
                 <strong><%= Pattern.human_attribute_name("category") %></strong>
-                <% if @pattern.category == 'Портрет' || @pattern.category == 'Portrait' %>
-                  <%= @pattern.human_attribute_name("category.portrait") %>
-                <% elsif @pattern.category == 'Натюрморт' || @pattern.category == 'Still life' %>
-                  <%= @pattern.human_attribute_name("category.still_life") %>
-                <% elsif @pattern.category == 'Пейзаж' || @pattern.category == 'Scenery' %>
-                  <%= @pattern.human_attribute_name("category.scenery") %>
-                <% elsif @pattern.category == 'Жанровая сцена' || @pattern.category == 'Genre Scene' %>
-                  <%= @pattern.human_attribute_name("category.genre_scene") %>
-                <% else %>
-                  <%= @pattern.category %>
-                <% end %>
+                  <% if @pattern.category == 'Портрет' || @pattern.category == 'Portrait' %>
+                    <%= @pattern.human_attribute_name("category.portrait") %>
+                  <% elsif @pattern.category == 'Натюрморт' || @pattern.category == 'Still life' %>
+                    <%= @pattern.human_attribute_name("category.still_life") %>
+                  <% elsif @pattern.category == 'Пейзаж' || @pattern.category == 'Scenery' %>
+                    <%= @pattern.human_attribute_name("category.scenery") %>
+                  <% elsif @pattern.category == 'Жанровая сцена' || @pattern.category == 'Genre Scene' %>
+                    <%= @pattern.human_attribute_name("category.genre_scene") %>
+                  <% else %>
+                    <%= @pattern.category %>
+                  <% end %>
               </h4>
             </div>
             </div>

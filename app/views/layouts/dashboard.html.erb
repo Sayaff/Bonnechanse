@@ -94,7 +94,9 @@
                       <% end %>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-money fa-fw"></i> Заказы</a>
+                      <%= link_to carts_path do %>
+                        <i class="fa fa-money fa-fw"></i> Заказы
+                      <% end %>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-truck fa-fw"></i> Склад</a>

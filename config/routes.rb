@@ -38,6 +38,10 @@ Rails.application.routes.draw do
         get :place_order
         get :buy_for_yourself
         get :buy_as_present
+        get :cart_info
+        get :switch_to_placed
+        get :switch_to_delivered
+        get :switch_to_cancelled
       end
       collection do
         get :my_orders

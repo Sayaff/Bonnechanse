@@ -6,6 +6,7 @@ layout "dashboard"
 
   def index
     @admin_notifications = AdminNotification.where(recipient: current_user).unread
+    @carts = Cart.placed
   end
 
   private

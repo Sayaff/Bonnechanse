@@ -6,7 +6,6 @@ class AdminNotificationsController < ApplicationController
   layout "dashboard"
 
   def index
-
   end
 
   def mark_as_read

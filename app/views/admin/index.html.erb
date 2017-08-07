@@ -21,7 +21,7 @@
               <h4 class="dashboard-panel-heading">Всего заказов</h4>
                 <div class="row">
                   <i class="fa fa-shopping-cart fa-3x"></i>
-                  <h3 class="dashboard-panel-number"><%= User.count %></h3> <!-- not implemented yet, change to Order later -->
+                  <h3 class="dashboard-panel-number"><%= Cart.placed.count %></h3>
                 </div>
             </div>
           </div>
@@ -45,16 +45,19 @@
                     <i class="fa fa-shopping-cart fa-fw"></i> Новые заказы
                   </h4>
                 </th>
+                <% @carts.take(5).each do |cart| %>
                   <tr>
                     <td>
-                      <p>Здесь будут отображаться несколько недавно поступивших заказов</p>
+                      <p>
+                        Получен новый заказ! <%= link_to "Подробнее", cart_info_cart_path(cart) %>
+                      </p>
                     </td>
                   </tr>
-                  <tr>
-                    <td>
-                      <p>По ссылке можно будет посмотреть перечень товаров в заказе, сумму и пользователя, сделавшего заказ</p>
-                    </td>
-                  </tr>
+                <% end %>
+                <tr>
+                  <td><p><%= link_to "Просмотреть все", carts_path %></p></td>
+                </tr>
+
                 </table>
             </div>
           </div>

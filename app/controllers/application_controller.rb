@@ -37,7 +37,6 @@ private
           @cart_items.each do | cart_item |
             if cart_item.product == nil
               cart_item.destroy
-              render json: { success: true }
             end
           end
         end

@@ -7,6 +7,8 @@ class CartItem < ActiveRecord::Base
   belongs_to :kit
   belongs_to :accessory
 
+  scope :storageable, ->{ where(pattern_id: nil) }
+
   def product
     if self.pattern_id.present?
       Pattern.find_by(id: self.pattern_id)
@@ -35,6 +37,10 @@ class CartItem < ActiveRecord::Base
 
   def product_price_usd
     self.product.price_usd * self.quantity
+  end
+
+  def after_order_quantity
+    self.product.storage_quantity - self.quantity
   end
 
   def category

@@ -6,14 +6,11 @@ class Cart < ActiveRecord::Base
   before_save :update_total_rub
   before_save :update_total_usd
   #allows to validate user details on order placement, not on account registration/update
-  with_options if: :place_order_validation, on: :update do |p|
+  with_options if: :place_order_validation do |p|
     p.validates :recipient_first_name, presence: true
-    p.validates :recipient_middle_name, presence: true
-    p.validates :recipient_last_name, presence: true
-    p.validates :recipient_email, presence: true
   end
   #validates postal address only if shipping is required (in patterns' case it's not)
-  with_options if: -> { place_order_validation && shipping_needed? }, on: :update do |p|
+  with_options if: -> { place_order_validation && shipping_needed? } do |p|
     p.validates :recipient_address, presence: true
   end
 

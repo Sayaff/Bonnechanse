@@ -71,6 +71,6 @@ class StrandsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def strand_params
-      params.require(:strand).permit(:title_en, :title_ru, :manufacturer, :price_usd, :price_rub, :color, :image)
+      params.require(:strand).permit(:title_en, :title_ru, :manufacturer, :price_usd, :price_rub, :color, :storage_quantity, :image)
     end
 end

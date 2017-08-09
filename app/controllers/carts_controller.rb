@@ -25,22 +25,27 @@ class CartsController < ApplicationController
 
   def place_order
     current_cart.update(cart_status_id: 2)
+
     if current_cart.for_yourself?
       current_user.update(address: current_cart.recipient_address)
     end
+    #updates product quantity available in storage, see method in cart_item model
+    current_cart.cart_items.storageable.each do |cart_item|
+      cart_item.product.update(storage_quantity: cart_item.after_order_quantity)
+    end
+
     #removes cart from session after payment and makes sure no cart items left in new cart
     session[:cart_id] = nil
     current_cart.cart_items.destroy_all
   end
 
   def buy_for_yourself
-    current_cart.update(recipient_first_name: current_user.first_name,
+    current_cart.update(for_yourself: true, as_present: false,
+    recipient_first_name: current_user.first_name,
     recipient_middle_name: current_user.middle_name,
     recipient_last_name: current_user.last_name,
     recipient_email: current_user.email,
-    recipient_address: current_user.address,
-    for_yourself: true, as_present: false)
-    #binding.pry
+    recipient_address: current_user.address)
   end
 
   def buy_as_present

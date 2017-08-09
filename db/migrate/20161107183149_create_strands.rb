@@ -7,6 +7,8 @@ class CreateStrands < ActiveRecord::Migration
       t.decimal :price_usd
       t.decimal :price_rub
       t.string :color
+      t.string :storage_status
+      t.integer :storage_quantity
 
       t.timestamps null: false
     end

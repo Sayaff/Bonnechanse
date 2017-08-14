@@ -30,11 +30,18 @@
             <div class="dropdown">
               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Изменить статус
               <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Оплачен", switch_to_placed_cart_path(@cart) %></li>
-                <li><%= link_to "Доставлен", switch_to_delivered_cart_path(@cart) %></li>
-                <li><%= link_to "Отменён", switch_to_cancelled_cart_path(@cart) %></li>
-              </ul>
+              <!-- protection from accidental status change (can possibly cause mismatches in storage)-->
+              <% if @cart.cart_status_id == 4 %>
+                <ul class="dropdown-menu">
+                  <li>Изменение статуса заказа невозможно</li>
+                </ul>
+              <% else %>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Оплачен", switch_to_placed_cart_path(@cart) %></li>
+                  <li><%= link_to "Доставлен", switch_to_delivered_cart_path(@cart) %></li>
+                  <li><%= link_to "Отменён", switch_to_cancelled_cart_path(@cart), data: {confirm: 'Вы уверены? Изменить статус заказа снова будет невозможно'} %></li>
+                </ul>
+              <% end %>
             </div>
           </td>
         </tr>

@@ -33,7 +33,7 @@ class CartsController < ApplicationController
     current_cart.cart_items.storageable.each do |cart_item|
       cart_item.product.update(storage_quantity: cart_item.after_order_quantity)
     end
-
+    UserMailer.order_confirm_email(current_user, current_cart).deliver_now
     #removes cart from session after payment and makes sure no cart items left in new cart
     session[:cart_id] = nil
     current_cart.cart_items.destroy_all
@@ -76,6 +76,10 @@ class CartsController < ApplicationController
 
   def switch_to_cancelled
     @cart.update(cart_status_id: 4)
+    #updates product quantity available in storage, see method in cart_item model
+    current_cart.cart_items.storageable.each do |cart_item|
+      cart_item.product.update(storage_quantity: cart_item.cancelled_order_quantity)
+    end
     redirect_to action: :cart_info
   end
 

@@ -43,6 +43,10 @@ class CartItem < ActiveRecord::Base
     self.product.storage_quantity - self.quantity
   end
 
+  def cancelled_order_quantity
+    self.product.storage_quantity + self.quantity
+  end
+
   def category
     if self.pattern_id.present?
       I18n.t 'activerecord.models.cart_item.pattern'

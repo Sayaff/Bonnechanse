@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807184319) do
+ActiveRecord::Schema.define(version: 20170819150206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,15 @@ ActiveRecord::Schema.define(version: 20170807184319) do
     t.datetime "updated_at",                            null: false
   end
 
+  create_table "discounts", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "discount_amount"
+    t.date     "date_from"
+    t.date     "date_to"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "fabrics", force: :cascade do |t|
     t.string   "title"
     t.string   "manufacturer"
@@ -124,12 +133,18 @@ ActiveRecord::Schema.define(version: 20170807184319) do
     t.string   "designer"
     t.string   "size"
     t.string   "category"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "discount_active",     default: false
+    t.integer  "discount_percentage"
+    t.date     "from_date"
+    t.date     "to_date"
+    t.decimal  "initial_price_rub"
+    t.decimal  "initial_price_usd"
   end
 
   create_table "products", force: :cascade do |t|

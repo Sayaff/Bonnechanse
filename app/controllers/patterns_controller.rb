@@ -13,7 +13,7 @@ class PatternsController < ApplicationController
     @patterns = Pattern.all.order("created_at DESC")
     render action: :index
   end
-
+#scopes for sorting main catalog
   def price_roubles
     @patterns = Pattern.all.order(price_rub: :desc)
     render action: :index
@@ -25,22 +25,33 @@ class PatternsController < ApplicationController
   end
 
   def scenery
-    @patterns = Pattern.where(category: ['Scenery', 'Пейзаж'])
+    @patterns = Pattern.scenery
     render action: :index
   end
 
   def portrait
-    @patterns = Pattern.where(category: ['Portrait', 'Портрет'])
+    @patterns = Pattern.portrait
     render action: :index
   end
-#keep for a while
+
   def still_life
-    @patterns = Pattern.where(category: ['Натюрморт', 'Still life'])
+    @patterns = Pattern.still_life
     render action: :index
   end
 
   def genre_scene
-    @patterns = Pattern.where(category: ['Жанровая сцена', 'Genre Scene'])
+    @patterns = Pattern.genre_scene
+    render action: :index
+  end
+
+  #scopes for discounts in admin panel
+  def discount_active
+    @patterns = Pattern.discount_active
+    render action: :discount_patterns
+  end
+
+  def no_discount
+    @patterns = Pattern.no_discount
     render action: :index
   end
   # GET /patterns/1
@@ -97,6 +108,37 @@ class PatternsController < ApplicationController
     end
   end
 
+  def set_discount
+    @patterns = Pattern.find(params[:pattern_ids])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to "/admin/no_discount_patterns" #add error message
+  end
+
+  def apply_discount
+    @patterns = Pattern.find(params[:pattern_ids])
+    @patterns.each do |pattern|
+      pattern.update(discount_active: true)
+      pattern.update!(pattern_params) #exception added - "!", configure proper error message
+      pattern.update(initial_price_rub: pattern.price_rub, initial_price_usd: pattern.price_usd, price_rub: pattern.price_rub.to_f-pattern.price_rub.to_f*(pattern.discount_percentage.to_f/100),
+      price_usd: pattern.price_usd.to_f-pattern.price_usd.to_f*(pattern.discount_percentage.to_f/100))
+    end
+    redirect_to discount_patterns_admin_index_path
+  end
+
+  def cancel_discount
+    @pattern = Pattern.find(params[:id])
+    @pattern.update(discount_active: false, discount_percentage: nil, price_rub: @pattern.initial_price_rub, price_usd: @pattern.initial_price_usd, from_date: nil, to_date: nil)
+    render json: { success: true }
+  end
+
+  def reset_discount
+    @patterns = Pattern.all
+    @patterns.each do |pattern|
+      pattern.update(discount_active: true)
+    end
+    redirect_to discount_patterns_admin_index_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pattern
@@ -105,6 +147,6 @@ class PatternsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pattern_params
-      params.require(:pattern).permit(:title_en, :title_ru, :description_en, :description_ru, :price_usd, :price_rub, :designer, :size, :category, :image)
+      params.require(:pattern).permit(:title_en, :title_ru, :description_en, :description_ru, :price_usd, :price_rub, :designer, :size, :category, :image, :discount_active, :discount_pending, :discount_percentage, :from_date, :to_date)
     end
 end

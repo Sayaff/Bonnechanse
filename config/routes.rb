@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
 
-  get 'admin/index'
-  resources :admin_notifications do
+  resources :admin, only: [:index] do
+    collection do
+      get :discount_category_select
+      get :discount_patterns
+      get :discount_active_patterns
+      get :no_discount_patterns
+    end
+  end
+
+  resources :admin_notifications, only: [:index] do
     member do
       get :mark_as_read
     end
@@ -17,6 +25,9 @@ Rails.application.routes.draw do
     resources :fabrics
     resources :strands
     resources :patterns do
+      member do
+        get 'cancel_discount'
+      end
       collection do
         get 'by_date'
         get 'price_roubles'
@@ -25,6 +36,10 @@ Rails.application.routes.draw do
         get 'portrait'
         get 'genre_scene'
         get 'still_life'
+        get 'discount_active'
+        post 'set_discount'
+        patch 'apply_discount'
+        get 'reset_discount'
       end
     end
 

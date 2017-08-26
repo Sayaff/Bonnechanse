@@ -1,0 +1,30 @@
+<div id='page-wrapper'>
+  <div class='container-fluid'>
+    <h3>Чтобы добавить скидку, выберите вкладку "Без скидки", чтобы удалить действующую скидку - вкладку "Со скидкой"</h3>
+    <table class='table'>
+      <tr>
+        <div class= "catalog navbar">
+          <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><%= link_to "Со скидкой", discount_active_patterns_admin_index_path %></li>
+            <li role="presentation"><%= link_to "Без скидки", no_discount_patterns_admin_index_path %></li>
+            <li role="presentation"><%= link_to "Показать все", discount_patterns_admin_index_path %></li>
+          </ul>
+        </div>
+      </tr>
+      <tr>
+        <td><a href="#" class="all-checked">Выбрать всё</a></td>
+        <td><a href="#" class="all-unchecked">Снять выбор</a></td>
+      </tr>
+
+          <% @patterns.each do |pattern| %>
+            <tr>
+              <td><img src="<%= image_path pattern.image.url(:thumb) %>"></td>
+              <td><%= link_to "#{pattern.title_ru}", pattern_path(pattern) %></td>
+              <td class="active-discount_<%= pattern.id %>">Действующая скидка: <%= pattern.discount_percentage %>%</td>
+              <td><%= link_to "Удалить скидку", cancel_discount_pattern_path(pattern), remote: true, class: "cancel-discount" %></td>
+            </tr>
+          <% end %>
+        <%= link_to "reset", reset_discount_patterns_path %>
+  </table>
+  </div>
+</div>

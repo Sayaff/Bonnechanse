@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   #prevents error occured after entering cart which contained already deleted product - see :33
   before_action :cart_filter, only: [:index]
+  before_action :active_discounts_check
+  helper_method :cancel_discount
   helper_method :current_cart
 
     def set_currency
@@ -44,6 +46,15 @@ private
 
     def admin_check #check if user is admin in selected actions in products controllers and admin dashboard
       redirect_to new_user_session_path unless user_signed_in? && current_user.admin?
+    end
+
+    def active_discounts_check
+      @patterns = Pattern.discount_active
+      @patterns.each do |pattern|
+        if pattern.to_date == Date.today
+          pattern.update(discount_active: false, discount_percentage: nil, price_rub: pattern.initial_price_rub, price_usd: pattern.initial_price_usd, from_date: nil, to_date: nil)
+        end
+      end
     end
 
 protected

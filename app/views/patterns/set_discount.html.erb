@@ -1,0 +1,25 @@
+<div class="index-wrapper">
+  <div class="container">
+    <h2>Выберите параметры скидки</h2>
+
+    <%= simple_form_for :pattern, url: apply_discount_patterns_path, html: { method: :patch } do |f| %>
+      <ul>
+        <% @patterns.each do |pattern| %>
+          <%= hidden_field_tag "pattern_ids[]", pattern.id %>
+          <li><%= pattern.title_ru %></li>
+        <% end %>
+      </ul>
+      <p>
+        <%= f.input :discount_percentage, as: :integer %>
+      </p>
+      <p>
+        <%= f.input :from_date, as: :date %>
+      </p>
+      <p>
+        <%= f.input :to_date, as: :date, selected: Date.today + 1 %>
+      </p>
+      <%= f.submit "Apply" %>
+
+    <% end %>
+  </div>
+</div>

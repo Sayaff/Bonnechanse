@@ -17,7 +17,6 @@
     <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag 'admin_notifications', media: 'all', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'dashboard', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'bootstrap.min.js', 'data-turbolinks-track' => true %>
 
@@ -100,6 +99,9 @@
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-truck fa-fw"></i> Склад</a>
+                    </li>
+                    <li>
+                        <%= link_to 'Скидки', discount_category_select_admin_index_path %>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-shopping-cart fa-fw"></i> Товары<span class="fa arrow"></span></a>

@@ -27,9 +27,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# just to see how it works
-gem 'haml', '~> 4.0.7'
-
 gem 'simple_form', '~> 3.3.1'
 
 gem 'bootstrap-sass', '~> 3.3.7'
@@ -46,7 +43,7 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 
 gem 'fancybox2-rails', '~> 0.2.8'
 
-gem 'country_select', '~> 3.1'
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 
 gem 'taps', '~> 0.3.24'
 

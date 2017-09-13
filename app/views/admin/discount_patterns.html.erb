@@ -3,12 +3,22 @@
     <h3>Чтобы добавить скидку, выберите вкладку "Без скидки", чтобы удалить действующую скидку - вкладку "Со скидкой"</h3>
     <table class='table'>
       <tr>
-        <div class= "catalog navbar">
-          <ul class="nav nav-tabs">
-            <li role="presentation"><%= link_to "Со скидкой", discount_active_patterns_admin_index_path %></li>
-            <li role="presentation"><%= link_to "Без скидки", no_discount_patterns_admin_index_path %></li>
-            <li role="presentation" class="active"><%= link_to "Показать все", discount_patterns_admin_index_path %></li>
-          </ul>
+        <td>
+          <div class= "catalog navbar">
+            <ul class="nav nav-tabs">
+              <li role="presentation"><%= link_to "Со скидкой", discount_active_patterns_admin_index_path %></li>
+              <li role="presentation"><%= link_to "Без скидки", no_discount_patterns_admin_index_path %></li>
+              <li role="presentation" class="active"><%= link_to "Показать все", discount_patterns_admin_index_path %></li>
+            </ul>
+        </td>
+        <td>
+          <%= form_tag discount_patterns_admin_index_path, method: :get do %>
+            <p>
+              <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search", name: nil %>
+            </p>
+          <% end %>
+        </td>
         </div>
       </tr>
       <tr>

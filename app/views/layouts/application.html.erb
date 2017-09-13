@@ -73,7 +73,12 @@
               <% end %>
 
                 <li id="searchform">
-                  <a href="#"><span class="fa fa-search" aria-hidden="true"></span><%= t("views.application.navbar.search") %></a>
+                  <%= form_tag page_global_search_path, method: :post do %>
+                    <p>
+                      <%= text_field_tag :search, params[:search] %>
+                      <%= submit_tag "Search", name: nil %>
+                    </p>
+                  <% end %>
                 </li>
 
                 <% if user_signed_in? && current_user.admin? %>

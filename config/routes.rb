@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :admin_notifications, only: [:index] do
+  resources :admin_notifications, only: [:index, :destroy] do
     member do
       get :mark_as_read
     end
@@ -84,6 +84,7 @@ Rails.application.routes.draw do
     get 'page/about'
     get 'page/faq'
     get 'page/contact'
+    post 'page/global_search'
 
     get 'application/set_currency', as: :set_currency
 

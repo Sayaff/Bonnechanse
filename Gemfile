@@ -47,6 +47,10 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 
 gem 'taps', '~> 0.3.24'
 
+gem 'sunspot_rails', '~> 2.2', '>= 2.2.7'
+
+gem 'sunspot_solr', '~> 2.2', '>= 2.2.7'
+
 gem 'font-kit-rails', '~> 1.2'
 
 gem 'figaro'

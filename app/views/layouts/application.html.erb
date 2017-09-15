@@ -13,7 +13,7 @@
 </head>
 <body>
   <nav class="navbar navbar-prime navbar-fixed-top">
-    <div class="container">
+    <div class="container-fluid">
       <%= link_to "bonnechanse", root_path, :class => "navbar-brand" %>
           <button class="navbar-toggle" id="menu-button" data-toggle="collapse" data-target="#navbar">
               <span class="sr-only">Toggle navigation</span>
@@ -72,19 +72,20 @@
                 <li><%= link_to t("application.navbar.sign_up"), new_user_registration_path %></li>
               <% end %>
 
-                <li id="searchform">
+              <% if user_signed_in? && current_user.admin? %>
+                <li><%= link_to "Панель управления", admin_index_path %></li>
+              <% end %>
+
+              <li>
+                <div id="main-page-searchform">
                   <%= form_tag page_global_search_path, method: :post do %>
-                    <p>
-                      <%= text_field_tag :search, params[:search] %>
-                      <%= submit_tag "Search", name: nil %>
-                    </p>
+                    <%= text_field_tag :search, params[:search], placeholder: " Search.." %>
+                    <%= button_tag type: "submit", class: "btn btn-info btn-lg" do %>
+                      <i class="fa fa-search"></i>
+                    <% end %>
                   <% end %>
-                </li>
-
-                <% if user_signed_in? && current_user.admin? %>
-                  <li><%= link_to "Панель управления", admin_index_path %></li>
-                <% end %>
-
+                </div>
+              </li>
         </ul>
     	</div>
     </div>

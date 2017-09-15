@@ -89,8 +89,34 @@ nav.navbar-prime {
   border-radius :100%;
   padding:3px 7px;
 }
-#searchform span {
-  margin-right: 3px;
+#main-page-searchform {
+  padding: 3px;
+  background-color: inherit;
+  border: 0;
+  border-radius: 6px;
+}
+#main-page-searchform input[type="text"]{
+    border: 0;
+    box-shadow: none;
+    background-color: inherit;
+    text-transform: uppercase;
+    margin-top: 13px;
+}
+#main-page-searchform input[type="text"]:focus,
+#main-page-searchform button[type="submit"]:focus {
+  outline: none;
+}
+#main-page-searchform button[type="submit"]{
+    margin: 2px 0 0 0;
+    background: inherit;
+    box-shadow: none;
+    border: 0;
+    color: #262626;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+#main-page-searchform .fa-search:hover {
+  color: #f72464;
 }
 .top-10 {
   margin-top: 10px;

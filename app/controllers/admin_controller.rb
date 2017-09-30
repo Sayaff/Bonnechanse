@@ -13,10 +13,7 @@ layout "dashboard"
   end
 
   def discount_patterns
-    @search = Pattern.search do
-      fulltext params[:search]
-    end
-    @patterns = @search.results
+    @patterns = Pattern.all.order(title_ru: :asc)
   end
 
   def discount_active_patterns

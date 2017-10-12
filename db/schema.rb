@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170819150206) do
+ActiveRecord::Schema.define(version: 20171007174636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,18 +133,18 @@ ActiveRecord::Schema.define(version: 20170819150206) do
     t.string   "designer"
     t.string   "size"
     t.string   "category"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
     t.boolean  "discount_active",     default: false
     t.integer  "discount_percentage"
     t.date     "from_date"
     t.date     "to_date"
     t.decimal  "initial_price_rub"
     t.decimal  "initial_price_usd"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "products", force: :cascade do |t|
@@ -166,8 +166,14 @@ ActiveRecord::Schema.define(version: 20170819150206) do
     t.string   "color"
     t.string   "storage_status"
     t.integer  "storage_quantity"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.boolean  "discount_active",     default: false
+    t.integer  "discount_percentage"
+    t.date     "from_date"
+    t.date     "to_date"
+    t.decimal  "initial_price_rub"
+    t.decimal  "initial_price_usd"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

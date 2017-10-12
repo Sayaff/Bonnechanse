@@ -205,7 +205,18 @@
                     <% else %>
                       <h4 class="highlight-header"><%= pattern.title_ru %></h4>
                     <% end %>
-                    <p class="highlight-category"><%= Pattern.human_attribute_name("category") %>: <%= pattern.category %></p>
+                    <p class="highlight-category"><%= Pattern.human_attribute_name("category") %>:</p>
+                      <% if pattern.category == 'Портрет' || pattern.category == 'Portrait' %>
+                        <%= link_to pattern.human_attribute_name("category.portrait"), portrait_patterns_path %>
+                      <% elsif pattern.category == 'Натюрморт' || pattern.category == 'Still life' %>
+                        <%= link_to pattern.human_attribute_name("category.still_life"), still_life_patterns_path %>
+                      <% elsif pattern.category == 'Пейзаж' || pattern.category == 'Scenery' %>
+                        <%= link_to pattern.human_attribute_name("category.scenery"), scenery_patterns_path %>
+                      <% elsif pattern.category == 'Жанровая сцена' || pattern.category == 'Genre Scene' %>
+                        <%= link_to pattern.human_attribute_name("category.genre_scene"), genre_scene_patterns_path %>
+                      <% else %>
+                        <%= pattern.category %>
+                      <% end %>
                   </div>
                     <% if session[:currency] == "RUB" %>
                       <button class="product-price"><%= number_to_currency(pattern.price_rub, :unit => '₽') %></button>

@@ -1,4 +1,4 @@
-<% if I18n.locale == "en" %>
+<% if I18n.locale == :en %>
   <%= link_to cart_item.product.title_en, polymorphic_path(cart_item.product) %>
 <% else %>
   <%= link_to cart_item.product.title_ru, polymorphic_path(cart_item.product) %>
@@ -9,4 +9,15 @@
 <% elsif cart_item.strand_id.present? %>
   <h5 class="media-heading"><%= link_to cart_item.category, strands_path %></h5>
 <% end %>
-  <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+
+<% if cart_item.strand_id.present? %>
+  <span class="text-success">
+    <% if cart_item.product.storage_quantity < 10 && cart_item.product.storage_quantity > 0 %>
+      <p class="storage-few-left"><%= t("views.common.few_left") %></p>
+    <% elsif cart_item.product.storage_quantity == 0 %>
+      <p class="storage-out-of-stock"><%= t("views.common.out_of_stock") %></p>
+    <% else %>
+      <p class="storage-in-stock"><%= t("views.common.in_stock") %></p>
+    <% end %>
+  </span>
+<% end %>

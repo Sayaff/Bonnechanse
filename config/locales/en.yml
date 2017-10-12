@@ -274,6 +274,7 @@ en:
       sign_out: "Sign Out"
       my_account: "My account"
       my_cart: "My Cart"
+      my_orders: "My orders"
   page:
     about: "About Page"
     faq: "Frequently Asked Questions"
@@ -305,6 +306,10 @@ en:
       magnify: "Show in bigger size"
       new_item: "New Item"
       confirm: "Are you sure?"
+      status: "Status"
+      in_stock: "In Stock"
+      few_left: "Few"
+      out_of_stock: "Out of Stock"
     filters:
       sort_by: "Sort by"
       all: "All"
@@ -370,6 +375,7 @@ en:
       quantity: "Quantity"
       c_s: "Continue Shopping"
       p_o: "Place Order"
+
     accessories:
       new: "New Accessory"
       title: "Accessories"

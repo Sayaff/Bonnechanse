@@ -307,6 +307,7 @@ ru:
       sign_out: "Выйти"
       my_account: "Мой аккаунт"
       my_cart: "Моя корзина"
+      my_orders: "Мои заказы"
   page:
     about: "О нас"
     faq: "ЧАсто задаваемые ВОпросы"
@@ -338,6 +339,10 @@ ru:
       magnify: "Увеличить"
       new_item: "Новый товар"
       confirm: "Вы уверены?"
+      status: "Статус"
+      in_stock: "В наличии"
+      few_left: "Мало"
+      out_of_stock: "Нет в наличии"
     filters:
       sort_by: "Сортировать по:"
       new: "Новые"

@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   #prevents error occured after entering cart which contained already deleted product - see :33
   before_action :cart_filter, only: [:index]
   before_action :active_discounts_check
-  helper_method :cancel_discount
   helper_method :current_cart
 
     def set_currency
@@ -50,9 +49,15 @@ private
 
     def active_discounts_check
       @patterns = Pattern.discount_active
+      @strands = Strand.discount_active
       @patterns.each do |pattern|
         if pattern.to_date == Date.today
           pattern.update(discount_active: false, discount_percentage: nil, price_rub: pattern.initial_price_rub, price_usd: pattern.initial_price_usd, from_date: nil, to_date: nil)
+        end
+      end
+      @strands.each do |strand|
+        if strand.to_date == Date.today
+          strand.update(discount_active: false, discount_percentage: nil, price_rub: strand.initial_price_rub, price_usd: strand.initial_price_usd, from_date: nil, to_date: nil)
         end
       end
     end

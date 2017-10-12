@@ -9,6 +9,12 @@ class CreateStrands < ActiveRecord::Migration
       t.string :color
       t.string :storage_status
       t.integer :storage_quantity
+      t.boolean :discount_active, default: false
+      t.integer :discount_percentage
+      t.date :from_date
+      t.date :to_date
+      t.decimal :initial_price_rub
+      t.decimal :initial_price_usd
 
       t.timestamps null: false
     end

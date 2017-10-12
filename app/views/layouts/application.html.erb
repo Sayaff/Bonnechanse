@@ -66,7 +66,7 @@
                     <% end %>
                 </li>
                 <li><%= link_to t("application.navbar.my_account"), edit_user_registration_path %></li>
-                <li><%= link_to "My orders", my_orders_carts_path %></li>
+                <li><%= link_to t("application.navbar.my_orders"), my_orders_carts_path %></li>
               <% else %>
                 <li><%= link_to t("application.navbar.sign_in"), new_user_session_path %></li>
                 <li><%= link_to t("application.navbar.sign_up"), new_user_registration_path %></li>

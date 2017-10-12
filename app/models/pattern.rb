@@ -16,6 +16,10 @@ class Pattern < ActiveRecord::Base
     self.class.human_attribute_name(*args)
   end
 
+  def pattern_fresh
+    self.created_at >= 1.week.ago
+  end
+
   scope :by_date, ->{ order("created_at DESC")}
   scope :price_roubles, ->{ order(price_rub: :desc)}
   scope :price_dollars, ->{ order(price_usd: :desc)}
@@ -25,4 +29,5 @@ class Pattern < ActiveRecord::Base
   scope :still_life, ->{ where(category: ['Натюрморт', 'Still life'])}
   scope :discount_active, ->{ where(discount_active: true)}
   scope :no_discount, ->{ where(discount_active: false)}
+  scope :fresh, ->{ where("created_at >= ?", 1.week.ago)} #change time period if required
 end
